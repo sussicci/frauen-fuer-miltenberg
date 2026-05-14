@@ -108,7 +108,7 @@ a:hover {
 
 #hero {
     height: 44rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../resources/martin-jernberg-LT18lvU8YP8-unsplash.jpg"); 
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("./hero.jpg"); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
