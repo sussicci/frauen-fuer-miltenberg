@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let page = 1;
         const perPage = 2;
 
-        fetch("data/posts.json")
+        fetch("./posts.json")
             .then(res => res.json())
             .then(data => {
                 posts = data;
@@ -357,7 +357,7 @@ if (postsContainer) {
     const showLessBtn = document.getElementById("showLessBtn");
     const filterButtons = document.querySelectorAll(".filter-btn");
 
-    fetch("data/posts.json")
+    fetch("./posts.json")
 
         .then(response => response.json())
 
