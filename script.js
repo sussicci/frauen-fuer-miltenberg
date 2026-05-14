@@ -334,7 +334,7 @@ const postsContainer = document.getElementById("posts");
 if (postsContainer) {
 
     let allPosts = [];
-    let visibleCount = 2;
+    let visibleCount = 3;
     let activeFilter = "all";
 
     const loadMoreBtn = document.getElementById("loadMoreBtn");
