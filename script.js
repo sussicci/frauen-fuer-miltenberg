@@ -325,147 +325,118 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* =========================
-   AKTUELLES POSTS
-========================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-const postsContainer = document.getElementById("posts");
-
-if (postsContainer) {
-
-    let allPosts = [];
-    let visibleCount = 3;
-    let activeFilter = "all";
-
+    const postsContainer = document.getElementById("posts");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
     const filterButtons = document.querySelectorAll(".filter-btn");
 
+    if (!postsContainer) return;
+
+    let allPosts = [];
+    let visibleCount = 4;
+    let activeFilter = "all";
+
+    // LOAD DATA
     fetch("./posts.json")
-
-        .then(response => response.json())
-
-        .then(posts => {
-
-            allPosts = posts.sort((a, b) =>
+        .then(res => res.json())
+        .then(data => {
+            allPosts = data.sort((a, b) =>
                 new Date(b.date) - new Date(a.date)
             );
 
             renderPosts();
-
         });
 
+    // FILTER LOGIC
     function getFilteredPosts() {
-
-        if (activeFilter === "all") {
-            return allPosts;
-        }
-
-        return allPosts.filter(post =>
-            post.type === activeFilter
-        );
+        if (activeFilter === "all") return allPosts;
+        return allPosts.filter(post => post.type === activeFilter);
     }
 
+    // RENDER
     function renderPosts() {
-
-        postsContainer.innerHTML = "";
 
         const filtered = getFilteredPosts();
 
-        filtered
-            .slice(0, visibleCount)
-            .forEach(post => {
+        postsContainer.innerHTML = "";
 
-                const article = document.createElement("article");
+        const visible = filtered.slice(0, visibleCount);
 
-                article.className = "about-card";
+        visible.forEach(post => {
 
-                article.innerHTML = `
+            const article = document.createElement("article");
+            article.className = "about-card";
 
-                    <div class="card-number">
-                        ${formatDate(post.date)}
-                    </div>
+            article.innerHTML = `
+                <div class="card-number">${formatDate(post.date)}</div>
 
-                    <h3>${post.title}</h3>
+                <h3>${post.title}</h3>
 
-                    <p>${post.text}</p>
+                <p>${formatText(post.text)}</p>
 
-                    <a class="card-btn"
-                       href="${post.buttonLink}">
-                       ${post.buttonText}
-                    </a>
+                <a class="card-btn" href="${post.link}" target="_blank">
+                    ${post.linkText}
+                </a>
+            `;
 
-                `;
+            postsContainer.appendChild(article);
+        });
 
-                postsContainer.appendChild(article);
+        // BUTTON LOGIC
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display =
+                visibleCount >= filtered.length ? "none" : "inline-block";
+        }
 
-            });
-
-        /* Buttons */
-
-        loadMoreBtn.style.display =
-            visibleCount >= filtered.length
-                ? "none"
-                : "inline-block";
-
-        showLessBtn.style.display =
-            visibleCount > 3
-                ? "inline-block"
-                : "none";
+        if (showLessBtn) {
+            showLessBtn.style.display =
+                visibleCount > 4 ? "inline-block" : "none";
+        }
     }
 
+    // FORMAT DATE (DE)
     function formatDate(dateString) {
-
         const date = new Date(dateString);
-
         return date.toLocaleDateString("de-DE");
     }
 
-    /* FILTER */
+    // TEXT mit Zeilenumbrüchen
+    function formatText(text) {
+        return text.replace(/\n/g, "<br>");
+    }
 
-    filterButtons.forEach(button => {
+    // FILTER BUTTONS
+    filterButtons.forEach(btn => {
 
-        button.addEventListener("click", () => {
+        btn.addEventListener("click", () => {
 
-            filterButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
 
-            button.classList.add("active");
-
-            activeFilter = button.dataset.filter;
-
-            visibleCount = 3;
+            activeFilter = btn.dataset.filter;
+            visibleCount = 4;
 
             renderPosts();
-
         });
-
     });
 
-    /* LOAD MORE */
-
-    loadMoreBtn.addEventListener("click", () => {
-
-        visibleCount += 3;
-
+    // LOAD MORE
+    loadMoreBtn?.addEventListener("click", () => {
+        visibleCount += 4;
         renderPosts();
-
     });
 
-    /* SHOW LESS */
-
-    showLessBtn.addEventListener("click", () => {
-
-        visibleCount = 3;
-
+    // SHOW LESS
+    showLessBtn?.addEventListener("click", () => {
+        visibleCount = 4;
         renderPosts();
 
         window.scrollTo({
-            top: postsContainer.offsetTop - 120,
+            top: postsContainer.offsetTop - 100,
             behavior: "smooth"
         });
-
     });
 
-}
+});
