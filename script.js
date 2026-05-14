@@ -409,7 +409,7 @@ if (postsContainer) {
                 : "inline-block";
 
         showLessBtn.style.display =
-            visibleCount > 2
+            visibleCount > 3
                 ? "inline-block"
                 : "none";
     }
@@ -435,7 +435,7 @@ if (postsContainer) {
 
             activeFilter = button.dataset.filter;
 
-            visibleCount = 2;
+            visibleCount = 3;
 
             renderPosts();
 
@@ -447,7 +447,7 @@ if (postsContainer) {
 
     loadMoreBtn.addEventListener("click", () => {
 
-        visibleCount += 2;
+        visibleCount += 3;
 
         renderPosts();
 
@@ -457,7 +457,7 @@ if (postsContainer) {
 
     showLessBtn.addEventListener("click", () => {
 
-        visibleCount = 2;
+        visibleCount = 3;
 
         renderPosts();
 
