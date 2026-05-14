@@ -290,42 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-        function render() {
-
-            const visible = posts.slice(0, page * perPage);
-
-            container.innerHTML = "";
-
-            visible.forEach(post => {
-
-                const article = document.createElement("article");
-                article.className = "about-card";
-
-                article.innerHTML = `
-                    <div class="card-number">${post.date}</div>
-                    <h3>${post.title}</h3>
-                    <p>${post.text.replace(/\n/g, "<br>")}</p>
-                    <a class="card-btn" href="${post.link}">
-                        ${post.linkText}
-                    </a>
-                `;
-
-                container.appendChild(article);
-            });
-
-            if (visible.length >= posts.length) {
-                loadMoreBtn.style.display = "none";
-            }
-        }
-
-        loadMoreBtn.addEventListener("click", () => {
-            page++;
-            render();
-        });
-
-    });
-
-document.addEventListener("DOMContentLoaded", () => {
+     document.addEventListener("DOMContentLoaded", () => {
 
     const postsContainer = document.getElementById("posts");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -338,44 +303,38 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleCount = 4;
     let activeFilter = "all";
 
-    // LOAD DATA
+    // Daten laden
     fetch("./posts.json")
         .then(res => res.json())
         .then(data => {
             allPosts = data.sort((a, b) =>
-                new Date(b.date) - new Date(a.date)
+                new Date(b.date.split(".").reverse().join("-")) -
+                new Date(a.date.split(".").reverse().join("-"))
             );
 
             renderPosts();
         });
 
-    // FILTER LOGIC
     function getFilteredPosts() {
         if (activeFilter === "all") return allPosts;
-        return allPosts.filter(post => post.type === activeFilter);
+        return allPosts.filter(p => p.type === activeFilter);
     }
 
-    // RENDER
     function renderPosts() {
 
         const filtered = getFilteredPosts();
 
         postsContainer.innerHTML = "";
 
-        const visible = filtered.slice(0, visibleCount);
-
-        visible.forEach(post => {
+        filtered.slice(0, visibleCount).forEach(post => {
 
             const article = document.createElement("article");
             article.className = "about-card";
 
             article.innerHTML = `
-                <div class="card-number">${formatDate(post.date)}</div>
-
+                <div class="card-number">${post.date}</div>
                 <h3>${post.title}</h3>
-
-                <p>${formatText(post.text)}</p>
-
+                <p>${post.text.replace(/\n/g, "<br>")}</p>
                 <a class="card-btn" href="${post.link}" target="_blank">
                     ${post.linkText}
                 </a>
@@ -384,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
             postsContainer.appendChild(article);
         });
 
-        // BUTTON LOGIC
+        // Buttons
         if (loadMoreBtn) {
             loadMoreBtn.style.display =
                 visibleCount >= filtered.length ? "none" : "inline-block";
@@ -396,20 +355,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // FORMAT DATE (DE)
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString("de-DE");
-    }
-
-    // TEXT mit Zeilenumbrüchen
-    function formatText(text) {
-        return text.replace(/\n/g, "<br>");
-    }
-
-    // FILTER BUTTONS
+    // Filter
     filterButtons.forEach(btn => {
-
         btn.addEventListener("click", () => {
 
             filterButtons.forEach(b => b.classList.remove("active"));
@@ -422,13 +369,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // LOAD MORE
+    // Mehr anzeigen
     loadMoreBtn?.addEventListener("click", () => {
         visibleCount += 4;
         renderPosts();
     });
 
-    // SHOW LESS
+    // Weniger anzeigen
     showLessBtn?.addEventListener("click", () => {
         visibleCount = 4;
         renderPosts();
