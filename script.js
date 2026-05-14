@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let page = 1;
         const perPage = 2;
 
-        fetch("data/posts.json")
+        fetch("./posts.json")
             .then(res => res.json())
             .then(data => {
                 posts = data;
