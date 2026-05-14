@@ -350,7 +350,7 @@ const postsContainer = document.getElementById("posts");
 if (postsContainer) {
 
     let allPosts = [];
-    let visibleCount = 2;
+    let visibleCount = 3;
     let activeFilter = "all";
 
     const loadMoreBtn = document.getElementById("loadMoreBtn");
@@ -425,7 +425,7 @@ if (postsContainer) {
                 : "inline-block";
 
         showLessBtn.style.display =
-            visibleCount > 2
+            visibleCount > 3
                 ? "inline-block"
                 : "none";
     }
@@ -451,7 +451,7 @@ if (postsContainer) {
 
             activeFilter = button.dataset.filter;
 
-            visibleCount = 2;
+            visibleCount = 3;
 
             renderPosts();
 
@@ -463,7 +463,7 @@ if (postsContainer) {
 
     loadMoreBtn.addEventListener("click", () => {
 
-        visibleCount += 2;
+        visibleCount += 3;
 
         renderPosts();
 
@@ -473,7 +473,7 @@ if (postsContainer) {
 
     showLessBtn.addEventListener("click", () => {
 
-        visibleCount = 2;
+        visibleCount = 3;
 
         renderPosts();
 
@@ -787,7 +787,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!postsContainer) return;
 
     let allPosts = [];
-    let visibleCount = 4;
+    let visibleCount = 3;
     let activeFilter = "all";
 
     // Daten laden
@@ -838,7 +838,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (showLessBtn) {
             showLessBtn.style.display =
-                visibleCount > 4 ? "inline-block" : "none";
+                visibleCount > 3 ? "inline-block" : "none";
         }
     }
 
@@ -850,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
 
             activeFilter = btn.dataset.filter;
-            visibleCount = 4;
+            visibleCount = 3;
 
             renderPosts();
         });
@@ -858,13 +858,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mehr anzeigen
     loadMoreBtn?.addEventListener("click", () => {
-        visibleCount += 4;
+        visibleCount += 3;
         renderPosts();
     });
 
     // Weniger anzeigen
     showLessBtn?.addEventListener("click", () => {
-        visibleCount = 4;
+        visibleCount = 3;
         renderPosts();
 
         window.scrollTo({
