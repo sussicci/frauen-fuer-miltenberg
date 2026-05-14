@@ -357,7 +357,7 @@ if (postsContainer) {
     const showLessBtn = document.getElementById("showLessBtn");
     const filterButtons = document.querySelectorAll(".filter-btn");
 
-    fetch("data/posts.json")
+    fetch("./posts.json")
 
         .then(response => response.json())
 
