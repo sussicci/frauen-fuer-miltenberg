@@ -1411,3 +1411,7 @@ footer {
     background: #7B2CBF;
     color: white;
 }
+
+#posts {
+    margin-bottom: 3rem;
+}
