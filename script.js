@@ -290,22 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    document.addEventListener("DOMContentLoaded", () => {
-
-        const container = document.getElementById("posts");
-        const loadMoreBtn = document.getElementById("loadMoreBtn");
-
-        let posts = [];
-        let page = 1;
-        const perPage = 2;
-
-        fetch("./posts.json")
-            .then(res => res.json())
-            .then(data => {
-                posts = data;
-                render();
-            });
-
         function render() {
 
             const visible = posts.slice(0, page * perPage);
@@ -378,7 +362,7 @@ if (postsContainer) {
         }
 
         return allPosts.filter(post =>
-            post.category === activeFilter
+            post.type === activeFilter
         );
     }
 
