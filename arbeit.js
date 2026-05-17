@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // SHOW LESS
-    showLessBtn.addEventListener("click", () => { 
-        page = 1; updateDisplay(); 
-        
-        document.querySelector("#unserearbeit") 
-            .scrollIntoView({ behavior: "smooth" 
-        }); 
+    showLessBtn.addEventListener("click", () => {
+        page = 1;
+        updateDisplay();
+
+        document.querySelector("#unserearbeit")
+            .scrollIntoView({ behavior: "smooth" });
     });
-    
+
     // FILTER CHANGE
     filters.forEach(filter => {
         filter.addEventListener("change", () => {
