@@ -79,81 +79,53 @@ document.addEventListener("DOMContentLoaded", () => {
     updateDisplay();
 
     /* =========================
-    FRAUEN SLIDER
+    COUNTER ANIMATION
     ========================= */
 
-    const slider = document.querySelector(".frauen-slider");
-    const slides = document.querySelectorAll(".frau");
-    const next = document.querySelector(".slider-btn.right");
-    const prev = document.querySelector(".slider-btn.left");
+    const counter = document.getElementById("counter");
+    const highlightSection = document.querySelector(".about-highlight");
 
-    // Clone first + last
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
+    let counterStarted = false;
 
-    firstClone.id = "first-clone";
-    lastClone.id = "last-clone";
+    function animateCounter(target, duration = 1500) {
 
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
+        let start = 0;
+        const step = target / (duration / 16);
 
-    const allSlides = document.querySelectorAll(".frau");
+        function update() {
 
-    let index = 1;
+            start += step;
 
-    // Startposition (erste echte Karte)
-    slider.scrollLeft = allSlides[index].offsetLeft;
+            if (start < target) {
+                counter.textContent = Math.floor(start);
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target;
+            }
+        }
 
-    function goToSlide(i) {
-        slider.scrollTo({
-            left: allSlides[i].offsetLeft,
-            behavior: "smooth"
-        });
-        index = i;
+        update();
     }
 
-    // Buttons
-    next.addEventListener("click", () => {
-        goToSlide(index + 1);
-    });
+    /* Trigger nur wenn sichtbar */
 
-    prev.addEventListener("click", () => {
-        goToSlide(index - 1);
-    });
+    const observer = new IntersectionObserver((entries) => {
 
-    // Auto Slide
-    let autoSlide = setInterval(() => {
-        goToSlide(index + 1);
-    }, 3000);
+        entries.forEach(entry => {
 
-    // Pause on hover
-    slider.addEventListener("mouseenter", () => {
-        clearInterval(autoSlide);
-    });
+            if (entry.isIntersecting && !counterStarted) {
 
-    slider.addEventListener("mouseleave", () => {
-        autoSlide = setInterval(() => {
-            goToSlide(index + 1);
-        }, 4000);
-    });
-
-    // Loop correction (ohne sichtbaren Sprung)
-    slider.addEventListener("scroll", () => {
-        const current = allSlides[index];
-
-        setTimeout(() => {
-            if (current.id === "first-clone") {
-                slider.scrollLeft = allSlides[1].offsetLeft;
-                index = 1;
+                counterStarted = true;
+                animateCounter(39);
             }
+        });
 
-            if (current.id === "last-clone") {
-                slider.scrollLeft = allSlides[allSlides.length - 2].offsetLeft;
-                index = allSlides.length - 2;
-            }
-        }, 150);
+    }, {
+        threshold: 0.5
     });
 
+    observer.observe(highlightSection);
+    
     /* =========================
     HAMBURGER MENU
     ========================= */
@@ -727,6 +699,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    });
+
+    /* =========================
+    FRAUEN SLIDER
+    ========================= */
+
+    const slider = document.querySelector(".frauen-slider");
+    const slides = document.querySelectorAll(".frau");
+    const next = document.querySelector(".slider-btn.right");
+    const prev = document.querySelector(".slider-btn.left");
+
+    // Clone first + last
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    firstClone.id = "first-clone";
+    lastClone.id = "last-clone";
+
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
+
+    const allSlides = document.querySelectorAll(".frau");
+
+    let index = 1;
+
+    // Startposition (erste echte Karte)
+    slider.scrollLeft = allSlides[index].offsetLeft;
+
+    function goToSlide(i) {
+        slider.scrollTo({
+            left: allSlides[i].offsetLeft,
+            behavior: "smooth"
+        });
+        index = i;
+    }
+
+    // Buttons
+    next.addEventListener("click", () => {
+        goToSlide(index + 1);
+    });
+
+    prev.addEventListener("click", () => {
+        goToSlide(index - 1);
+    });
+
+    // Auto Slide
+    let autoSlide = setInterval(() => {
+        goToSlide(index + 1);
+    }, 3000);
+
+    // Pause on hover
+    slider.addEventListener("mouseenter", () => {
+        clearInterval(autoSlide);
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        autoSlide = setInterval(() => {
+            goToSlide(index + 1);
+        }, 4000);
+    });
+
+    // Loop correction (ohne sichtbaren Sprung)
+    slider.addEventListener("scroll", () => {
+        const current = allSlides[index];
+
+        setTimeout(() => {
+            if (current.id === "first-clone") {
+                slider.scrollLeft = allSlides[1].offsetLeft;
+                index = 1;
+            }
+
+            if (current.id === "last-clone") {
+                slider.scrollLeft = allSlides[allSlides.length - 2].offsetLeft;
+                index = allSlides.length - 2;
+            }
+        }, 150);
     });
 
      document.addEventListener("DOMContentLoaded", () => {
