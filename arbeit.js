@@ -1,29 +1,52 @@
 export function initArbeit() {
-    const cards = Array.from(document.querySelectorAll(".unserearbeit .arbeit"));
+    const container = document.querySelector(".unserearbeit");
+    const cards = Array.from(container.querySelectorAll(".arbeit"));
     const loadMoreBtn = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
 
-    const LIMIT = 6;
-    let expanded = false;
+    let visibleCount = 0;
 
-    function applyLimit() {
+    function calculateVisibleCount() {
+        const containerWidth = container.clientWidth;
+
+        const card = cards[0];
+        if (!card) return 0;
+
+        const cardWidth = card.getBoundingClientRect().width;
+
+        const gap = 16; // entspricht deinem grid gap (ca. 1rem)
+
+        const cardsPerRow = Math.floor((containerWidth + gap) / (cardWidth + gap));
+
+        return Math.max(cardsPerRow * 2, cardsPerRow);
+    }
+
+    function updateView() {
         cards.forEach((card, index) => {
-            card.style.display = (!expanded && index >= LIMIT) ? "none" : "flex";
+            card.style.display = index < visibleCount ? "" : "none";
         });
 
-        loadMoreBtn.style.display = expanded ? "none" : "inline-block";
-        showLessBtn.style.display = expanded ? "inline-block" : "none";
+        loadMoreBtn.style.display = visibleCount >= cards.length ? "none" : "inline-block";
+        showLessBtn.style.display = visibleCount > calculateVisibleCount() ? "inline-block" : "none";
     }
 
     loadMoreBtn.addEventListener("click", () => {
-        expanded = true;
-        applyLimit();
+        const step = calculateVisibleCount(); // immer 2 Reihen
+        visibleCount = Math.min(visibleCount + step, cards.length);
+        updateView();
     });
 
     showLessBtn.addEventListener("click", () => {
-        expanded = false;
-        applyLimit();
+        visibleCount = calculateVisibleCount();
+        updateView();
     });
 
-    applyLimit();
+    window.addEventListener("resize", () => {
+        visibleCount = calculateVisibleCount();
+        updateView();
+    });
+
+    // init
+    visibleCount = calculateVisibleCount();
+    updateView();
 }
