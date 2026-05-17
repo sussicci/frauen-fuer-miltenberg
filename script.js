@@ -155,54 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================
-    COUNTER ANIMATION
-    ========================= */
-
-    const counter = document.getElementById("counter");
-    const highlightSection = document.querySelector(".about-highlight");
-
-    let counterStarted = false;
-
-    function animateCounter(target, duration = 1500) {
-
-        let start = 0;
-        const step = target / (duration / 16);
-
-        function update() {
-
-            start += step;
-
-            if (start < target) {
-                counter.textContent = Math.floor(start);
-                requestAnimationFrame(update);
-            } else {
-                counter.textContent = target;
-            }
-        }
-
-        update();
-    }
-
-    /* Trigger nur wenn sichtbar */
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting && !counterStarted) {
-
-                counterStarted = true;
-                animateCounter(39);
-            }
-        });
-
-    }, {
-        threshold: 0.5
-    });
-
-    observer.observe(highlightSection);
-
-    /* =========================
     HAMBURGER MENU
     ========================= */
 
