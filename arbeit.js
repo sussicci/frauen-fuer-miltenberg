@@ -57,18 +57,18 @@ document.addEventListener("DOMContentLoaded", () => {
         updateDisplay();
     });
 
-    // SHOW LESS
     showLessBtn.addEventListener("click", () => {
-        page = 1;
-        updateDisplay();
+    page = 1;
+    updateDisplay();
 
-    const grid = document.querySelector("#unserearbeit");
-
-        grid.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });    
-    });
+    setTimeout(() => {
+        document.querySelector("#unserearbeit")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+    }, 0);
+});
     
     // FILTER CHANGE
     filters.forEach(filter => {
