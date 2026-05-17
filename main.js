@@ -1,5 +1,5 @@
 import { initCounter } from "./counter.js";
-import { initArbeit } from "./arbeit.js";
 
-initCounter();
-initArbeit();
+document.addEventListener("DOMContentLoaded", () => {
+    initCounter({ target: 39 });
+});
