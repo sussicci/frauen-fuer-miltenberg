@@ -1,52 +1,85 @@
-export function initArbeit() {
-    const container = document.querySelector(".unserearbeit");
-    const cards = Array.from(container.querySelectorAll(".arbeit"));
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
+document.addEventListener("DOMContentLoaded", () => {
+
+    const allItems = Array.from(document.querySelectorAll(".unserearbeit .arbeit"));
+    const button = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
+    const filters = document.querySelectorAll('input[name="filter"]');
 
-    let visibleCount = 0;
+    let activeFilter = "all";
+    let page = 1;
 
-    function calculateVisibleCount() {
-        const containerWidth = container.clientWidth;
-
-        const card = cards[0];
-        if (!card) return 0;
-
-        const cardWidth = card.getBoundingClientRect().width;
-
-        const gap = 16; // entspricht deinem grid gap (ca. 1rem)
-
-        const cardsPerRow = Math.floor((containerWidth + gap) / (cardWidth + gap));
-
-        return Math.max(cardsPerRow * 2, cardsPerRow);
+    function getFilteredItems() {
+        if (activeFilter === "all") return allItems;
+        return allItems.filter(item => item.classList.contains(activeFilter));
     }
 
-    function updateView() {
-        cards.forEach((card, index) => {
-            card.style.display = index < visibleCount ? "" : "none";
+    function getItemsPerPage() {
+        const grid = document.querySelector(".unserearbeit");
+
+        const firstItem = grid.querySelector(".arbeit");
+        if (!firstItem) return 6;
+
+        const gridStyle = window.getComputedStyle(grid);
+        const columns = gridStyle.gridTemplateColumns.split(" ").length;
+
+        // 👉 immer 2 Reihen
+        return columns * 2;
+    }
+
+    function updateDisplay() {
+        const filtered = getFilteredItems();
+        const perPage = getItemsPerPage();
+        const maxVisible = page * perPage;
+
+        // 👉 nur gefilterte Items anzeigen
+        filtered.forEach((item, index) => {
+            item.style.display = index < maxVisible ? "" : "none";
         });
 
-        loadMoreBtn.style.display = visibleCount >= cards.length ? "none" : "inline-block";
-        showLessBtn.style.display = visibleCount > calculateVisibleCount() ? "inline-block" : "none";
+        // 👉 alle anderen (nicht im Filter) sicher verstecken
+        allItems.forEach(item => {
+            if (!filtered.includes(item)) {
+                item.style.display = "none";
+            }
+        });
+
+        // BUTTON LOGIK
+        button.style.display =
+            maxVisible >= filtered.length ? "none" : "inline-block";
+
+        showLessBtn.style.display =
+            page > 1 ? "inline-block" : "none";
     }
 
-    loadMoreBtn.addEventListener("click", () => {
-        const step = calculateVisibleCount(); // immer 2 Reihen
-        visibleCount = Math.min(visibleCount + step, cards.length);
-        updateView();
+    // LOAD MORE
+    button.addEventListener("click", () => {
+        page++;
+        updateDisplay();
     });
 
+    // SHOW LESS
     showLessBtn.addEventListener("click", () => {
-        visibleCount = calculateVisibleCount();
-        updateView();
+        page = 1;
+        updateDisplay();
+
+        document.querySelector("#unserearbeit")
+            .scrollIntoView({ behavior: "smooth" });
     });
 
+    // FILTER CHANGE
+    filters.forEach(filter => {
+        filter.addEventListener("change", () => {
+            activeFilter = filter.id;
+            page = 1;
+            updateDisplay();
+        });
+    });
+
+    // RESIZE → neu berechnen (wichtig für responsive Grid)
     window.addEventListener("resize", () => {
-        visibleCount = calculateVisibleCount();
-        updateView();
+        updateDisplay();
     });
 
-    // init
-    visibleCount = calculateVisibleCount();
-    updateView();
-}
+    // INIT
+    updateDisplay();
+});
