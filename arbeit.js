@@ -62,10 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
         page = 1;
         updateDisplay();
 
-        document.querySelector("#unserearbeit")
-            .scrollIntoView({ behavior: "smooth" });
-    });
+    const grid = document.querySelector("#unserearbeit");
 
+        grid.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });    
+    });
+    
     // FILTER CHANGE
     filters.forEach(filter => {
         filter.addEventListener("change", () => {
