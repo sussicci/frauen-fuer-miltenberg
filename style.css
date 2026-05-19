@@ -1466,6 +1466,8 @@ footer {
 #legal-page h2 {
     margin-top: 4rem;
     color: #1E293B;
+    padding-top: 2rem;
+    border-top: 1px solid #CBD5E1;
 }
 
 #legal-page h3 {
