@@ -1519,3 +1519,14 @@ footer {
     }
 
 }
+
+.legal-hero {
+    background: #E2E8F0;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.legal-hero h1 {
+    color: #1E293B;
+    margin: 0;
+}
