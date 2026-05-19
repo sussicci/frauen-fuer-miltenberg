@@ -953,6 +953,20 @@ footer {
     color: #94A3B8;
 }
 
+.arbeit-intro {
+    width: 65%;
+    margin: 1rem auto 3rem auto;
+
+    text-align: center;
+
+    font-size: 1.1rem;
+    line-height: 1.9;
+
+    color: #475569;
+
+    max-width: 900px;
+}
+
 /* =========================================
    RESPONSIVE DESIGN
 ========================================= */
@@ -1182,6 +1196,14 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+
+    .arbeit-intro {
+        width: 90%;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
 /* =========================================
    HAMBURGER MENU
 ========================================= */
