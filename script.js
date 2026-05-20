@@ -236,7 +236,8 @@ const prev = document.querySelector(".slider-btn.left");
 let index = 0;
 const total = slides.length;
 
-function updateSlider() {
+    function updateSlider() {
+    if (!slider) return;
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
