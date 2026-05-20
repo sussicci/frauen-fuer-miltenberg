@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function updateSlider() { 
         if (!slider) return; 
-        slider.style.transform = translateX(-${index * 100}%); 
+        slider.style.transform = `translateX(-${index * 100}%)`; 
     } 
     
     // NEXT 
