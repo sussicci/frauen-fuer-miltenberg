@@ -184,9 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    });
-
-    
     /* =========================
     HAMBURGER MENU
     ========================= */
@@ -270,3 +267,4 @@ function resetAuto() {
     clearInterval(interval);
     interval = setInterval(nextSlide, 3000);
 }
+});
