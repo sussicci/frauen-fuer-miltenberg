@@ -936,11 +936,11 @@ a p {
 }
 
 .slider-btn.left {
-    left: -20px;
+    left: 10px;
 }
 
 .slider-btn.right {
-    right: -20px;
+    right: 10px;
 }
 
 .slider-btn:hover {
