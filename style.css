@@ -875,6 +875,11 @@ a p {
     overflow: hidden;
 }
 
+.slider-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
 .frauen-slider {
     display: flex;
     transition: transform 0.5s ease;
