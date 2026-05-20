@@ -228,61 +228,60 @@ document.addEventListener("DOMContentLoaded", () => {
         FRAUEN SLIDER 
 ========================= */ 
     
-const slider = document.querySelector(".frauen-slider");
-
-if (slider) {
-
-    const next = document.querySelector(".slider-btn.right");
-    const prev = document.querySelector(".slider-btn.left");
-
-    const originalSlides = Array.from(slider.children);
-    const total = originalSlides.length;
-
-    // clones
-    const firstClone = originalSlides[0].cloneNode(true);
-    const lastClone = originalSlides[total - 1].cloneNode(true);
-
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, originalSlides[0]);
-
-    const slides = slider.children;
-
-    let index = 1;
-
-    slider.style.transform = `translateX(-100%)`;
-
-    function updateSlider(animated = true) {
-        slider.style.transition = animated ? "transform 0.5s ease" : "none";
-        slider.style.transform = `translateX(-${index * 100}%)`;
+    const slider = document.querySelector(".frauen-slider"); 
+    const slides = document.querySelectorAll(".frau"); 
+    const next = document.querySelector(".slider-btn.right"); 
+    const prev = document.querySelector(".slider-btn.left"); 
+    
+    let index = 0; 
+    const total = slides.length; 
+    function updateSlider() { 
+        if (!slider) return; 
+        slider.style.transform = translateX(-${index * 100}%); 
+    } 
+    
+    // NEXT 
+    
+    function nextSlide() { 
+        index = (index + 1) % total; 
+        updateSlider(); 
+    } 
+    
+    // PREV 
+    
+    function prevSlide() { 
+        index = (index - 1 + total) % total; 
+        updateSlider(); 
+    } 
+    
+    next.addEventListener("click", () => { 
+        nextSlide(); 
+        resetAuto(); 
+    }); 
+    
+    prev.addEventListener("click", () => { 
+        prevSlide(); 
+        resetAuto(); 
+    }); 
+    
+    // AUTO SLIDE 
+    
+    let interval = setInterval(nextSlide, 3000); 
+    
+    // PAUSE ON HOVER 
+    
+    slider.addEventListener("mouseenter", () => { 
+        clearInterval(interval); 
+    }); 
+    
+    slider.addEventListener("mouseleave", () => { 
+        interval = setInterval(nextSlide, 3000); 
+    }); 
+    
+    // reset helper 
+    
+    function resetAuto() { 
+        clearInterval(interval); 
+        interval = setInterval(nextSlide, 3000);
     }
-
-    function nextSlide() {
-        index++;
-        updateSlider();
-    }
-
-    function prevSlide() {
-        index--;
-        updateSlider();
-    }
-
-    slider.addEventListener("transitionend", (e) => {
-
-        if (e.propertyName !== "transform") return;
-
-        if (index === slides.length - 1) {
-            index = 1;
-            updateSlider(false);
-        }
-
-        if (index === 0) {
-            index = slides.length - 2;
-            updateSlider(false);
-        }
-    });
-
-    if (next && prev) {
-        next.addEventListener("click", nextSlide);
-        prev.addEventListener("click", prevSlide);
-    }
-}
+});
