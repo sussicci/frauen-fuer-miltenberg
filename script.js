@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
         FRAUEN SLIDER 
 ========================= */ 
     
-    const slider = document.querySelector(".frauen-slider");
+const slider = document.querySelector(".frauen-slider");
 const slides = document.querySelectorAll(".frau");
 
 const next = document.querySelector(".slider-btn.right");
@@ -237,7 +237,7 @@ const prev = document.querySelector(".slider-btn.left");
 let index = 1;
 const total = slides.length;
 
-/* clone first + last */
+/* clones */
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[total - 1].cloneNode(true);
 
@@ -246,26 +246,28 @@ slider.insertBefore(lastClone, slides[0]);
 
 const allSlides = document.querySelectorAll(".frau");
 
+/* start position (1 = erste echte Karte) */
 slider.style.transform = `translateX(-100%)`;
 
-function updateSlider(animate = true) {
-    slider.style.transition = animate ? "transform 0.5s ease" : "none";
+/* update */
+function updateSlider(animated = true) {
+    slider.style.transition = animated ? "transform 0.5s ease" : "none";
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* NEXT */
+/* next */
 function nextSlide() {
     index++;
     updateSlider();
 }
 
-/* PREV */
+/* prev */
 function prevSlide() {
     index--;
     updateSlider();
 }
 
-/* RESET LOGIC */
+/* loop correction */
 slider.addEventListener("transitionend", () => {
 
     if (index === allSlides.length - 1) {
@@ -279,6 +281,6 @@ slider.addEventListener("transitionend", () => {
     }
 });
 
-/* Buttons */
-next.addEventListener("click", () => nextSlide());
-prev.addEventListener("click", () => prevSlide());
+/* buttons */
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
