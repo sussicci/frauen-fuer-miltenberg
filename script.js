@@ -125,34 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     observer.observe(highlightSection);
-    
-    /* =========================
-    HAMBURGER MENU
-    ========================= */
-
-    const hamburger = document.getElementById("hamburger");
-    const mobileNav = document.getElementById("mobileNav");
-    const navLinks = document.querySelectorAll(".nav1");
-
-    hamburger.addEventListener("click", () => {
-
-        hamburger.classList.toggle("active");
-        mobileNav.classList.toggle("active");
-
-    });
-
-    /* Menü schließen bei Klick */
-
-    navLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            hamburger.classList.remove("active");
-            mobileNav.classList.remove("active");
-
-        });
-
-    });
 
     /* =========================
     MODAL
