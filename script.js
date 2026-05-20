@@ -225,69 +225,104 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================
-    FRAUEN SLIDER
-    ========================= */
+FRAUEN SLIDER
+========================= */
 
 const slider = document.querySelector(".frauen-slider");
 const slides = document.querySelectorAll(".frau");
+
 const next = document.querySelector(".slider-btn.right");
 const prev = document.querySelector(".slider-btn.left");
 
 let index = 0;
 const total = slides.length;
-const firstClone = slides[0].cloneNode(true);
-slider.appendChild(firstClone);
 
-    function updateSlider() {
-    if (!slider) return;
+/* clone first + last */
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[total - 1].cloneNode(true);
+
+slider.appendChild(firstClone);
+slider.insertBefore(lastClone, slides[0]);
+
+/* start position */
+index = 1;
+
+slider.style.transform = `translateX(-${index * 100}%)`;
+
+/* update */
+function updateSlider(animated = true) {
+
+    slider.style.transition = animated
+        ? "transform 0.5s ease"
+        : "none";
+
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
-// NEXT
+/* NEXT */
 function nextSlide() {
 
     index++;
     updateSlider();
 
-    if (index === total) {
-
-        setTimeout(() => {
-
-            slider.style.transition = "none";
-            index = 0;
-            slider.style.transform = `translateX(0)`;
-
-        }, 500);
-    }
 }
 
-// PREV
+/* PREV */
 function prevSlide() {
 
-    if (index > 0) {
-        index--;
-    } else {
-        index = total - 1;
-    }
-
+    index--;
     updateSlider();
+
 }
 
-// AUTO SLIDE
+/* transition end */
+slider.addEventListener("transitionend", () => {
+
+    /* reached cloned first */
+    if (index === total + 1) {
+
+        index = 1;
+        updateSlider(false);
+
+    }
+
+    /* reached cloned last */
+    if (index === 0) {
+
+        index = total;
+        updateSlider(false);
+
+    }
+
+});
+
+/* buttons */
+next.addEventListener("click", () => {
+    nextSlide();
+    resetAuto();
+});
+
+prev.addEventListener("click", () => {
+    prevSlide();
+    resetAuto();
+});
+
+/* auto slide */
 let interval = setInterval(nextSlide, 3000);
 
-// PAUSE ON HOVER
+/* hover pause */
 slider.addEventListener("mouseenter", () => {
     clearInterval(interval);
 });
 
 slider.addEventListener("mouseleave", () => {
-    interval = setInterval(nextSlide, 3000);
+    resetAuto();
 });
 
-// reset helper
+/* reset */
 function resetAuto() {
+
     clearInterval(interval);
     interval = setInterval(nextSlide, 3000);
+
 }
-});
