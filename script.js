@@ -705,77 +705,61 @@ document.addEventListener("DOMContentLoaded", () => {
     FRAUEN SLIDER
     ========================= */
 
-    const slider = document.querySelector(".frauen-slider");
-    const slides = document.querySelectorAll(".frau");
-    const next = document.querySelector(".slider-btn.right");
-    const prev = document.querySelector(".slider-btn.left");
+const slider = document.querySelector(".frauen-slider");
+const slides = document.querySelectorAll(".frau");
+const next = document.querySelector(".slider-btn.right");
+const prev = document.querySelector(".slider-btn.left");
 
-    // Clone first + last
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
+let index = 0;
+const total = slides.length;
 
-    firstClone.id = "first-clone";
-    lastClone.id = "last-clone";
+function updateSlider() {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
+// NEXT
+function nextSlide() {
+    index = (index + 1) % total;
+    updateSlider();
+}
 
-    const allSlides = document.querySelectorAll(".frau");
+// PREV
+function prevSlide() {
+    index = (index - 1 + total) % total;
+    updateSlider();
+}
 
-    let index = 1;
+next.addEventListener("click", () => {
+    nextSlide();
+    resetAuto();
+});
 
-    // Startposition (erste echte Karte)
-    slider.scrollLeft = allSlides[index].offsetLeft;
+prev.addEventListener("click", () => {
+    prevSlide();
+    resetAuto();
+});
 
-    function goToSlide(i) {
-        slider.scrollTo({
-            left: allSlides[i].offsetLeft,
-            behavior: "smooth"
-        });
-        index = i;
-    }
+// AUTO SLIDE
+let interval = setInterval(nextSlide, 3000);
 
-    // Buttons
-    next.addEventListener("click", () => {
-        goToSlide(index + 1);
-    });
+// PAUSE ON HOVER
+slider.addEventListener("mouseenter", () => {
+    clearInterval(interval);
+});
 
-    prev.addEventListener("click", () => {
-        goToSlide(index - 1);
-    });
+slider.addEventListener("mouseleave", () => {
+    interval = setInterval(nextSlide, 3000);
+});
 
-    // Auto Slide
-    let autoSlide = setInterval(() => {
-        goToSlide(index + 1);
-    }, 3000);
+// reset helper
+function resetAuto() {
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 3000);
+}
 
-    // Pause on hover
-    slider.addEventListener("mouseenter", () => {
-        clearInterval(autoSlide);
-    });
-
-    slider.addEventListener("mouseleave", () => {
-        autoSlide = setInterval(() => {
-            goToSlide(index + 1);
-        }, 4000);
-    });
-
-    // Loop correction (ohne sichtbaren Sprung)
-    slider.addEventListener("scroll", () => {
-        const current = allSlides[index];
-
-        setTimeout(() => {
-            if (current.id === "first-clone") {
-                slider.scrollLeft = allSlides[1].offsetLeft;
-                index = 1;
-            }
-
-            if (current.id === "last-clone") {
-                slider.scrollLeft = allSlides[allSlides.length - 2].offsetLeft;
-                index = allSlides.length - 2;
-            }
-        }, 150);
-    });
+    /* =========================
+    AKTUELLES
+    ========================= */
 
      document.addEventListener("DOMContentLoaded", () => {
 
