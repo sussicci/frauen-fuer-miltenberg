@@ -858,13 +858,12 @@ a p {
     margin-bottom: 0.5rem;
 }
 
-/* kleine decorative line */
-.frauen-wrapper::before {
+#unserefrauen h2::after {
     content: "";
     display: block;
     width: 64px;
     height: 4px;
-    margin: 0 auto 1.5rem auto;
+    margin: 1rem auto 0;
     border-radius: 999px;
     background: #7B2CBF;
 }
