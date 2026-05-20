@@ -241,16 +241,14 @@ document.addEventListener("DOMContentLoaded", () => {
         slider.style.transform = translateX(-${index * 100}%); 
     } 
     
-    // NEXT function 
-    
-    nextSlide() { 
+    // NEXT 
+    function nextSlide() { 
         index = (index + 1) % total; 
         updateSlider(); 
     } 
     
-    // PREV function 
-    
-    prevSlide() { 
+    // PREV 
+    function prevSlide() { 
         index = (index - 1 + total) % total; 
         updateSlider(); 
     } 
@@ -278,9 +276,9 @@ document.addEventListener("DOMContentLoaded", () => {
         interval = setInterval(nextSlide, 3000); 
     }); 
     
-    // reset helper function 
+    // reset helper 
     
-    resetAuto() { 
+    function resetAuto() { 
         clearInterval(interval); 
         interval = setInterval(nextSlide, 3000); 
         } 
