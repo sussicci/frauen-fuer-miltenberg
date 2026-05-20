@@ -446,13 +446,6 @@ a:hover {
     padding-bottom: 5rem;
 }
 
-/*#h2arbeit {
-    width: 65%;
-    margin: 0 auto;
-    color: #111827;
-    padding-top: 1.5rem;
-}*/
-
 #h2arbeit {
     width: min(760px, 90%);
     margin: 0 auto;
@@ -461,47 +454,25 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
-/*.arbeit-intro {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: #475569;
-    width: 65%;
-    margin: 2rem auto 3rem auto;
-    text-align: center;
-    max-width: 900px;
-}*/
-
 .arbeit-intro {
     width: min(760px, 90%);
-    
     margin: 1.5rem auto 4rem auto;
-
     font-size: 1.15rem;
     line-height: 1.95;
-
     text-align: center;
-
     color: #334155;
-
     font-weight: 500;
-    
     position: relative;
-    outline: 3px solid red;
 }
 
 /* kleine decorative line */
 .arbeit-intro::before {
     content: "";
-
     display: block;
-
     width: 64px;
     height: 4px;
-
     margin: 0 auto 1.5rem auto;
-
     border-radius: 999px;
-
     background: #7B2CBF;
 }
 
@@ -874,10 +845,28 @@ a p {
     padding: 6rem 0;
     background: #F8FAFC;
 }
-
-#unserefrauen h2 {
+/*#unserefrauen h2 {
     width: 70%;
     margin: 0 auto 2rem auto;
+}*/
+
+#unserefrauen h2 {
+    width: min(760px, 90%);
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 0.5rem;
+}
+
+/* kleine decorative line */
+.frauen-wrapper::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 999px;
+    background: #7B2CBF;
 }
 
 .frauen-wrapper {
