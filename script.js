@@ -235,6 +235,8 @@ const prev = document.querySelector(".slider-btn.left");
 
 let index = 0;
 const total = slides.length;
+const firstClone = slides[0].cloneNode(true);
+slider.appendChild(firstClone);
 
     function updateSlider() {
     if (!slider) return;
@@ -243,25 +245,33 @@ const total = slides.length;
 
 // NEXT
 function nextSlide() {
-    index = (index + 1) % total;
+
+    index++;
     updateSlider();
+
+    if (index === total) {
+
+        setTimeout(() => {
+
+            slider.style.transition = "none";
+            index = 0;
+            slider.style.transform = `translateX(0)`;
+
+        }, 500);
+    }
 }
 
 // PREV
 function prevSlide() {
-    index = (index - 1 + total) % total;
+
+    if (index > 0) {
+        index--;
+    } else {
+        index = total - 1;
+    }
+
     updateSlider();
 }
-
-next.addEventListener("click", () => {
-    nextSlide();
-    resetAuto();
-});
-
-prev.addEventListener("click", () => {
-    prevSlide();
-    resetAuto();
-});
 
 // AUTO SLIDE
 let interval = setInterval(nextSlide, 3000);
