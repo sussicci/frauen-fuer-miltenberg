@@ -229,24 +229,25 @@ document.addEventListener("DOMContentLoaded", () => {
 ========================= */ 
     
 const slider = document.querySelector(".frauen-slider");
-const slides = document.querySelectorAll(".frau");
 
-if (slider && slides.length > 0) {
+if (slider) {
 
     const next = document.querySelector(".slider-btn.right");
     const prev = document.querySelector(".slider-btn.left");
 
-    let index = 1;
-    const total = slides.length;
+    const originalSlides = Array.from(slider.children);
+    const total = originalSlides.length;
 
-    /* clones */
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[total - 1].cloneNode(true);
+    // clones
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[total - 1].cloneNode(true);
 
     slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
+    slider.insertBefore(lastClone, originalSlides[0]);
 
-    const originalCount = slides.length;
+    const slides = slider.children;
+
+    let index = 1;
 
     slider.style.transform = `translateX(-100%)`;
 
@@ -265,19 +266,21 @@ if (slider && slides.length > 0) {
         updateSlider();
     }
 
-    slider.addEventListener("transitionend", () => {
+    slider.addEventListener("transitionend", (e) => {
 
-    if (index === originalCount + 1) {
-        index = 1;
-        updateSlider(false);
-    }
+        if (e.propertyName !== "transform") return;
 
-    if (index === 0) {
-        index = originalCount;
-        updateSlider(false);
-    }
-});
-    
+        if (index === slides.length - 1) {
+            index = 1;
+            updateSlider(false);
+        }
+
+        if (index === 0) {
+            index = slides.length - 2;
+            updateSlider(false);
+        }
+    });
+
     if (next && prev) {
         next.addEventListener("click", nextSlide);
         prev.addEventListener("click", prevSlide);
