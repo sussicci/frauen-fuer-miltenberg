@@ -133,15 +133,12 @@
     </div>
 
 </footer>
-<script> 
-/* =========================
-   AKTUELLES POSTS
-========================= */
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-    
-const postsContainer = document.getElementById("posts");
 
-if (postsContainer) {
+    const postsContainer = document.getElementById("posts");
+
+    if (!postsContainer) return;
 
     let allPosts = [];
     let visibleCount = 3;
@@ -152,9 +149,7 @@ if (postsContainer) {
     const filterButtons = document.querySelectorAll(".filter-btn");
 
     fetch("./posts.json")
-
         .then(response => response.json())
-
         .then(posts => {
 
             allPosts = posts.sort((a, b) =>
@@ -162,14 +157,10 @@ if (postsContainer) {
             );
 
             renderPosts();
-
         });
 
     function getFilteredPosts() {
-
-        if (activeFilter === "all") {
-            return allPosts;
-        }
+        if (activeFilter === "all") return allPosts;
 
         return allPosts.filter(post =>
             post.type === activeFilter
@@ -191,94 +182,64 @@ if (postsContainer) {
                 article.className = "about-card";
 
                 article.innerHTML = `
-
-                    <div class="card-number">
-                        ${formatDate(post.date)}
-                    </div>
-
+                    <div class="card-number">${formatDate(post.date)}</div>
                     <h3>${post.title}</h3>
-
                     <p>${post.text}</p>
-
-                    <a class="card-btn"
-                       href="${post.buttonLink}">
-                       ${post.buttonText}
+                    <a class="card-btn" href="${post.buttonLink}">
+                        ${post.buttonText}
                     </a>
-
                 `;
 
                 postsContainer.appendChild(article);
-
             });
 
-        /* Buttons */
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display =
+                visibleCount >= filtered.length ? "none" : "inline-block";
+        }
 
-        loadMoreBtn.style.display =
-            visibleCount >= filtered.length
-                ? "none"
-                : "inline-block";
-
-        showLessBtn.style.display =
-            visibleCount > 3
-                ? "inline-block"
-                : "none";
+        if (showLessBtn) {
+            showLessBtn.style.display =
+                visibleCount > 3 ? "inline-block" : "none";
+        }
     }
 
     function formatDate(dateString) {
-
-        const date = new Date(dateString);
-
-        return date.toLocaleDateString("de-DE");
+        return new Date(dateString).toLocaleDateString("de-DE");
     }
 
     /* FILTER */
-
     filterButtons.forEach(button => {
-
         button.addEventListener("click", () => {
 
-            filterButtons.forEach(btn =>
-                btn.classList.remove("active")
-            );
-
+            filterButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
 
             activeFilter = button.dataset.filter;
-
             visibleCount = 3;
 
             renderPosts();
-
         });
-
     });
 
     /* LOAD MORE */
-
-    loadMoreBtn.addEventListener("click", () => {
-
+    loadMoreBtn?.addEventListener("click", () => {
         visibleCount += 3;
-
         renderPosts();
-
     });
 
     /* SHOW LESS */
-
-    showLessBtn.addEventListener("click", () => {
-
+    showLessBtn?.addEventListener("click", () => {
         visibleCount = 3;
-
         renderPosts();
 
         window.scrollTo({
             top: postsContainer.offsetTop - 120,
             behavior: "smooth"
         });
-
     });
+
 });
-}
 </script>
 </body>
 </html>
