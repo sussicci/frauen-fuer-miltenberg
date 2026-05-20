@@ -231,56 +231,55 @@ document.addEventListener("DOMContentLoaded", () => {
 const slider = document.querySelector(".frauen-slider");
 const slides = document.querySelectorAll(".frau");
 
-const next = document.querySelector(".slider-btn.right");
-const prev = document.querySelector(".slider-btn.left");
+if (slider && slides.length > 0) {
 
-let index = 1;
-const total = slides.length;
+    const next = document.querySelector(".slider-btn.right");
+    const prev = document.querySelector(".slider-btn.left");
 
-/* clones */
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[total - 1].cloneNode(true);
+    let index = 1;
+    const total = slides.length;
 
-slider.appendChild(firstClone);
-slider.insertBefore(lastClone, slides[0]);
+    /* clones */
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[total - 1].cloneNode(true);
 
-const allSlides = document.querySelectorAll(".frau");
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
 
-/* start position (1 = erste echte Karte) */
-slider.style.transform = `translateX(-100%)`;
+    const allSlides = document.querySelectorAll(".frau");
 
-/* update */
-function updateSlider(animated = true) {
-    slider.style.transition = animated ? "transform 0.5s ease" : "none";
-    slider.style.transform = `translateX(-${index * 100}%)`;
-}
+    slider.style.transform = `translateX(-100%)`;
 
-/* next */
-function nextSlide() {
-    index++;
-    updateSlider();
-}
-
-/* prev */
-function prevSlide() {
-    index--;
-    updateSlider();
-}
-
-/* loop correction */
-slider.addEventListener("transitionend", () => {
-
-    if (index === allSlides.length - 1) {
-        index = 1;
-        updateSlider(false);
+    function updateSlider(animated = true) {
+        slider.style.transition = animated ? "transform 0.5s ease" : "none";
+        slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    if (index === 0) {
-        index = allSlides.length - 2;
-        updateSlider(false);
+    function nextSlide() {
+        index++;
+        updateSlider();
     }
-});
 
-/* buttons */
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
+    function prevSlide() {
+        index--;
+        updateSlider();
+    }
+
+    slider.addEventListener("transitionend", () => {
+
+        if (index === allSlides.length - 1) {
+            index = 1;
+            updateSlider(false);
+        }
+
+        if (index === 0) {
+            index = allSlides.length - 2;
+            updateSlider(false);
+        }
+    });
+
+    if (next && prev) {
+        next.addEventListener("click", nextSlide);
+        prev.addEventListener("click", prevSlide);
+    }
+}
