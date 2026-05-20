@@ -235,10 +235,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let index = 0; 
     const total = slides.length; 
-    function updateSlider() { 
-        if (!slider) return; 
-        slider.style.transform = `translateX(-${index * 100}%)`; 
-    } 
+    function updateSlider() {
+    if (!slider) return;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+}
     
     // NEXT 
     
