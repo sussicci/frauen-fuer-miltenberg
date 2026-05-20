@@ -224,10 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* =========================
-FRAUEN SLIDER
-========================= */
-
 const slider = document.querySelector(".frauen-slider");
 const slides = document.querySelectorAll(".frau");
 
@@ -237,25 +233,12 @@ const prev = document.querySelector(".slider-btn.left");
 let index = 0;
 const total = slides.length;
 
-/* clone first + last */
+/* erste Karte klonen */
 const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[total - 1].cloneNode(true);
-
 slider.appendChild(firstClone);
-slider.insertBefore(lastClone, slides[0]);
-
-/* start position */
-index = 1;
-
-slider.style.transform = `translateX(-${index * 100}%)`;
 
 /* update */
-function updateSlider(animated = true) {
-
-    slider.style.transition = animated
-        ? "transform 0.5s ease"
-        : "none";
-
+function updateSlider() {
     slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
@@ -263,38 +246,57 @@ function updateSlider(animated = true) {
 function nextSlide() {
 
     index++;
+
+    slider.style.transition = "transform 0.5s ease";
     updateSlider();
 
+    /* wenn clone erreicht */
+    if (index === total) {
+
+        setTimeout(() => {
+
+            /* reset ohne animation */
+            slider.style.transition = "none";
+            index = 0;
+            updateSlider();
+
+            /* browser reflow erzwingen */
+            slider.offsetHeight;
+
+            /* transition wieder aktivieren */
+            slider.style.transition = "transform 0.5s ease";
+
+        }, 500);
+    }
 }
 
 /* PREV */
 function prevSlide() {
 
-    index--;
-    updateSlider();
+    if (index > 0) {
 
-}
+        index--;
+        updateSlider();
 
-/* transition end */
-slider.addEventListener("transitionend", () => {
+    } else {
 
-    /* reached cloned first */
-    if (index === total + 1) {
-
-        index = 1;
-        updateSlider(false);
-
-    }
-
-    /* reached cloned last */
-    if (index === 0) {
+        slider.style.transition = "none";
 
         index = total;
-        updateSlider(false);
+        updateSlider();
 
+        slider.offsetHeight;
+
+        slider.style.transition = "transform 0.5s ease";
+
+        setTimeout(() => {
+
+            index--;
+            updateSlider();
+
+        }, 20);
     }
-
-});
+}
 
 /* buttons */
 next.addEventListener("click", () => {
@@ -307,22 +309,10 @@ prev.addEventListener("click", () => {
     resetAuto();
 });
 
-/* auto slide */
+/* auto */
 let interval = setInterval(nextSlide, 3000);
 
-/* hover pause */
-slider.addEventListener("mouseenter", () => {
-    clearInterval(interval);
-});
-
-slider.addEventListener("mouseleave", () => {
-    resetAuto();
-});
-
-/* reset */
 function resetAuto() {
-
     clearInterval(interval);
     interval = setInterval(nextSlide, 3000);
-
 }
