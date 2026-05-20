@@ -854,6 +854,16 @@ a p {
     margin-bottom: 0.5rem;
 }
 
+#unserefrauen h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 1rem auto 0;
+    border-radius: 999px;
+    background: #7B2CBF;
+}
+
 .frauen-wrapper {
     width: 70%;
     margin: 0 auto;
