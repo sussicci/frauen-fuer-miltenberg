@@ -246,7 +246,7 @@ if (slider && slides.length > 0) {
     slider.appendChild(firstClone);
     slider.insertBefore(lastClone, slides[0]);
 
-    const allSlides = document.querySelectorAll(".frau");
+    const originalCount = slides.length;
 
     slider.style.transform = `translateX(-100%)`;
 
@@ -267,17 +267,17 @@ if (slider && slides.length > 0) {
 
     slider.addEventListener("transitionend", () => {
 
-        if (index === allSlides.length - 1) {
-            index = 1;
-            updateSlider(false);
-        }
+    if (index === originalCount + 1) {
+        index = 1;
+        updateSlider(false);
+    }
 
-        if (index === 0) {
-            index = allSlides.length - 2;
-            updateSlider(false);
-        }
-    });
-
+    if (index === 0) {
+        index = originalCount;
+        updateSlider(false);
+    }
+});
+    
     if (next && prev) {
         next.addEventListener("click", nextSlide);
         prev.addEventListener("click", prevSlide);
