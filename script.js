@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     });
+
     /* =========================
    AKTUELLES POSTS
 ========================= */
@@ -382,66 +383,6 @@ if (postsContainer) {
             mobileNav.classList.remove("active");
 
         });
-
-    });
-
-    /* =========================
-    MODAL
-    ========================= */
-
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalText = document.getElementById("modalText");
-    const modalImage = document.getElementById("modalImage");
-
-    const openButtons = document.querySelectorAll(".open-modal");
-    const closeModal = document.getElementById("closeModal");
-
-
-    openButtons.forEach(button => {
-
-        button.addEventListener("click", (e) => {
-
-            e.preventDefault();
-
-            const card = button.closest(".arbeit");
-            const image = card.querySelector("img");
-
-            modalTitle.textContent = button.dataset.title;
-            modalText.textContent = button.dataset.text;
-
-            modalImage.src = image.src;
-
-            modal.classList.add("active");
-        });
-
-    });
-
-    /* schließen */
-
-    closeModal.addEventListener("click", () => {
-        modal.classList.remove("active");
-    });
-
-    /* klick außerhalb */
-
-    modal.addEventListener("click", (e) => {
-
-        if (e.target === modal) {
-            modal.classList.remove("active");
-        }
-
-    });
-
-    /* ESC */
-
-    document.addEventListener("keydown", (e) => {
-
-        if (e.key === "Escape") {
-            modal.classList.remove("active");
-        }
-
-    });
 
     });
 
