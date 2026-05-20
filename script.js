@@ -13,6 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return allItems.filter(item => item.classList.contains(activeFilter));
 }
 
+    function sortItems(items) {
+    return items.sort((a, b) => {
+        const aActive = a.classList.contains("aktiv");
+        const bActive = b.classList.contains("aktiv");
+
+        if (aActive && !bActive) return -1;
+        if (!aActive && bActive) return 1;
+        return 0;
+    });
+}
+    
     function getItemsPerPage() {
         const grid = document.querySelector(".unserearbeit");
 
@@ -26,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateDisplay() {
-        const filtered = getFilteredItems();
+        let filtered = getFilteredItems();
+            filtered = sortItems(filtered);
         const perPage = getItemsPerPage();
         const maxVisible = page * perPage;
 
