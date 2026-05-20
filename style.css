@@ -860,7 +860,7 @@ a p {
     display: block;
     width: 64px;
     height: 4px;
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto 1.5rem auto;
     border-radius: 999px;
     background: #7B2CBF;
 }
