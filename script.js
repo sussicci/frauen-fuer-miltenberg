@@ -224,95 +224,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-const slider = document.querySelector(".frauen-slider");
-const slides = document.querySelectorAll(".frau");
-
-const next = document.querySelector(".slider-btn.right");
-const prev = document.querySelector(".slider-btn.left");
-
-let index = 0;
-const total = slides.length;
-
-/* erste Karte klonen */
-const firstClone = slides[0].cloneNode(true);
-slider.appendChild(firstClone);
-
-/* update */
-function updateSlider() {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-}
-
-/* NEXT */
-function nextSlide() {
-
-    index++;
-
-    slider.style.transition = "transform 0.5s ease";
-    updateSlider();
-
-    /* wenn clone erreicht */
-    if (index === total) {
-
-        setTimeout(() => {
-
-            /* reset ohne animation */
-            slider.style.transition = "none";
-            index = 0;
-            updateSlider();
-
-            /* browser reflow erzwingen */
-            slider.offsetHeight;
-
-            /* transition wieder aktivieren */
-            slider.style.transition = "transform 0.5s ease";
-
-        }, 500);
-    }
-}
-
-/* PREV */
-function prevSlide() {
-
-    if (index > 0) {
-
-        index--;
-        updateSlider();
-
-    } else {
-
-        slider.style.transition = "none";
-
-        index = total;
-        updateSlider();
-
-        slider.offsetHeight;
-
-        slider.style.transition = "transform 0.5s ease";
-
-        setTimeout(() => {
-
-            index--;
-            updateSlider();
-
-        }, 20);
-    }
-}
-
-/* buttons */
-next.addEventListener("click", () => {
-    nextSlide();
-    resetAuto();
-});
-
-prev.addEventListener("click", () => {
-    prevSlide();
-    resetAuto();
-});
-
-/* auto */
-let interval = setInterval(nextSlide, 3000);
-
-function resetAuto() {
-    clearInterval(interval);
-    interval = setInterval(nextSlide, 3000);
-}
+/* ========================= 
+        FRAUEN SLIDER 
+========================= */ 
+    
+    const slider = document.querySelector(".frauen-slider"); 
+    const slides = document.querySelectorAll(".frau"); 
+    const next = document.querySelector(".slider-btn.right"); 
+    const prev = document.querySelector(".slider-btn.left"); 
+    
+    let index = 0; 
+    const total = slides.length; 
+    
+    function updateSlider() { 
+        if (!slider) return; 
+        slider.style.transform = translateX(-${index * 100}%); 
+    } 
+    
+    // NEXT function 
+    
+    nextSlide() { 
+        index = (index + 1) % total; 
+        updateSlider(); 
+    } 
+    
+    // PREV function 
+    
+    prevSlide() { 
+        index = (index - 1 + total) % total; 
+        updateSlider(); 
+    } 
+    
+    next.addEventListener("click", () => { 
+        nextSlide(); resetAuto(); 
+    }); 
+    
+    prev.addEventListener("click", () => { 
+        prevSlide(); 
+        resetAuto(); 
+    }); 
+    
+    // AUTO SLIDE 
+    
+    let interval = setInterval(nextSlide, 3000); 
+    
+    // PAUSE ON HOVER 
+    
+    slider.addEventListener("mouseenter", () => { 
+        clearInterval(interval); 
+    }); 
+    
+    slider.addEventListener("mouseleave", () => { 
+        interval = setInterval(nextSlide, 3000); 
+    }); 
+    
+    // reset helper function 
+    
+    resetAuto() { 
+        clearInterval(interval); 
+        interval = setInterval(nextSlide, 3000); 
+        } 
+    });
