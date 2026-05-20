@@ -484,8 +484,9 @@ a:hover {
     color: #334155;
 
     font-weight: 500;
-
+    
     position: relative;
+    outline: 3px solid red;
 }
 
 /* kleine decorative line */
