@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const showLessBtn = document.getElementById("showLessBtn");
     const filters = document.querySelectorAll('input[name="filter"]');
 
-    let activeFilter = "aktiv";
+    let activeFilter = "all";
         let page = 1;
 
     function getFilteredItems() {
