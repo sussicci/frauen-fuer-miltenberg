@@ -189,227 +189,121 @@ a:hover {
    HIGHLIGHT / AKTUELLES BAR
 ========================================= */
 
-/*#highlight-aktuelles {
-    background: #F8FAFC;
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-    position: relative;
-    z-index: 20;
-}
-
-.highlight-line {
+#highlight-aktuelles {
     width: 100%;
-    display: grid;
-    grid-template-columns: 220px 1fr auto;
-    align-items: center;
-    gap: 2rem;
-
-    min-height: 92px;
+    background: #F8FAFC;
+    padding: 2rem 0;
 }
 
-/* LABEL */
+.highlight-card {
+    width: min(1100px, 92%);
+    margin: 0 auto;
 
-/*.highlight-label {
-    background: #7B2CBF;
-    color: #F8FAFC;
+    background: white;
 
-    height: 100%;
+    border-radius: 24px;
 
-    display: flex;
+    padding: 1.5rem 2rem;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
 
-    font-size: 0.78rem;
+    box-shadow:
+        0 10px 30px rgba(15,23,42,0.06);
+
+    border: 1px solid rgba(148,163,184,0.15);
+}
+
+/* TAG */
+
+.highlight-tag {
+    background: #7B2CBF;
+    color: white;
+
+    padding: 0.7rem 1rem;
+
+    border-radius: 999px;
+
+    font-size: 0.75rem;
     font-weight: 800;
 
-    letter-spacing: 0.14em;
     text-transform: uppercase;
+    letter-spacing: 0.12em;
 
-    padding: 1rem;
-    box-sizing: border-box;
+    white-space: nowrap;
 }
 
-/* TEXT */
+/* CONTENT */
 
-/*.update-text {
-    padding: 1rem 0;
-}
+.highlight-meta {
+    margin: 0 0 0.5rem 0;
 
-.update-text h3 {
-    margin: 0;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #111827;
-    line-height: 1.4;
+
+    color: #7B2CBF;
 }
 
-.update-text p {
-    margin: 0.35rem 0 0;
-    font-size: 0.92rem;
+.highlight-content h3 {
+    margin: 0;
+
+    font-size: 1.3rem;
+    line-height: 1.4;
+
+    color: #111827;
+}
+
+.highlight-location {
+    margin: 0.6rem 0 0;
+
     color: #475569;
-    font-weight: 500;
     line-height: 1.5;
 }
 
 /* BUTTON */
 
-/*.highlight-button {
-    white-space: nowrap;
+.highlight-button {
+    padding: 0.9rem 1.3rem;
 
-    margin-right: 2rem;
-
-    padding: 0.85rem 1.2rem;
+    border-radius: 999px;
 
     border: 2px solid #7B2CBF;
-    border-radius: 2rem;
 
-    color: #5a189a;
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: #7B2CBF;
+
+    font-weight: 700;
 
     transition: 0.2s ease;
+
+    white-space: nowrap;
 }
 
 .highlight-button:hover {
     background: #7B2CBF;
-    color: #F8FAFC;
+    color: white;
 }
 
-/* =========================================
-   TABLET
-========================================= */
+/* TABLET */
 
-/*@media (max-width: 900px) {
+@media (max-width: 900px) {
 
-    .highlight-line {
-        grid-template-columns: 180px 1fr;
-        gap: 1.5rem;
-
-        padding: 1rem;
-        box-sizing: border-box;
-    }
-
-    .highlight-button {
-        grid-column: 1 / -1;
-
-        justify-self: start;
-
-        margin: 0;
-    }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-/*@media (max-width: 600px) {
-
-    .highlight-line {
+    .highlight-card {
         grid-template-columns: 1fr;
-
-        gap: 1rem;
-
         text-align: center;
 
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
-    .highlight-label {
-        height: auto;
-        border-radius: 12px;
-    }
-
-    .update-text {
-        padding: 0;
+    .highlight-tag {
+        justify-self: center;
     }
 
     .highlight-button {
         width: 100%;
         box-sizing: border-box;
-
-        justify-self: stretch;
-
-        margin: 0;
     }
-
-    .update-text h3 {
-        font-size: 0.98rem;
-    }
-
-    .update-text p {
-        font-size: 0.88rem;
-    }
-}*/
-
-
-#highlight-aktuelles {
-    background: #F8FAFC;
-    border-bottom: 1px solid rgba(15,23,42,0.08);
-    margin-top: 0;
-    position: relative;
-    z-index: 20;
-}
-
-.highlight-line {
-    width: 100%;
-    margin: 0 auto;
-    min-height: 92px;
-    display: grid;
-    grid-template-columns: 17.36% 60% auto;
-    align-items: center;
-    gap: 2rem;
-}
-
-/* LABEL */
-
-.highlight-label {
-    font-size: 0.78rem;
-    height: 100%;
-    text-align: center;
-    align-content: center;
-    font-weight: 800;
-    background-color: #7B2CBF;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #F8FAFC;
-}
-
-/* TEXT */
-
-.update-text h3 {
-    margin: 0;
-    font-size: 1rem; 
-    font-weight: 650;
-    color: #111827;
-}
-
-.update-text p {
-    margin: 0.3rem 0 0 0;
-    font-size: 0.92rem;
-    color: #111827;
-    font-weight: 500;
-}
-
-/* LINK */
-
-.highlight-button {
-    text-align: center;
-    font-weight: 600;
-    color: #5a189a;
-    transition: 0.2s ease;
-    border: 2.5px solid #7B2CBF;
-    border-radius: 1.75rem;
-    padding: 15px 10px;
-    margin: 0 40px;
-    font-size: 1rem;
-    line-height: 0.3rem;
-}
-
-.highlight-button:hover {
-    transform: translateX(3px);
-    background-color:#7B2CBF;
-    color:#F8FAFC;
-    border-color: #7B2CBF;
-    cursor: pointer;
 }
 
 /* =========================
