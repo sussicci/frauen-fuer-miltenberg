@@ -189,7 +189,161 @@ a:hover {
    HIGHLIGHT / AKTUELLES BAR
 ========================================= */
 
+/* =========================================
+   HIGHLIGHT / AKTUELLES BAR
+========================================= */
+
 #highlight-aktuelles {
+    background: #F8FAFC;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+    position: relative;
+    z-index: 20;
+}
+
+.highlight-line {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 220px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+
+    min-height: 92px;
+}
+
+/* LABEL */
+
+.highlight-label {
+    background: #7B2CBF;
+    color: #F8FAFC;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* TEXT */
+
+.update-text {
+    padding: 1rem 0;
+}
+
+.update-text h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.4;
+}
+
+.update-text p {
+    margin: 0.35rem 0 0;
+    font-size: 0.92rem;
+    color: #475569;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* BUTTON */
+
+.highlight-button {
+    white-space: nowrap;
+
+    margin-right: 2rem;
+
+    padding: 0.85rem 1.2rem;
+
+    border: 2px solid #7B2CBF;
+    border-radius: 2rem;
+
+    color: #5a189a;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.highlight-button:hover {
+    background: #7B2CBF;
+    color: #F8FAFC;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .highlight-line {
+        grid-template-columns: 180px 1fr;
+        gap: 1.5rem;
+
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .highlight-button {
+        grid-column: 1 / -1;
+
+        justify-self: start;
+
+        margin: 0;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .highlight-line {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+
+        text-align: center;
+
+        padding: 1rem;
+    }
+
+    .highlight-label {
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .update-text {
+        padding: 0;
+    }
+
+    .highlight-button {
+        width: 100%;
+        box-sizing: border-box;
+
+        justify-self: stretch;
+
+        margin: 0;
+    }
+
+    .update-text h3 {
+        font-size: 0.98rem;
+    }
+
+    .update-text p {
+        font-size: 0.88rem;
+    }
+}
+/*#highlight-aktuelles {
     background: #F8FAFC;
     border-bottom: 1px solid rgba(15,23,42,0.08);
     margin-top: 0;
@@ -209,7 +363,7 @@ a:hover {
 
 /* LABEL */
 
-.highlight-label {
+/*.highlight-label {
     font-size: 0.78rem;
     height: 100%;
     text-align: center;
@@ -223,7 +377,7 @@ a:hover {
 
 /* TEXT */
 
-.update-text h3 {
+/*.update-text h3 {
     margin: 0;
     font-size: 1rem; 
     font-weight: 650;
@@ -239,7 +393,7 @@ a:hover {
 
 /* LINK */
 
-.highlight-button {
+/*.highlight-button {
     text-align: center;
     font-weight: 600;
     color: #5a189a;
