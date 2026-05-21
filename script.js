@@ -22,8 +22,8 @@ function getItemsPerPage() {
 }
 
 function matchesFilters(item) {
-    const status = statusSelect?.value || "status-all";
-    const category = categorySelect?.value || "category-all";
+    const status = statusSelect.value;
+    const category = categorySelect.value;
 
     const matchesStatus =
         status === "status-all" || item.classList.contains(status);
@@ -87,6 +87,8 @@ showLessBtn.addEventListener("click", () => {
 window.addEventListener("resize", updateDisplay);
 
 // INIT
+statusSelect.value = "status-all";
+categorySelect.value = "category-all";
 updateDisplay();
     
     /* =========================
