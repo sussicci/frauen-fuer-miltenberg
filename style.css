@@ -190,13 +190,16 @@ a:hover {
 ========================================= */
 
 #highlight-aktuelles {
-    width: 100%;
+    #highlight-aktuelles {
+    width: 90%;
+    max-width: 1100px;
+    margin: 2rem auto;
     background: #F8FAFC;
-    padding: 2rem 0;
 }
 
 .highlight-card {
-    width: min(1100px, 92%);
+    width: 100%;
+    box-sizing: border-box;
     margin: 0 auto;
 
     background: white;
