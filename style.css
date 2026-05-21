@@ -186,23 +186,23 @@ a:hover {
 
 /* Letzte Update */
 /* =========================================
-   HIGHLIGHT / AKTUELLES BAR
+   HIGHLIGHT / AKTUELLES
 ========================================= */
 
 #highlight-aktuelles {
-    #highlight-aktuelles {
     width: 90%;
     max-width: 1100px;
+
     margin: 2rem auto;
-    background: #F8FAFC;
 }
 
 .highlight-card {
     width: 100%;
     box-sizing: border-box;
-    margin: 0 auto;
 
-    background: white;
+    background: #ffffff;
+
+    border: 1px solid rgba(148,163,184,0.15);
 
     border-radius: 24px;
 
@@ -210,13 +210,11 @@ a:hover {
 
     display: grid;
     grid-template-columns: auto 1fr auto;
-    gap: 2rem;
+
     align-items: center;
+    gap: 2rem;
 
-    box-shadow:
-        0 10px 30px rgba(15,23,42,0.06);
-
-    border: 1px solid rgba(148,163,184,0.15);
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
 }
 
 /* TAG */
@@ -241,7 +239,7 @@ a:hover {
 /* CONTENT */
 
 .highlight-meta {
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem;
 
     font-size: 0.85rem;
     font-weight: 700;
@@ -252,14 +250,14 @@ a:hover {
 .highlight-content h3 {
     margin: 0;
 
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.4;
 
     color: #111827;
 }
 
 .highlight-location {
-    margin: 0.6rem 0 0;
+    margin-top: 0.6rem;
 
     color: #475569;
     line-height: 1.5;
@@ -270,17 +268,16 @@ a:hover {
 .highlight-button {
     padding: 0.9rem 1.3rem;
 
-    border-radius: 999px;
-
     border: 2px solid #7B2CBF;
+    border-radius: 999px;
 
     color: #7B2CBF;
 
     font-weight: 700;
 
-    transition: 0.2s ease;
-
     white-space: nowrap;
+
+    transition: 0.2s ease;
 }
 
 .highlight-button:hover {
@@ -288,12 +285,15 @@ a:hover {
     color: white;
 }
 
-/* TABLET */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 900px) {
 
     .highlight-card {
         grid-template-columns: 1fr;
+
         text-align: center;
 
         padding: 1.5rem;
@@ -309,15 +309,32 @@ a:hover {
     }
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
-    @media (max-width: 600px) {
+@media (max-width: 600px) {
+
+    #highlight-aktuelles {
+        width: 92%;
+    }
 
     .highlight-card {
         padding: 1.25rem;
+
         border-radius: 18px;
+
+        gap: 1.2rem;
     }
 
+    .highlight-content h3 {
+        font-size: 1.05rem;
+    }
+
+    .highlight-meta,
+    .highlight-location {
+        font-size: 0.9rem;
+    }
 }
 /* =========================
    ÜBER UNS
