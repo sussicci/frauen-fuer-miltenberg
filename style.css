@@ -189,127 +189,6 @@ a:hover {
    HIGHLIGHT / AKTUELLES BAR
 ========================================= */
 
-/* =========================================
-   HIGHLIGHT / AKTUELLES BAR
-========================================= */
-
-#highlight-aktuelles {
-    width: 100%;
-    background: #F8FAFC;
-    padding: 2rem 0;
-}
-
-.highlight-card {
-    width: min(1100px, 92%);
-    margin: 0 auto;
-
-    background: white;
-
-    border-radius: 24px;
-
-    padding: 1.5rem 2rem;
-
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-    align-items: center;
-
-    box-shadow:
-        0 10px 30px rgba(15,23,42,0.06);
-
-    border: 1px solid rgba(148,163,184,0.15);
-}
-
-/* TAG */
-
-.highlight-tag {
-    background: #7B2CBF;
-    color: white;
-
-    padding: 0.7rem 1rem;
-
-    border-radius: 999px;
-
-    font-size: 0.75rem;
-    font-weight: 800;
-
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-
-    white-space: nowrap;
-}
-
-/* CONTENT */
-
-.highlight-meta {
-    margin: 0 0 0.5rem 0;
-
-    font-size: 0.85rem;
-    font-weight: 700;
-
-    color: #7B2CBF;
-}
-
-.highlight-content h3 {
-    margin: 0;
-
-    font-size: 1.3rem;
-    line-height: 1.4;
-
-    color: #111827;
-}
-
-.highlight-location {
-    margin: 0.6rem 0 0;
-
-    color: #475569;
-    line-height: 1.5;
-}
-
-/* BUTTON */
-
-.highlight-button {
-    padding: 0.9rem 1.3rem;
-
-    border-radius: 999px;
-
-    border: 2px solid #7B2CBF;
-
-    color: #7B2CBF;
-
-    font-weight: 700;
-
-    transition: 0.2s ease;
-
-    white-space: nowrap;
-}
-
-.highlight-button:hover {
-    background: #7B2CBF;
-    color: white;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-
-    .highlight-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-
-        padding: 1.5rem;
-    }
-
-    .highlight-tag {
-        justify-self: center;
-    }
-
-    .highlight-button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
-
 /*#highlight-aktuelles {
     background: #F8FAFC;
     border-bottom: 1px solid rgba(15,23,42,0.08);
@@ -459,10 +338,10 @@ a:hover {
     .update-text p {
         font-size: 0.88rem;
     }
-}
+}*/
 
 
-/*#highlight-aktuelles {
+#highlight-aktuelles {
     background: #F8FAFC;
     border-bottom: 1px solid rgba(15,23,42,0.08);
     margin-top: 0;
@@ -482,7 +361,7 @@ a:hover {
 
 /* LABEL */
 
-/*.highlight-label {
+.highlight-label {
     font-size: 0.78rem;
     height: 100%;
     text-align: center;
@@ -496,7 +375,7 @@ a:hover {
 
 /* TEXT */
 
-/*.update-text h3 {
+.update-text h3 {
     margin: 0;
     font-size: 1rem; 
     font-weight: 650;
@@ -512,7 +391,7 @@ a:hover {
 
 /* LINK */
 
-/*.highlight-button {
+.highlight-button {
     text-align: center;
     font-weight: 600;
     color: #5a189a;
