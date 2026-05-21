@@ -1,117 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const allItems = Array.from(document.querySelectorAll(".arbeit"));
-    const button = document.getElementById("loadMoreBtn");
-    const showLessBtn = document.getElementById("showLessBtn");
-    const filters = document.querySelectorAll('input[name="filter"]');
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+const showLessBtn = document.getElementById("showLessBtn");
 
-    let activeFilter = "all";
-        let page = 1;
-
-    function getFilteredItems() {
-        if (activeFilter === "all") return allItems;
-        return allItems.filter(item => item.classList.contains(activeFilter));
-}
-
-    function sortItems(items) {
-    return items.sort((a, b) => {
-        const aActive = a.classList.contains("aktiv");
-        const bActive = b.classList.contains("aktiv");
-
-        if (aActive && !bActive) return -1;
-        if (!aActive && bActive) return 1;
-        return 0;
-    });
-}
-    
-    function getItemsPerPage() {
-        const grid = document.querySelector(".unserearbeit");
-
-        const firstItem = grid.querySelector(".arbeit");
-        if (!firstItem) return 6;
-
-        const gridStyle = window.getComputedStyle(grid);
-        const columnCount = gridStyle.gridTemplateColumns.split(" ").length;
-
-        return columnCount * 2;
-    }
-
-    function updateDisplay() {
-        let filtered = getFilteredItems();
-            filtered = sortItems(filtered);
-        const perPage = getItemsPerPage();
-        const maxVisible = page * perPage;
-
-        filtered.forEach((item, index) => {
-            item.style.display = index < maxVisible ? "flex" : "none";
-        });
-
-        allItems.forEach(item => {
-            if (!filtered.includes(item)) {
-                item.style.display = "none";
-            }
-        });
-
-        button.style.display =
-        maxVisible >= filtered.length ? "none" : "inline-block";
-
-        showLessBtn.style.display =
-        page > 1 ? "inline-block" : "none";
-    }
-
-    // LOAD MORE
-    button.addEventListener("click", () => {
-        page++;
-        updateDisplay();
-    });
-
-    showLessBtn.addEventListener("click", () => {
-        page = 1;
-        updateDisplay();
-
-        document.querySelector("#unserearbeit")
-            .scrollIntoView({ behavior: "smooth" });
-    });
-
-    // FILTER CHANGE
-    filters.forEach(filter => {
-        filter.addEventListener("change", () => {
-            activeFilter = filter.id;
-            page = 1;
-            updateDisplay();
-        });
-    });
-
-    const statusSelect = document.getElementById("statusFilterMobile");
+const statusSelect = document.getElementById("statusFilterMobile");
 const categorySelect = document.getElementById("categoryFilterMobile");
 
-function syncRadio(id) {
-    const radio = document.getElementById(id);
-    if (radio) radio.checked = true;
+let page = 1;
+
+function getItemsPerPage() {
+    const grid = document.querySelector(".unserearbeit");
+
+    const firstItem = grid.querySelector(".arbeit");
+    if (!firstItem) return 6;
+
+    const columns = window.getComputedStyle(grid)
+        .gridTemplateColumns.split(" ").length;
+
+    return columns * 2;
 }
 
-// STATUS DROPDOWN → RADIO
-if (statusSelect) {
-    statusSelect.addEventListener("change", (e) => {
-        syncRadio(e.target.value);
-    });
+function matchesFilters(item) {
+    const status = statusSelect?.value || "status-all";
+    const category = categorySelect?.value || "category-all";
+
+    const matchesStatus =
+        status === "status-all" || item.classList.contains(status);
+
+    const matchesCategory =
+        category === "category-all" || item.classList.contains(category);
+
+    return matchesStatus && matchesCategory;
 }
 
-// CATEGORY DROPDOWN → RADIO
-if (categorySelect) {
-    categorySelect.addEventListener("change", (e) => {
-        syncRadio(e.target.value);
+function updateDisplay() {
+    const perPage = getItemsPerPage();
+    const filtered = allItems.filter(matchesFilters);
+
+    const maxVisible = page * perPage;
+
+    filtered.forEach((item, index) => {
+        item.style.display = index < maxVisible ? "flex" : "none";
     });
+
+    allItems.forEach(item => {
+        if (!filtered.includes(item)) {
+            item.style.display = "none";
+        }
+    });
+
+    loadMoreBtn.style.display =
+        maxVisible >= filtered.length ? "none" : "inline-block";
+
+    showLessBtn.style.display =
+        page > 1 ? "inline-block" : "none";
 }
 
-        // RESIZE
-    window.addEventListener("resize", () => {
-        updateDisplay();
-    });
+// FILTER EVENTS (Dropdown)
+statusSelect?.addEventListener("change", () => {
+    page = 1;
+    updateDisplay();
+});
 
-    // INIT
+categorySelect?.addEventListener("change", () => {
+    page = 1;
+    updateDisplay();
+});
+
+// LOAD MORE
+loadMoreBtn.addEventListener("click", () => {
+    page++;
+    updateDisplay();
+});
+
+// SHOW LESS
+showLessBtn.addEventListener("click", () => {
+    page = 1;
     updateDisplay();
 
+    document.querySelector("#unserearbeit")
+        .scrollIntoView({ behavior: "smooth" });
+});
+
+// RESIZE
+window.addEventListener("resize", updateDisplay);
+
+// INIT
+updateDisplay();
+    
     /* =========================
     COUNTER ANIMATION
     ========================= */
