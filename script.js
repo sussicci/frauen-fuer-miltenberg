@@ -82,6 +82,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const statusSelect = document.getElementById("statusFilterMobile");
+const categorySelect = document.getElementById("categoryFilterMobile");
+
+function syncRadio(id) {
+    const radio = document.getElementById(id);
+    if (radio) radio.checked = true;
+}
+
+// STATUS DROPDOWN → RADIO
+if (statusSelect) {
+    statusSelect.addEventListener("change", (e) => {
+        syncRadio(e.target.value);
+    });
+}
+
+// CATEGORY DROPDOWN → RADIO
+if (categorySelect) {
+    categorySelect.addEventListener("change", (e) => {
+        syncRadio(e.target.value);
+    });
+}
+
         // RESIZE
     window.addEventListener("resize", () => {
         updateDisplay();
