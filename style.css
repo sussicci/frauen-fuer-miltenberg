@@ -309,6 +309,16 @@ a:hover {
     }
 }
 
+/* MOBILE */
+
+    @media (max-width: 600px) {
+
+    .highlight-card {
+        padding: 1.25rem;
+        border-radius: 18px;
+    }
+
+}
 /* =========================
    ÜBER UNS
 ========================= */
