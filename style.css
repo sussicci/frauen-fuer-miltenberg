@@ -587,7 +587,8 @@ input[type="radio"] {
 #aktiv:checked ~ .filter-controls label[for="aktiv"],
 #gesucht:checked ~ .filter-controls label[for="gesucht"],
 #fertig:checked ~ .filter-controls label[for="fertig"],
-#all:checked ~ .filter-controls label[for="all"],
+#status-all:checked ~ .unserearbeit .arbeit { display: block; }
+#category-all:checked ~ .unserearbeit .arbeit { display: block; }
 #familie:checked ~ .filter-controls label[for="familie"],
 #stadtplanung:checked ~ .filter-controls label[for="stadtplanung"],
 #bildung:checked ~ .filter-controls label[for="bildung"],
@@ -664,78 +665,6 @@ input[type="radio"] {
 .status-badge.fertig {
     background: rgba(16,185,129,0.95);
     color: white;
-}
-
-/* ========================= */
-/* FILTER LOGIC (CSS ONLY) */
-/* ========================= */
-
-/* ALLE */
-#all:checked ~ .unserearbeit .arbeit {
-    display: block;
-}
-
-/* FAMILIE */
-#familie:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#familie:checked ~ .unserearbeit .familie {
-    display: block;
-}
-
-/* STADTPLANUNG */
-#stadtplanung:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#stadtplanung:checked ~ .unserearbeit .stadtplanung {
-    display: block;
-}
-
-/* BILDUNG */
-#bildung:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#bildung:checked ~ .unserearbeit .bildung {
-    display: block;
-}
-
-/* ÖKOLOGIE */
-#ökologie:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#ökologie:checked ~ .unserearbeit .ökologie {
-    display: block;
-}
-
-/* WIRTSCHAFT */
-#wirtschaft:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#wirtschaft:checked ~ .unserearbeit .wirtschaft {
-    display: block;
-}
-
-/* MOBILITÄT */
-#mobilität:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#mobilität:checked ~ .unserearbeit .mobilität {
-    display: block;
-}
-
-/* SOZIALES */
-#soziales:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#soziales:checked ~ .unserearbeit .soziales {
-    display: block;
 }
 
 /* GRID statt Flex (viel besser für Layout) */
