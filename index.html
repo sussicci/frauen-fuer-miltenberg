@@ -178,17 +178,20 @@
         </p>
 
         <!-- INPUTS -->
-        <input type="radio" name="filter" id="aktiv">
-        <input type="radio" name="filter" id="gesucht">
-        <input type="radio" name="filter" id="fertig">
-        <input type="radio" name="filter" id="all" checked>
-        <input type="radio" name="filter" id="familie">
-        <input type="radio" name="filter" id="stadtplanung">
-        <input type="radio" name="filter" id="bildung">
-        <input type="radio" name="filter" id="ökologie">
-        <input type="radio" name="filter" id="wirtschaft">
-        <input type="radio" name="filter" id="soziales">
-        <input type="radio" name="filter" id="mobilität">
+
+        <input type="radio" name="status" id="aktiv">
+        <input type="radio" name="status" id="gesucht">
+        <input type="radio" name="status" id="fertig">
+        <input type="radio" name="status" id="status-all" checked>
+        
+        <input type="radio" name="category" id="familie">
+        <input type="radio" name="category" id="stadtplanung">
+        <input type="radio" name="category" id="bildung">
+        <input type="radio" name="category" id="ökologie">
+        <input type="radio" name="category" id="wirtschaft">
+        <input type="radio" name="category" id="soziales">
+        <input type="radio" name="category" id="mobilität">
+        <input type="radio" name="category" id="category-all" checked>
 
         <div class="mobile-filters">
 
@@ -222,11 +225,11 @@
                 <label for="aktiv">Aktiv</label>
                 <label for="gesucht">Mitmacherinnen gesucht</label>
                 <label for="fertig">Umgesetzt</label>
+                <label for="status-all">Alle Status</label>
             </div>
 
             <!-- untere Reihe -->
             <div class="filter-bottom">
-                <label for="all">Alles</label>
                 <label for="familie">Familie</label>
                 <label for="stadtplanung">Stadtplanung</label>
                 <label for="bildung">Bildung</label>
@@ -234,6 +237,7 @@
                 <label for="mobilität">Mobilität</label>
                 <label for="soziales">Soziales</label>
                 <label for="ökologie">Ökologie</label>
+                <label for="category-all">Alle Kategorien</label>
             </div>
         </div>
 
