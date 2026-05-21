@@ -857,64 +857,34 @@ input[type="radio"] {
     background-color: #5a189a;
     color: #F8FAFC;
 }
-/* Aktuelles */
 
-#aktuelles {
+.mobile-filters {
+  display: none;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mobile-filters select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .mobile-filters {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+  }
+
+  .filter-controls {
+    display: none; /* deine Buttons ausblenden */
+  }
 }
 
-.sliderbox {
-    width: 25%;
-    padding: 1rem;
-}
-
-.sliderbox:hover {
-    background-color:#8E44AD;
-    color: #1E293B;
-    cursor: pointer;
-}
-
-#sliderbox1 {
-    background-color: #7B2CBF;
-}
-
-#sliderbox2 {
-    background-color: #94A3B8;
-}
-
-#sliderbox3 {
-    background-color: #CBD5E1;
-}
-
-#sliderbox4 {
-    background-color: #E2E8F0;
-}
-
-#sliderbox1:hover {
-    background-color: #8E44AD;
-    color: #1E293B;
-}
-
-#sliderbox2:hover {
-    background-color: #8E44AD;
-}
-
-#sliderbox3:hover {
-    background-color: #8E44AD;
-}
-
-#sliderbox4:hover {
-    background-color: #8E44AD;
-}
-
-a h2 {
-margin-top: 0;
-}
-
-a p {
-    font-weight: 600;
-}
+/* Unsere Frauen */
 
 #unserefrauen {
     width: 100%;
@@ -1021,6 +991,67 @@ a p {
 .slider-btn:hover {
     background: #5a189a;
 }
+
+
+/* Aktuelles */
+
+#aktuelles {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sliderbox {
+    width: 25%;
+    padding: 1rem;
+}
+
+.sliderbox:hover {
+    background-color:#8E44AD;
+    color: #1E293B;
+    cursor: pointer;
+}
+
+#sliderbox1 {
+    background-color: #7B2CBF;
+}
+
+#sliderbox2 {
+    background-color: #94A3B8;
+}
+
+#sliderbox3 {
+    background-color: #CBD5E1;
+}
+
+#sliderbox4 {
+    background-color: #E2E8F0;
+}
+
+#sliderbox1:hover {
+    background-color: #8E44AD;
+    color: #1E293B;
+}
+
+#sliderbox2:hover {
+    background-color: #8E44AD;
+}
+
+#sliderbox3:hover {
+    background-color: #8E44AD;
+}
+
+#sliderbox4:hover {
+    background-color: #8E44AD;
+}
+
+a h2 {
+margin-top: 0;
+}
+
+a p {
+    font-weight: 600;
+}
+
 /* Footer */
 
 footer {
