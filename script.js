@@ -87,8 +87,6 @@ showLessBtn.addEventListener("click", () => {
 window.addEventListener("resize", updateDisplay);
 
 // INIT
-statusSelect.value = "status-all";
-categorySelect.value = "category-all";
 updateDisplay();
     
     /* =========================
