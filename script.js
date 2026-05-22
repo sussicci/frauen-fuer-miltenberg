@@ -29,21 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return document.querySelector('input[name="category"]:checked')?.value || "category-all";
 }
 
-    function matchesFilters(item) {
+   function matchesFilters(item) {;
 
-        const status = statusSelect?.value || getStatus();
-        const category = categorySelect?.value || getCategory();
+    const matchesStatus =
+        status === "status-all" || item.classList.contains(status);
 
-        const matchesStatus =
-            status === "status-all" || item.classList.contains(status);
+    const matchesCategory =
+        category === "category-all" || item.classList.contains(category);
 
-        const matchesCategory =
-            category === "category-all" || item.classList.contains(category);
-
-        return matchesStatus && matchesCategory;
+    return matchesStatus && matchesCategory;
 }
-}
-
+    
     function updateDisplay() {
         const perPage = getItemsPerPage();
         const filtered = allItems.filter(matchesFilters);
@@ -67,22 +63,45 @@ document.addEventListener("DOMContentLoaded", () => {
             page > 1 ? "inline-block" : "none";
 }
 
+function updateActiveLabels() {
+
+    document.querySelectorAll(".filter-controls label").forEach(label => {
+        label.classList.remove("active");
+    });
+
+    const status = getStatus();
+    const category = getCategory();
+
+    document.querySelectorAll(".filter-controls label").forEach(label => {
+
+        const input = document.getElementById(label.htmlFor);
+
+        if (input?.checked) {
+            label.classList.add("active");
+        }
+    });
+}
+
 // FILTER EVENTS (Dropdown)
     statusSelect?.addEventListener("change", () => {
         page = 1;
         updateDisplay();
+        updateActiveLabels();
 });
 
     categorySelect?.addEventListener("change", () => {
         page = 1;
         updateDisplay();
+        updateActiveLabels();
 });
+    
 
 // FILTER EVENTS (Radio)
     document.querySelectorAll('input[name="status"]').forEach(radio => {
         radio.addEventListener("change", () => {
             page = 1;
             updateDisplay();
+            updateActiveLabels();
     });
 });
 
@@ -90,22 +109,23 @@ document.addEventListener("DOMContentLoaded", () => {
         radio.addEventListener("change", () => {
             page = 1;
             updateDisplay();
+            updateActiveLabels();
     });
 });
 
 // LOAD MORE
-    loadMoreBtn.addEventListener("click", () => {
+    loadMoreBtn?.addEventListener("click", () => {
         page++;
         updateDisplay();
 });
 
     // SHOW LESS
-    showLessBtn.addEventListener("click", () => {
-        page = 1;
-        updateDisplay();
+    showLessBtn?.addEventListener("click", () => {
+    page = 1;
+    updateDisplay();
 
-        document.querySelector("#unserearbeit")
-            .scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#unserearbeit")
+        .scrollIntoView({ behavior: "smooth" });
 });
 
     // RESIZE
@@ -113,6 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // INIT
     updateDisplay();
+    updateActiveLabels();
+
+    document.querySelectorAll(".filter-controls label").forEach(label => {
+
+    const input = document.getElementById(label.htmlFor);
+
+    if (input?.checked) {
+        label.classList.add("active");
+    }
+});
     
     /* =========================
     COUNTER ANIMATION
