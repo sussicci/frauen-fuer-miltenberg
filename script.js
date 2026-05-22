@@ -21,9 +21,18 @@ function getItemsPerPage() {
     return columns * 2;
 }
 
+function getStatus() {
+    return document.querySelector('input[name="status"]:checked')?.value || "status-all";
+}
+
+function getCategory() {
+    return document.querySelector('input[name="category"]:checked')?.value || "category-all";
+}
+
 function matchesFilters(item) {
-    const status = statusSelect.value;
-    const category = categorySelect.value;
+
+    const status = statusSelect?.value || getStatus();
+    const category = categorySelect?.value || getCategory();
 
     const matchesStatus =
         status === "status-all" || item.classList.contains(status);
@@ -32,6 +41,7 @@ function matchesFilters(item) {
         category === "category-all" || item.classList.contains(category);
 
     return matchesStatus && matchesCategory;
+}
 }
 
 function updateDisplay() {
