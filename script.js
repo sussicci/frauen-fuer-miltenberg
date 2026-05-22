@@ -1,103 +1,118 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const allItems = Array.from(document.querySelectorAll(".arbeit"));
-const loadMoreBtn = document.getElementById("loadMoreBtn");
-const showLessBtn = document.getElementById("showLessBtn");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    const showLessBtn = document.getElementById("showLessBtn");
 
-const statusSelect = document.getElementById("statusFilterMobile");
-const categorySelect = document.getElementById("categoryFilterMobile");
+    const statusSelect = document.getElementById("statusFilterMobile");
+    const categorySelect = document.getElementById("categoryFilterMobile");
 
-let page = 1;
+    let page = 1;
 
-function getItemsPerPage() {
-    const grid = document.querySelector(".unserearbeit");
+    function getItemsPerPage() {
+        const grid = document.querySelector(".unserearbeit");
 
-    const firstItem = grid.querySelector(".arbeit");
-    if (!firstItem) return 6;
+        const firstItem = grid.querySelector(".arbeit");
+        if (!firstItem) return 6;
 
-    const columns = window.getComputedStyle(grid)
+        const columns = window.getComputedStyle(grid)
         .gridTemplateColumns.split(" ").length;
 
-    return columns * 2;
+        return columns * 2;
 }
 
-function getStatus() {
-    return document.querySelector('input[name="status"]:checked')?.value || "status-all";
+    function getStatus() {
+        return document.querySelector('input[name="status"]:checked')?.value || "status-all";
 }
 
-function getCategory() {
-    return document.querySelector('input[name="category"]:checked')?.value || "category-all";
+    function getCategory() {
+        return document.querySelector('input[name="category"]:checked')?.value || "category-all";
 }
 
-function matchesFilters(item) {
+    function matchesFilters(item) {
 
-    const status = statusSelect?.value || getStatus();
-    const category = categorySelect?.value || getCategory();
+        const status = statusSelect?.value || getStatus();
+        const category = categorySelect?.value || getCategory();
 
-    const matchesStatus =
-        status === "status-all" || item.classList.contains(status);
+        const matchesStatus =
+            status === "status-all" || item.classList.contains(status);
 
-    const matchesCategory =
-        category === "category-all" || item.classList.contains(category);
+        const matchesCategory =
+            category === "category-all" || item.classList.contains(category);
 
-    return matchesStatus && matchesCategory;
+        return matchesStatus && matchesCategory;
 }
 }
 
-function updateDisplay() {
-    const perPage = getItemsPerPage();
-    const filtered = allItems.filter(matchesFilters);
+    function updateDisplay() {
+        const perPage = getItemsPerPage();
+        const filtered = allItems.filter(matchesFilters);
 
-    const maxVisible = page * perPage;
+        const maxVisible = page * perPage;
 
-    filtered.forEach((item, index) => {
-        item.style.display = index < maxVisible ? "flex" : "none";
+        filtered.forEach((item, index) => {
+            item.style.display = index < maxVisible ? "" : "none";
     });
 
-    allItems.forEach(item => {
-        if (!filtered.includes(item)) {
-            item.style.display = "none";
+        allItems.forEach(item => {
+            if (!filtered.includes(item)) {
+                item.style.display = "none";
         }
     });
 
-    loadMoreBtn.style.display =
-        maxVisible >= filtered.length ? "none" : "inline-block";
+        loadMoreBtn.style.display =
+            maxVisible >= filtered.length ? "none" : "inline-block";
 
-    showLessBtn.style.display =
-        page > 1 ? "inline-block" : "none";
+        showLessBtn.style.display =
+            page > 1 ? "inline-block" : "none";
 }
 
 // FILTER EVENTS (Dropdown)
-statusSelect?.addEventListener("change", () => {
-    page = 1;
-    updateDisplay();
+    statusSelect?.addEventListener("change", () => {
+        page = 1;
+        updateDisplay();
 });
 
-categorySelect?.addEventListener("change", () => {
-    page = 1;
-    updateDisplay();
+    categorySelect?.addEventListener("change", () => {
+        page = 1;
+        updateDisplay();
+});
+
+// FILTER EVENTS (Radio)
+    document.querySelectorAll('input[name="status"]').forEach(radio => {
+        radio.addEventListener("change", () => {
+            page = 1;
+            updateDisplay();
+    });
+});
+
+    document.querySelectorAll('input[name="category"]').forEach(radio => {
+        radio.addEventListener("change", () => {
+            page = 1;
+            updateDisplay();
+    });
 });
 
 // LOAD MORE
-loadMoreBtn.addEventListener("click", () => {
-    page++;
-    updateDisplay();
+    loadMoreBtn.addEventListener("click", () => {
+        page++;
+        updateDisplay();
 });
 
-// SHOW LESS
-showLessBtn.addEventListener("click", () => {
-    page = 1;
-    updateDisplay();
+    // SHOW LESS
+    showLessBtn.addEventListener("click", () => {
+        page = 1;
+        updateDisplay();
 
-    document.querySelector("#unserearbeit")
-        .scrollIntoView({ behavior: "smooth" });
+        document.querySelector("#unserearbeit")
+            .scrollIntoView({ behavior: "smooth" });
 });
 
-// RESIZE
-window.addEventListener("resize", updateDisplay);
+    // RESIZE
+    window.addEventListener("resize", updateDisplay);
 
-// INIT
-updateDisplay();
+    // INIT
+    updateDisplay();
     
     /* =========================
     COUNTER ANIMATION
