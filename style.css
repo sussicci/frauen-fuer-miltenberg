@@ -582,6 +582,25 @@ input[type="radio"] {
     display: none;
 }
 
+/* AKTIVER FILTER */
+
+#aktiv:checked ~ .filter-controls label[for="aktiv"],
+#gesucht:checked ~ .filter-controls label[for="gesucht"],
+#fertig:checked ~ .filter-controls label[for="fertig"],
+#all:checked ~ .filter-controls label[for="all"],
+#familie:checked ~ .filter-controls label[for="familie"],
+#stadtplanung:checked ~ .filter-controls label[for="stadtplanung"],
+#bildung:checked ~ .filter-controls label[for="bildung"],
+#wirtschaft:checked ~ .filter-controls label[for="wirtschaft"],
+#mobilität:checked ~ .filter-controls label[for="mobilität"],
+#soziales:checked ~ .filter-controls label[for="soziales"],
+#ökologie:checked ~ .filter-controls label[for="ökologie"] {
+
+    background-color: #7B2CBF;
+    border-color: #7B2CBF;
+    color: #ffffff;
+}
+
 /* Labels als Buttons */
 .filter-controls label {
     display: inline-block;
@@ -645,6 +664,78 @@ input[type="radio"] {
 .status-badge.fertig {
     background: rgba(16,185,129,0.95);
     color: white;
+}
+
+/* ========================= */
+/* FILTER LOGIC (CSS ONLY) */
+/* ========================= */
+
+/* ALLE */
+#all:checked ~ .unserearbeit .arbeit {
+    display: block;
+}
+
+/* FAMILIE */
+#familie:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#familie:checked ~ .unserearbeit .familie {
+    display: block;
+}
+
+/* STADTPLANUNG */
+#stadtplanung:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#stadtplanung:checked ~ .unserearbeit .stadtplanung {
+    display: block;
+}
+
+/* BILDUNG */
+#bildung:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#bildung:checked ~ .unserearbeit .bildung {
+    display: block;
+}
+
+/* ÖKOLOGIE */
+#ökologie:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#ökologie:checked ~ .unserearbeit .ökologie {
+    display: block;
+}
+
+/* WIRTSCHAFT */
+#wirtschaft:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#wirtschaft:checked ~ .unserearbeit .wirtschaft {
+    display: block;
+}
+
+/* MOBILITÄT */
+#mobilität:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#mobilität:checked ~ .unserearbeit .mobilität {
+    display: block;
+}
+
+/* SOZIALES */
+#soziales:checked ~ .unserearbeit .arbeit {
+    display: none;
+}
+
+#soziales:checked ~ .unserearbeit .soziales {
+    display: block;
 }
 
 /* GRID statt Flex (viel besser für Layout) */
@@ -766,33 +857,6 @@ input[type="radio"] {
     background-color: #5a189a;
     color: #F8FAFC;
 }
-
-.mobile-filters {
-  display: none;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.mobile-filters select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .mobile-filters {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .filter-controls {
-    display: none; /* deine Buttons ausblenden */
-  }
-}
-
 /* Unsere Frauen */
 
 #unserefrauen {
@@ -900,7 +964,6 @@ input[type="radio"] {
 .slider-btn:hover {
     background: #5a189a;
 }
-
 
 /* Aktuelles */
 
