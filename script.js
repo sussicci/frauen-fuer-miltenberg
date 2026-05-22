@@ -1,56 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const allItems = Array.from(document.querySelectorAll(".arbeit"));
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    const showLessBtn = document.getElementById("showLessBtn");
+    /* =========================
+   UNSERE ARBEIT FILTER
+========================= */
 
-    const statusSelect = document.getElementById("statusFilterMobile");
-    const categorySelect = document.getElementById("categoryFilterMobile");
+const items = document.querySelectorAll(".arbeit");
 
-    let page = 1;
+/* STATUS */
 
-    function getItemsPerPage() {
-        const grid = document.querySelector(".unserearbeit");
-
-        const firstItem = grid.querySelector(".arbeit");
-        if (!firstItem) return 6;
-
-        const columns = window.getComputedStyle(grid)
-        .gridTemplateColumns.split(" ").length;
-
-        return columns * 2;
-}
-
-    function getStatus() {
-        return document.querySelector('input[name="status"]:checked')?.value || "status-all";
-}
-
-    function getCategory() {
-        return document.querySelector('input[name="category"]:checked')?.value || "category-all";
-}
-
-    function getStatus() {
+function getStatus() {
     return document.querySelector('input[name="status"]:checked').value;
 }
+
+/* KATEGORIE */
 
 function getCategory() {
     return document.querySelector('input[name="category"]:checked').value;
 }
-    
-   function matchesFilters(item) {
+
+/* FILTER LOGIK */
+
+function matchesFilters(item) {
+
     const status = getStatus();
     const category = getCategory();
 
     const matchesStatus =
-        status === "status-all" || item.classList.contains(status);
+        status === "status-all" ||
+        item.classList.contains(status);
 
     const matchesCategory =
-        category === "category-all" || item.classList.contains(category);
+        category === "category-all" ||
+        item.classList.contains(category);
 
     return matchesStatus && matchesCategory;
 }
 
-    const items = document.querySelectorAll(".arbeit");
+/* FILTER ANWENDEN */
 
 function applyFilters() {
 
@@ -65,105 +51,57 @@ function applyFilters() {
     });
 
 }
-    
-        allItems.forEach(item => {
-            if (!filtered.includes(item)) {
-                item.style.display = "none";
-        }
-    });
 
-        loadMoreBtn.style.display =
-            maxVisible >= filtered.length ? "none" : "inline-block";
+/* DESKTOP FILTER */
 
-        showLessBtn.style.display =
-            page > 1 ? "inline-block" : "none";
-}
-
-function updateActiveLabels() {
-
-    document.querySelectorAll(".filter-controls label").forEach(label => {
-        label.classList.remove("active");
-    });
-
-    const status = getStatus();
-    const category = getCategory();
-
-    document.querySelectorAll(".filter-controls label").forEach(label => {
-
-        const input = document.getElementById(label.htmlFor);
-
-        if (input?.checked) {
-            label.classList.add("active");
-        }
-    });
-}
-
-// FILTER EVENTS (Dropdown)
-    statusSelect?.addEventListener("change", () => {
-        page = 1;
-        updateDisplay();
-        updateActiveLabels();
-});
-
-    categorySelect?.addEventListener("change", () => {
-        page = 1;
-        updateDisplay();
-        updateActiveLabels();
-});
-    
-
-// FILTER EVENTS (Radio)
-    document.querySelectorAll('input[name="status"]').forEach(radio => {
-        radio.addEventListener("change", () => {
-            page = 1;
-            updateDisplay();
-            updateActiveLabels();
-    });
-});
-
-    document.querySelectorAll('input[name="category"]').forEach(radio => {
-        radio.addEventListener("change", () => {
-            page = 1;
-            updateDisplay();
-            updateActiveLabels();
-    });
-});
-
-// LOAD MORE
-    loadMoreBtn?.addEventListener("click", () => {
-        page++;
-        updateDisplay();
-});
-
-    // SHOW LESS
-    showLessBtn?.addEventListener("click", () => {
-    page = 1;
-    updateDisplay();
-
-    document.querySelector("#unserearbeit")
-        .scrollIntoView({ behavior: "smooth" });
-});
-
-    // RESIZE
-    window.addEventListener("resize", updateDisplay);
-
-    // INIT
-    updateDisplay();
-    updateActiveLabels();
-
-    document.querySelectorAll(".filter-controls label").forEach(label => {
-
-    const input = document.getElementById(label.htmlFor);
-
-    if (input?.checked) {
-        label.classList.add("active");
-    }
-
-        document
+document
     .querySelectorAll('input[name="status"], input[name="category"]')
     .forEach(input => {
+
         input.addEventListener("change", applyFilters);
+
     });
+
+/* MOBILE FILTER */
+
+const statusSelect = document.getElementById("statusFilterMobile");
+const categorySelect = document.getElementById("categoryFilterMobile");
+
+/* STATUS MOBILE */
+
+statusSelect?.addEventListener("change", () => {
+
+    const radio = document.querySelector(
+        `input[name="status"][value="${statusSelect.value}"]`
+    );
+
+    if (radio) {
+        radio.checked = true;
+    }
+
+    applyFilters();
+
+});
+
+/* CATEGORY MOBILE */
+
+categorySelect?.addEventListener("change", () => {
+
+    const radio = document.querySelector(
+        `input[name="category"][value="${categorySelect.value}"]`
+    );
+
+    if (radio) {
+        radio.checked = true;
+    }
+
+    applyFilters();
+
+});
+
+/* INIT */
+
+applyFilters();
 });
     
     /* =========================
