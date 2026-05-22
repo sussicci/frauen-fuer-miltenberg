@@ -29,7 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return document.querySelector('input[name="category"]:checked')?.value || "category-all";
 }
 
-   function matchesFilters(item) {;
+   function matchesFilters(item) {
+
+    const status = statusSelect && statusSelect.value !== ""
+        ? statusSelect.value
+        : getStatus();
+
+    const category = categorySelect && categorySelect.value !== ""
+        ? categorySelect.value
+        : getCategory();
 
     const matchesStatus =
         status === "status-all" || item.classList.contains(status);
@@ -38,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         category === "category-all" || item.classList.contains(category);
 
     return matchesStatus && matchesCategory;
-}
-    
+}    
     function updateDisplay() {
         const perPage = getItemsPerPage();
         const filtered = allItems.filter(matchesFilters);
