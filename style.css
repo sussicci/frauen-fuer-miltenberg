@@ -582,26 +582,6 @@ input[type="radio"] {
     display: none;
 }
 
-/* AKTIVER FILTER */
-
-#aktiv:checked ~ .filter-controls label[for="aktiv"],
-#gesucht:checked ~ .filter-controls label[for="gesucht"],
-#fertig:checked ~ .filter-controls label[for="fertig"],
-#status-all:checked ~ .unserearbeit .arbeit { display: block; }
-#category-all:checked ~ .unserearbeit .arbeit { display: block; }
-#familie:checked ~ .filter-controls label[for="familie"],
-#stadtplanung:checked ~ .filter-controls label[for="stadtplanung"],
-#bildung:checked ~ .filter-controls label[for="bildung"],
-#wirtschaft:checked ~ .filter-controls label[for="wirtschaft"],
-#mobilität:checked ~ .filter-controls label[for="mobilität"],
-#soziales:checked ~ .filter-controls label[for="soziales"],
-#ökologie:checked ~ .filter-controls label[for="ökologie"] {
-
-    background-color: #7B2CBF;
-    border-color: #7B2CBF;
-    color: #ffffff;
-}
-
 /* Labels als Buttons */
 .filter-controls label {
     display: inline-block;
