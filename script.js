@@ -102,7 +102,6 @@ categorySelect?.addEventListener("change", () => {
 /* INIT */
 
 applyFilters();
-});
     
     /* =========================
     COUNTER ANIMATION
