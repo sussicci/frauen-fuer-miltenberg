@@ -29,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return document.querySelector('input[name="category"]:checked')?.value || "category-all";
 }
 
+    function getStatus() {
+    return document.querySelector('input[name="status"]:checked').value;
+}
+
+function getCategory() {
+    return document.querySelector('input[name="category"]:checked').value;
+}
+    
    function matchesFilters(item) {
     const status = getStatus();
     const category = getCategory();
@@ -42,6 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return matchesStatus && matchesCategory;
 }
 
+    const items = document.querySelectorAll(".arbeit");
+
+function applyFilters() {
+
+    items.forEach(item => {
+
+        if (matchesFilters(item)) {
+            item.style.display = "flex";
+        } else {
+            item.style.display = "none";
+        }
+
+    });
+
+}
+    
         allItems.forEach(item => {
             if (!filtered.includes(item)) {
                 item.style.display = "none";
@@ -134,6 +158,12 @@ function updateActiveLabels() {
     if (input?.checked) {
         label.classList.add("active");
     }
+
+        document
+    .querySelectorAll('input[name="status"], input[name="category"]')
+    .forEach(input => {
+        input.addEventListener("change", applyFilters);
+    });
 });
     
     /* =========================
