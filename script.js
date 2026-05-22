@@ -30,14 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
    function matchesFilters(item) {
-
-    const status = statusSelect && statusSelect.value !== ""
-        ? statusSelect.value
-        : getStatus();
-
-    const category = categorySelect && categorySelect.value !== ""
-        ? categorySelect.value
-        : getCategory();
+    const status = getStatus();
+    const category = getCategory();
 
     const matchesStatus =
         status === "status-all" || item.classList.contains(status);
@@ -46,16 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         category === "category-all" || item.classList.contains(category);
 
     return matchesStatus && matchesCategory;
-}    
-    function updateDisplay() {
-        const perPage = getItemsPerPage();
-        const filtered = allItems.filter(matchesFilters);
-
-        const maxVisible = page * perPage;
-
-        filtered.forEach((item, index) => {
-            item.style.display = index < maxVisible ? "" : "none";
-    });
+}
 
         allItems.forEach(item => {
             if (!filtered.includes(item)) {
