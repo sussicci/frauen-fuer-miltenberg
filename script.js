@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // AUTO SLIDE 
     
-    let interval = setInterval(nextSlide, 3000); 
+    let interval = setInterval(nextSlide, 5000); 
     
     // PAUSE ON HOVER 
     
