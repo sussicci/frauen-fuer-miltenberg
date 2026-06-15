@@ -79,14 +79,14 @@ img {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center; 
-    height: 7rem;
+    height: 12rem;
     background-color: #ffffff;
     color: #1E293B;
-    padding: 0 5% 0 1%;
+    padding: 0 5% 0 5%;
 }
 
 #logo {
-    height: 5rem;
+    height: 10rem;
 }
 
 nav {
