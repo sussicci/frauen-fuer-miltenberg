@@ -14,13 +14,29 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
     function sortItems(items) {
-    return items.sort((a, b) => {
-        const aActive = a.classList.contains("aktiv");
-        const bActive = b.classList.contains("aktiv");
 
-        if (aActive && !bActive) return -1;
-        if (!aActive && bActive) return 1;
-        return 0;
+    const priority = {
+        fertig: 0,
+        aktiv: 1,
+        gesucht: 2
+    };
+
+    return [...items].sort((a, b) => {
+
+        let aRank = 99;
+        let bRank = 99;
+
+        for (const status in priority) {
+            if (a.classList.contains(status)) {
+                aRank = priority[status];
+            }
+
+            if (b.classList.contains(status)) {
+                bRank = priority[status];
+            }
+        }
+
+        return aRank - bRank;
     });
 }
     
@@ -37,28 +53,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateDisplay() {
-        let filtered = getFilteredItems();
-            filtered = sortItems(filtered);
-        const perPage = getItemsPerPage();
-        const maxVisible = page * perPage;
 
-        filtered.forEach((item, index) => {
-            item.style.display = index < maxVisible ? "flex" : "none";
-        });
+    let filtered = getFilteredItems();
+    filtered = sortItems(filtered);
 
-        allItems.forEach(item => {
-            if (!filtered.includes(item)) {
-                item.style.display = "none";
-            }
-        });
+    const grid = document.querySelector(".unserearbeit");
 
-        button.style.display =
-        maxVisible >= filtered.length ? "none" : "inline-block";
+    filtered.forEach(item => {
+        grid.appendChild(item);
+    });
 
-        showLessBtn.style.display =
-        page > 1 ? "inline-block" : "none";
-    }
+    const perPage = getItemsPerPage();
+    const maxVisible = page * perPage;
 
+    filtered.forEach((item, index) => {
+        item.style.display = index < maxVisible ? "flex" : "none";
+    });
+
+    allItems.forEach(item => {
+        if (!filtered.includes(item)) {
+            item.style.display = "none";
+        }
+    });
+
+    button.style.display =
+        maxVisible >= filtered.length
+            ? "none"
+            : "inline-block";
+
+    showLessBtn.style.display =
+        page > 1
+            ? "inline-block"
+            : "none";
+}
     // LOAD MORE
     button.addEventListener("click", () => {
         page++;
