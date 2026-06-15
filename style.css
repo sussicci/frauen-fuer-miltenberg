@@ -666,77 +666,7 @@ input[type="radio"] {
     color: white;
 }
 
-/* ========================= */
-/* FILTER LOGIC (CSS ONLY) */
-/* ========================= */
 
-/* ALLE */
-#all:checked ~ .unserearbeit .arbeit {
-    display: block;
-}
-
-/* FAMILIE */
-#familie:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#familie:checked ~ .unserearbeit .familie {
-    display: block;
-}
-
-/* STADTPLANUNG */
-#stadtplanung:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#stadtplanung:checked ~ .unserearbeit .stadtplanung {
-    display: block;
-}
-
-/* BILDUNG */
-#bildung:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#bildung:checked ~ .unserearbeit .bildung {
-    display: block;
-}
-
-/* ÖKOLOGIE */
-#ökologie:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#ökologie:checked ~ .unserearbeit .ökologie {
-    display: block;
-}
-
-/* WIRTSCHAFT */
-#wirtschaft:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#wirtschaft:checked ~ .unserearbeit .wirtschaft {
-    display: block;
-}
-
-/* MOBILITÄT */
-#mobilität:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#mobilität:checked ~ .unserearbeit .mobilität {
-    display: block;
-}
-
-/* SOZIALES */
-#soziales:checked ~ .unserearbeit .arbeit {
-    display: none;
-}
-
-#soziales:checked ~ .unserearbeit .soziales {
-    display: block;
-}
 
 /* GRID statt Flex (viel besser für Layout) */
 .unserearbeit {
