@@ -133,6 +133,7 @@
     </div>
 
 </footer>
+    
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -205,8 +206,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function formatDate(dateString) {
-        return new Date(dateString).toLocaleDateString("de-DE");
-    }
+    return new Date(dateString).toLocaleDateString("de-DE", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
 
     /* FILTER */
     filterButtons.forEach(button => {
