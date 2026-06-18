@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (entry.isIntersecting && !counterStarted) {
 
                 counterStarted = true;
-                animateCounter(47);
+                animateCounter(49);
             }
         });
 
