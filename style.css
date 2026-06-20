@@ -80,14 +80,14 @@ img {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center; 
-    height: 10rem;
+    height: 12rem;
     background-color: #ffffff;
     color: #1E293B;
     padding: 0 5% 0 5%;
 }
 
 #logo {
-    height: 8rem;
+    height: 9rem;
 }
 
 nav {
@@ -98,7 +98,8 @@ nav {
 
 #nav1 {
     display: flex;
-    gap: 2rem; 
+    gap: 3rem;
+    font-size: 1.2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -245,7 +246,7 @@ a:hover {
     font-size: 0.85rem;
     font-weight: 700;
 
-    color: #7B2CBF;
+    color: #64748B;
 }
 
 .highlight-content h3 {
@@ -254,7 +255,7 @@ a:hover {
     font-size: 1.25rem;
     line-height: 1.4;
 
-    color: #111827;
+    color: #0F172A;
 }
 
 .highlight-location {
@@ -366,7 +367,7 @@ a:hover {
 .about-intro p {
     font-size: 1.15rem;
     line-height: 1.9;
-    color: #334155;
+    color: #475569;
 }
 
 .eyebrow {
@@ -398,7 +399,7 @@ a:hover {
 }
 
 .highlight-text h3 {
-    color: #111827;
+    color: #0F172A;
     font-size: 1.4rem;
 }
 
@@ -608,7 +609,7 @@ input[type="radio"] {
     padding: 0.5rem 1rem;
     margin: 0rem;
     border: 2px solid #7B2CBF;
-    color: #111827;
+    color: #0F172A;
     border-radius: 2rem;
     cursor: pointer;
     transition: 0.2s;
@@ -716,7 +717,7 @@ input[type="radio"] {
     margin: 0.5rem 0;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 /* Link Styling */
@@ -728,6 +729,10 @@ input[type="radio"] {
 
 .arbeit a:hover {
     text-decoration: underline;
+}
+
+.arbeit p {
+    color: #475569;
 }
 
 .load-more-container {
@@ -859,12 +864,12 @@ input[type="radio"] {
 
 .text h3 {
     margin-top: 0;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 .text p {
     line-height: 1.7;
-    color: #334155;
+    color: #475569;
 }
 
 /* Pfeile */
@@ -1528,7 +1533,7 @@ footer {
 }
 
 #legal-page h1 {
-    color: #1E293B;
+    color: #0F172A;
     font-size: 3rem;
     margin-bottom: 3rem;
 }
@@ -1542,7 +1547,7 @@ footer {
 
 #legal-page h3 {
     margin-top: 2rem;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 #legal-page h4 {
@@ -1555,6 +1560,7 @@ footer {
 #legal-page li {
     font-size: 1rem;
     line-height: 1.9;
+    color: #475569;
 }
 
 #legal-page p {
