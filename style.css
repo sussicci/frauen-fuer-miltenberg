@@ -47,12 +47,13 @@ h1 {
 h2 {
     font-size: 2.2rem;
     font-weight: 700;
+    color: #0F172A
 }
 
 h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 h4 {
@@ -1430,7 +1431,7 @@ footer {
 
 .modal-content h2 {
     margin-top: 0;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 .modal-content p {
@@ -1534,7 +1535,7 @@ footer {
 
 #legal-page h2 {
     margin-top: 4rem;
-    color: #1E293B;
+    color: #0F172A;
     padding-top: 2rem;
     border-top: 1px solid #CBD5E1;
 }
