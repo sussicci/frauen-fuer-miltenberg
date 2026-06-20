@@ -909,7 +909,7 @@ input[type="radio"] {
 
 .sliderbox:hover {
     background-color:#8E44AD;
-    color: #1E293B;
+    color: #0F172A;
     cursor: pointer;
 }
 
@@ -931,7 +931,7 @@ input[type="radio"] {
 
 #sliderbox1:hover {
     background-color: #8E44AD;
-    color: #1E293B;
+    color: #0F172A;
 }
 
 #sliderbox2:hover {
