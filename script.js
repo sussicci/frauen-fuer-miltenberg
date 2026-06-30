@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-/* ========================= 
+========================= 
         FRAUEN SLIDER 
 ========================= 
     
@@ -312,4 +312,4 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(interval); 
         interval = setInterval(nextSlide, 3000);
     }
-});*/ 
+}); 
