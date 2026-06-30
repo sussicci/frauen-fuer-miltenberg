@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#unserearbeit")
             .scrollIntoView({ behavior: "smooth" });
     });
-    } 
+     
     // FILTER CHANGE
     filters.forEach(filter => {
         filter.addEventListener("change", () => {
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
-}
+
     /* ESC */
 
     document.addEventListener("keydown", (e) => {
