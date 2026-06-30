@@ -252,9 +252,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-========================= 
+/*========================= 
         FRAUEN SLIDER 
-========================= 
+========================= */
     
     const slider = document.querySelector(".frauen-slider"); 
     const slides = document.querySelectorAll(".frau"); 
