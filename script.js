@@ -86,8 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "inline-block"
             : "none";
 }
-    // LOAD MORE
-    button.addEventListener("click", () => {
+    // LOAD MORE 
+    /*
+        button.addEventListener("click", () => {
         page++;
         updateDisplay();
     });
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#unserearbeit")
             .scrollIntoView({ behavior: "smooth" });
     });
-
+    } */
     // FILTER CHANGE
     filters.forEach(filter => {
         filter.addEventListener("change", () => {
@@ -212,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
-
+}
     /* ESC */
 
     document.addEventListener("keydown", (e) => {
@@ -253,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ========================= 
         FRAUEN SLIDER 
-========================= */ 
+========================= 
     
     const slider = document.querySelector(".frauen-slider"); 
     const slides = document.querySelectorAll(".frau"); 
@@ -311,4 +312,4 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(interval); 
         interval = setInterval(nextSlide, 3000);
     }
-});
+});*/ 
