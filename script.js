@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "none";
 }
     // LOAD MORE 
-    /*
+    
         button.addEventListener("click", () => {
         page++;
         updateDisplay();
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#unserearbeit")
             .scrollIntoView({ behavior: "smooth" });
     });
-    } */
+    } 
     // FILTER CHANGE
     filters.forEach(filter => {
         filter.addEventListener("change", () => {
