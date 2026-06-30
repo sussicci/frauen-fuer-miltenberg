@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /*const allItems = Array.from(document.querySelectorAll(".arbeit"));
+    const allItems = Array.from(document.querySelectorAll(".arbeit"));
     const button = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
     const filters = document.querySelectorAll('input[name="filter"]');
@@ -166,9 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(highlightSection);
 
-    /* =========================
+    /*=========================
     MODAL
-    ========================= 
+    =========================*/
 
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modalTitle");
@@ -198,13 +198,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* schließen 
+    /* schließen */
 
     closeModal.addEventListener("click", () => {
         modal.classList.remove("active");
     });
 
-    /* klick außerhalb 
+    /* klick außerhalb */
 
     modal.addEventListener("click", (e) => {
 
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* ESC 
+    /* ESC */
 
     document.addEventListener("keydown", (e) => {
 
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*========================= 
         FRAUEN SLIDER 
-========================= 
+=========================*/ 
     
     const slider = document.querySelector(".frauen-slider"); 
     const slides = document.querySelectorAll(".frau"); 
@@ -311,5 +311,5 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetAuto() { 
         clearInterval(interval); 
         interval = setInterval(nextSlide, 3000);
-    }*/
+    }
 }); 
