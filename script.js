@@ -1,5 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* =========================
+    HAMBURGER MENU
+    ========================= */
+
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+    const navLinks = document.querySelectorAll(".nav1");
+
+    hamburger.addEventListener("click", () => {
+
+        hamburger.classList.toggle("active");
+        mobileNav.classList.toggle("active");
+
+    });
+
+    /* Menü schließen bei Klick */
+
+    navLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            hamburger.classList.remove("active");
+            mobileNav.classList.remove("active");
+
+        });
+
+    });
+    
+    /* =========================
+    COUNTER ANIMATION
+    ========================= */
+
+    const counter = document.getElementById("counter");
+    const highlightSection = document.querySelector(".about-highlight");
+
+    let counterStarted = false;
+
+    function animateCounter(target, duration = 1500) {
+
+        let start = 0;
+        const step = target / (duration / 16);
+
+        function update() {
+
+            start += step;
+
+            if (start < target) {
+                counter.textContent = Math.floor(start);
+                requestAnimationFrame(update);
+            } else {
+                counter.textContent = target;
+            }
+        }
+
+        update();
+    }
+
+    /* Trigger nur wenn sichtbar */
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting && !counterStarted) {
+
+                counterStarted = true;
+                animateCounter(49);
+            }
+        });
+
+    }, {
+        threshold: 0.5
+    });
+
+    observer.observe(highlightSection);
+
+    /*========================= 
+        UNSERE ARBEIT
+    =========================*/
     const allItems = Array.from(document.querySelectorAll(".arbeit"));
     const button = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
@@ -118,54 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // INIT
     updateDisplay();
 
-    /* =========================
-    COUNTER ANIMATION
-    ========================= */
-
-    const counter = document.getElementById("counter");
-    const highlightSection = document.querySelector(".about-highlight");
-
-    let counterStarted = false;
-
-    function animateCounter(target, duration = 1500) {
-
-        let start = 0;
-        const step = target / (duration / 16);
-
-        function update() {
-
-            start += step;
-
-            if (start < target) {
-                counter.textContent = Math.floor(start);
-                requestAnimationFrame(update);
-            } else {
-                counter.textContent = target;
-            }
-        }
-
-        update();
-    }
-
-    /* Trigger nur wenn sichtbar */
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting && !counterStarted) {
-
-                counterStarted = true;
-                animateCounter(49);
-            }
-        });
-
-    }, {
-        threshold: 0.5
-    });
-
-    observer.observe(highlightSection);
-
+    
     /*=========================
     MODAL
     =========================*/
@@ -221,34 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape") {
             modal.classList.remove("active");
         }
-
-    });
-
-    /* =========================
-    HAMBURGER MENU
-    ========================= */
-
-    const hamburger = document.getElementById("hamburger");
-    const mobileNav = document.getElementById("mobileNav");
-    const navLinks = document.querySelectorAll(".nav1");
-
-    hamburger.addEventListener("click", () => {
-
-        hamburger.classList.toggle("active");
-        mobileNav.classList.toggle("active");
-
-    });
-
-    /* Menü schließen bei Klick */
-
-    navLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            hamburger.classList.remove("active");
-            mobileNav.classList.remove("active");
-
-        });
 
     });
 
