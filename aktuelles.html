@@ -186,9 +186,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 article.innerHTML = `
                     <div class="card-number">${formatDate(post.date)}</div>
                     <h3>${post.title}</h3>
-                    <p>${post.text}</p>
+                    ${renderContent(post.content)}
                     <a class="card-btn" href="${post.link}">
-                    ${post.linkText}
+                        ${post.linkText}
                     </a>
                 `;
 
@@ -215,6 +215,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 }
 
+    function renderContent(content) {
+    if (!content) return "";
+
+    return content.map(block => {
+
+        if (block.type === "paragraph") {
+            return `<p>${block.text}</p>`;
+        }
+
+        if (block.type === "list") {
+            return `
+                <ul>
+                    ${block.items.map(item => `<li>${item}</li>`).join("")}
+                </ul>
+            `;
+        }
+
+        return "";
+
+    }).join("");
+}
+    
     /* FILTER */
     filterButtons.forEach(button => {
         button.addEventListener("click", () => {
