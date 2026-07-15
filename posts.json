@@ -2,8 +2,34 @@
   {
     "date": "2026-07-23",
     "title": "Nächstes Treffen: Sommerfest – wir feiern die Gründung unserer Arbeitsgruppen und erfahren, wie lokale Projekte erfolgreich umgesetzt werden können.",
-    "text": "Am Donnerstag, 23. Juli um 18:30 Uhr lädt die Initiative zum Sommerfest beim Obst- und Gartenbauverein im Miltenberger Stadtpark ein. Herzlich eingeladen sind alle interessierten Frauen aus Miltenberg und Umgebung. Ob bereits aktiv oder einfach neugierig – der Abend bietet die ideale Gelegenheit, die Initiative kennenzulernen, Menschen zu treffen und sich inspirieren zu lassen. Einige Programmpunkte setzen zusätzliche Impulse: Wer möchte, kann ein T-Shirt mitbringen und es vor Ort im Siebdruckverfahren mit unserem neuen Logo gestalten lassen. Als besonderer Gast ist der Verein „Frauen für Frauen e.V.“ aus Erlenbach dabei, der sich seit vielen Jahren erfolgreich für die Interessen von Frauen engagiert. Vertreterinnen stellen ihre Arbeit vor und stehen für Austausch und Fragen zur Verfügung. Die Arbeitsgruppen geben Einblicke in ihre ersten Themen und zeigen, wie Mitwirkung konkret aussehen kann. Für eine entspannte Atmosphäre sorgt ein Mitbring-Buffet mit Fokus auf Fingerfood, zu dem jede gern etwas beitragen kann. Getränke sind gegen eine freiwillige Spende erhältlich. Wer dabei ist, erlebt einen Sommerabend mit vielen Begegnungen, neuen Eindrücken und guten Gesprächen – und vielleicht entsteht daraus der Anfang für gemeinsames Gestalten in Miltenberg.",
-    "type": "termin",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Am Donnerstag, 23. Juli um 18:30 Uhr lädt die Initiative zum Sommerfest beim Obst- und Gartenbauverein im Miltenberger Stadtpark ein. Herzlich eingeladen sind alle interessierten Frauen aus Miltenberg und Umgebung."
+      },
+      {
+        "type": "paragraph",
+        "text": "Ob bereits aktiv oder einfach neugierig – der Abend bietet die ideale Gelegenheit, die Initiative kennenzulernen, Menschen zu treffen und sich inspirieren zu lassen. Einige Programmpunkte setzen zusätzliche Impulse:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Wer möchte, kann ein T-Shirt mitbringen und es vor Ort im Siebdruckverfahren mit unserem neuen Logo gestalten lassen.",
+          "Als besonderer Gast ist der Verein „Frauen für Frauen e.V.“ aus Erlenbach dabei, der sich seit vielen Jahren erfolgreich für die Interessen von Frauen engagiert. Vertreterinnen stellen ihre Arbeit vor und stehen für Austausch und Fragen zur Verfügung.",
+          "Die Arbeitsgruppen geben Einblicke in ihre ersten Themen und zeigen, wie Mitwirkung konkret aussehen kann.",
+          "Siebdruck mit neuem Logo",
+          "Mitbring-Buffet und gemütliches Beisammensein"
+        ]
+      {
+        "type": "paragraph",
+        "text": "Für eine entspannte Atmosphäre sorgt ein Mitbring-Buffet mit Fokus auf Fingerfood, zu dem jede gern etwas beitragen kann. Getränke sind gegen eine freiwillige Spende erhältlich."
+      }
+      {
+        "type": "paragraph",
+        "text": "Wer dabei ist, erlebt einen Sommerabend mit vielen Begegnungen, neuen Eindrücken und guten Gesprächen – und vielleicht entsteht daraus der Anfang für gemeinsames Gestalten in Miltenberg."
+      }
+    ],
+    "type": "veranstaltung",
     "linkText": "Anmelden",
     "link": "mailto:frauen.fuer.miltenberg@gmail.com"
   },  
