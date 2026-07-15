@@ -16,9 +16,7 @@
         "items": [
           "Wer möchte, kann ein T-Shirt mitbringen und es vor Ort im Siebdruckverfahren mit unserem neuen Logo gestalten lassen.",
           "Als besonderer Gast ist der Verein „Frauen für Frauen e.V.“ aus Erlenbach dabei, der sich seit vielen Jahren erfolgreich für die Interessen von Frauen engagiert. Vertreterinnen stellen ihre Arbeit vor und stehen für Austausch und Fragen zur Verfügung.",
-          "Die Arbeitsgruppen geben Einblicke in ihre ersten Themen und zeigen, wie Mitwirkung konkret aussehen kann.",
-          "Siebdruck mit neuem Logo",
-          "Mitbring-Buffet und gemütliches Beisammensein"
+          "Die Arbeitsgruppen geben Einblicke in ihre ersten Themen und zeigen, wie Mitwirkung konkret aussehen kann."
         ]
       },
       {
@@ -37,7 +35,12 @@
   {
     "date": "2026-06-23",
     "title": "Artikel: Miltenberg vernetzt sich: „Frauen für Miltenberg“ laden zum Sommerfest ein",
-    "content": "Die Initiative „Frauen für Miltenberg“ nimmt weiter Fahrt auf: Aus den ersten Treffen ist ein lebendiges Netzwerk entstanden. Rund 50 Frauen aus Miltenberg und Umgebung sind inzwischen dabei, etwa 20 von ihnen engagieren sich bereits in Arbeitsgruppen...",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Die Initiative „Frauen für Miltenberg“ nimmt weiter Fahrt auf: Aus den ersten Treffen ist ein lebendiges Netzwerk entstanden. Rund 50 Frauen aus Miltenberg und Umgebung sind inzwischen dabei, etwa 20 von ihnen engagieren sich bereits in Arbeitsgruppen..."
+      }
+    ],
     "type": "presse",
     "linkText": "Zum Artikel",
     "link": "https://www.meine-news.de/miltenberg/c-politik/miltenberg-vernetzt-sich-frauen-fuer-miltenberg-laden-zum-sommerfest-ein_a237760"
@@ -45,7 +48,12 @@
   {
     "date": "2026-05-18",
     "title": "Nächstes Treffen: Themen priorisieren und Arbeitskreise bilden",
-    "content": "Am Montag, 18. Mai, um 19 Uhr im Kindergarten St. Franziskus in Miltenberg geht es weiter. Alle Miltenbergerinnen und Frauen aus dem Miltenberger Raum sind herzlich eingeladen!\n\nGeplant sind:\n- die Priorisierung der bisher gesammelten Themen,\n- die Gründung erster Arbeitskreise,\n- sowie die weitere organisatorische Planung der Initiative.\n\nSpontane Teilnahme ist willkommen, eine Anmeldung erleichtert jedoch die Planung.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Am Montag, 18. Mai, um 19 Uhr im Kindergarten St. Franziskus in Miltenberg geht es weiter. Alle Miltenbergerinnen und Frauen aus dem Miltenberger Raum sind herzlich eingeladen!\n\nGeplant sind:\n- die Priorisierung der bisher gesammelten Themen,\n- die Gründung erster Arbeitskreise,\n- sowie die weitere organisatorische Planung der Initiative.\n\nSpontane Teilnahme ist willkommen, eine Anmeldung erleichtert jedoch die Planung."
+      }
+    ],
     "type": "termin",
     "linkText": "Anmelden",
     "link": "mailto:frauen.fuer.miltenberg@gmail.com"
@@ -53,7 +61,12 @@
   {
     "date": "2026-05-11",
     "title": "Artikel: Aufbruchstimmung & Tatendrang für mehr Mitgestaltung sowie nächster Termin",
-    "content": "Nur einen Tag nach der Stadtratswahl gegründet und wenige Wochen später bereits mit großem Zuspruch gestartet: Die neue Initiative „Frauen für Miltenberg“ traf sich am 22. April um Ideen auszutauschen...",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nur einen Tag nach der Stadtratswahl gegründet und wenige Wochen später bereits mit großem Zuspruch gestartet: Die neue Initiative „Frauen für Miltenberg“ traf sich am 22. April um Ideen auszutauschen..."
+      }
+    ],
     "type": "presse",
     "linkText": "Zum Artikel",
     "link": "https://www.meine-news.de/miltenberg/c-politik/aufbruchstimmung-und-tatendrang-fuer-mehr-mitgestaltung-sowie-naechster-termin_a234581"
@@ -61,7 +74,12 @@
   {
     "date": "2026-04-22",
     "title": "Gründungstreffen: \"Was kann Miltenberg noch besser machen?\"",
-    "content": "Erstes Treffen der Initiative mit vielen Ideen und Austausch über zukünftige Projekte.",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Erstes Treffen der Initiative mit vielen Ideen und Austausch über zukünftige Projekte."
+      }
+    ],
     "type": "termin",
     "linkText": "Anmelden",
     "link": "mailto:frauen.fuer.miltenberg@gmail.com"
@@ -69,7 +87,12 @@
   {
     "date": "2026-04-19",
     "title": "Artikel: „Frauen für Miltenberg“: Neue Initiative für mehr Vielfalt im Stadtrat",
-    "content": "Miltenberg steht vor einer neuen politischen Etappe – und zugleich vor einer alten Herausforderung...",
+    "content": [
+      {
+        "type": "paragraph", 
+        "text": "Miltenberg steht vor einer neuen politischen Etappe – und zugleich vor einer alten Herausforderung..."
+      }
+    ],
     "type": "presse",
     "linkText": "Zum Artikel",
     "link": "https://www.meine-news.de/miltenberg/c-politik/frauen-fuer-miltenberg-neue-initiative-fuer-mehr-vielfalt-im-stadtrat_a232701"
