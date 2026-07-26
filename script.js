@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /*========================= 
         UNSERE ARBEIT
-    =========================*/
+    =========================
     const allItems = Array.from(document.querySelectorAll(".arbeit"));
     const button = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*========================= 
         FRAUEN SLIDER 
-=========================*/ 
+========================= 
     
     const slider = document.querySelector(".frauen-slider"); 
     const slides = document.querySelectorAll(".frau"); 
