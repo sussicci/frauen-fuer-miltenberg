@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /*========================= 
         UNSERE ARBEIT
-    =========================
+    =========================*/
     const allItems = Array.from(document.querySelectorAll(".arbeit"));
     const button = document.getElementById("loadMoreBtn");
     const showLessBtn = document.getElementById("showLessBtn");
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* ESC 
+    /* ESC */
 
     document.addEventListener("keydown", (e) => {
 
