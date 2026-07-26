@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     /*=========================
     MODAL
-    =========================
+    =========================*/
 
     const modal = document.getElementById("modal");
     const modalTitle = document.getElementById("modalTitle");
@@ -230,13 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /* schließen 
+    /* schließen */
 
     closeModal.addEventListener("click", () => {
         modal.classList.remove("active");
     });
 
-    /* klick außerhalb 
+    /* klick außerhalb */
 
     modal.addEventListener("click", (e) => {
 
@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /*========================= 
         FRAUEN SLIDER 
-========================= 
+=========================*/ 
     
     const slider = document.querySelector(".frauen-slider"); 
     const slides = document.querySelectorAll(".frau"); 
