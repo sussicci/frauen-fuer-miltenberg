@@ -180,13 +180,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const article = document.createElement("article");
 
-                article.className = "about-card";
+                article.className = "post-card";
 
                 article.innerHTML = `
-                    <div class="card-number">${formatDate(post.date)}</div>
+                    <div class="post-card-number">${formatDate(post.date)}</div>
                     <h3>${post.title}</h3>
                     ${renderContent(post.content)}
-                    <a class="card-btn" href="${post.link}">
+                    <a class="post-card-btn" href="${post.link}">
                         ${post.linkText}
                     </a>
                 `;
