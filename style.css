@@ -160,6 +160,7 @@ a:hover {
     font-weight: 700;
     margin-bottom: 3rem;
     font-size: 1.16rem;
+    max-width: 800px;
 }
 
 .highlighted {
