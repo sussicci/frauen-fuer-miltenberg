@@ -1671,3 +1671,41 @@ footer {
     color: white;
     border-color: #7B2CBF;
 }
+
+.hero-small{
+    display:flex;
+    align-items:center;
+    min-height:28rem;
+}
+
+.hero-small-content{
+    width:65%;
+    margin:0 auto;
+    padding-top:0;
+}
+
+@media (max-width:768px){
+
+    .hero-small{
+        min-height:22rem;
+    }
+
+    .hero-small-content{
+        width:90%;
+    }
+
+}
+
+#aktuelles-main{
+    width:65%;
+    margin:6rem auto;
+}
+
+@media (max-width:768px){
+
+    #aktuelles-main{
+        width:92%;
+        margin:3rem auto;
+    }
+
+}
