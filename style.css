@@ -1692,6 +1692,7 @@ footer {
     display:flex;
     align-items:center;
     min-height:28rem;
+    max-height: 28rem;
 }
 
 .hero-small-content{
