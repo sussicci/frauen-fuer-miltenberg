@@ -141,7 +141,7 @@ a:hover {
 
 #hero {
     height: 44rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("sommerfest.jpg"); 
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("sommerfest.png"); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
