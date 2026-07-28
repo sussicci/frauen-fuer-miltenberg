@@ -1672,6 +1672,22 @@ footer {
     border-color: #7B2CBF;
 }
 
+@media (max-width:768px){
+
+    #aktuelles-main .post-card{
+        padding:1.4rem;
+    }
+
+    #aktuelles-main .post-card h3{
+        font-size:1.2rem;
+    }
+
+    #aktuelles-main .post-card-number{
+        font-size:1rem;
+    }
+
+}
+
 .hero-small{
     display:flex;
     align-items:center;
