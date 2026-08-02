@@ -1726,3 +1726,13 @@ footer {
     }
 
 }
+
+section[id] {
+    scroll-margin-top: 12rem;
+}
+
+@media (max-width:768px) {
+    section[id] {
+        scroll-margin-top: 6rem;
+    }
+}
