@@ -1726,13 +1726,21 @@ footer {
     }
 
 }
+#überuns,
+    scroll-margin-top: 24rem;
+}
 
-section[id] {
+#unserearbeit,
+#unserefrauen,
+#aktuelles {
     scroll-margin-top: 12rem;
 }
 
 @media (max-width:768px) {
-    section[id] {
+    #überuns,
+    #unserearbeit,
+    #unserefrauen,
+    #aktuelles {
         scroll-margin-top: 6rem;
     }
 }
