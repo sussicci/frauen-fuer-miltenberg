@@ -874,6 +874,17 @@ input[type="radio"] {
     color: #475569;
 }
 
+.quote {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 4px solid #7B2CBF;
+    color: #334155 !important;
+    font-style: italic;
+    line-height: 1.6;
+    background: rgba(123, 44, 191, 0.06);
+    border-radius: 0 10px 10px 0;
+}
+
 /* Pfeile */
 .slider-btn {
     position: absolute;
