@@ -28,10 +28,27 @@
     font-weight: 800;
 }
 
+:root {
+
+    --primary: #7B2CBF;
+    --primary-dark: #5A189A;
+
+    --text: #1E293B;
+    --heading: #0F172A;
+
+    --background: #F8FAFC;
+    --light: #E2E8F0;
+    --white: #FFFFFF;
+
+    --gray: #475569;
+    --muted: #64748b;
+
+}
+
 body {
-    color: #1E293B;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    color: #1E293B;
     background-color: #F8FAFC;
 }
 
@@ -45,21 +62,18 @@ h1 {
     max-width: 600px;
 }
 
+h2,
+h3 {
+    font-weight: 700;
+    color: var(--heading);
+}
+
 h2 {
     font-size: 2.2rem;
-    font-weight: 700;
-    color: #0F172A
 }
 
 h3 {
     font-size: 1.2rem;
-    font-weight: 700;
-    color: #0F172A;
-}
-
-h4 {
-    margin-bottom: 0;
-    font-weight: normal;
 }
 
 a {
@@ -68,13 +82,24 @@ a {
     font-weight: 700;
 }
 
+a:hover {
+    color: var(--primary);
+}
+
 img {
     max-width: 100%;
     display: block;
 }
-/* Navigation */
 
-#navigation {
+.container {
+    width: 65%;
+    margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -82,15 +107,20 @@ img {
     grid-template-columns: auto 1fr auto;
     align-items: center; 
     height: 12rem;
-    background-color: #ffffff;
-    color: #1E293B;
+    background-color: var(--white);
+    color: var(--text);
     padding: 0 5% 0 5%;
 }
-
-#logo {
+/* =========================================
+   LOGO
+========================================= */
+.logo {
     height: 10rem;
 }
 
+/* =========================================
+   NAVIGATION
+========================================= */
 nav {
     display: flex;
     justify-content: center;
@@ -109,21 +139,17 @@ nav {
 .nav1 {
     text-decoration: none;
     text-transform: uppercase;
-    color: #1E293B;
+    color: var(--text);
     font-weight: 600;
     padding: 0.5rem 0.8rem;
-}
-
-a:hover {
-    color: #7B2CBF;
 }
 
 #navbutton {
     justify-self: end;
     padding: 0.5rem 1rem;
-    border: 2px solid #7B2CBF;
+    border: 2px solid var(--primary);
     border-radius: 2rem;
-    color: #1E293B;
+    color: var(--text);
     display: inline-block;
     transition: 0.2s;
     text-transform: uppercase;
@@ -132,30 +158,86 @@ a:hover {
 }
 
 #navbutton:hover {
-    background-color: #7B2CBF;
-    color: #F8FAFC;
-    border-color: #7B2CBF;
+    background-color: var(--primary);
+    color: var(--background);
+    border-color: var(--primary);
 }
 
-/* Hero */
+/* =========================================
+   HAMBURGER MENU
+========================================= */
 
-#hero {
-    height: 44rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("sommerfest1.png"); 
-    background-size: cover;
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    z-index: 2000;
+}
+
+#hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 999px;
+    transition: 0.3s ease;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+#hero, 
+#hero--kontakt, 
+#hero--aktuelles {
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     margin: 0;
 }
 
-#herocontent {
+#hero,
+#hero--aktuelles {
+    height: 44rem;
+}
+
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("../resources/sommerfest1.png");  
+}
+
+#hero--aktuelles {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("Namnloest.jpg");
+}
+
+#hero--kontakt {
+    display:flex;
+    align-items:center;
+    height: 28rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("../resources/kontakt.JPEG");
+}
+
+.hero-content, 
+.hero-small-content {
     width: 65%;
-    padding-top: 4rem;
     margin: 0 auto;
 }
 
-#slogan {
-    color: #F8FAFC;
+.hero-content {
+    padding-top: 4rem;
+}
+
+.hero-small-content{
+    padding-top: 0;
+}
+
+.hero-slogan {
+    color: var(--background);
     line-height: 1.6;
     font-weight: 700;
     margin-bottom: 3rem;
@@ -164,7 +246,7 @@ a:hover {
 }
 
 .highlighted {
-    color:#7B2CBF;
+    color:var(--primary);
 }
 
 .hero-cta {
@@ -173,81 +255,55 @@ a:hover {
     font-weight: 600;
     transition: 0.2s ease;
     background: transparent;
-    border: 2px solid #F8FAFC;
-    color: #F8FAFC;
+    border: 2px solid var(--background);
+    color: var(--background);
     text-align: center;
     border-radius: 2rem;
     padding: 0.5rem 1rem;
 }
 
 .hero-cta:hover {
-    background: #F8FAFC;
-    color: #7B2CBF;
-    border-color: #F8FAFC;
+    background: var(--background);
+    color: var(--primary);
+    border-color: var(--background);
     cursor: pointer;
 }
 
-/* Hero-Aktuelles */
-
-#heroaktuelles {
-    height: 44rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("Namnloest.jpg"); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
-}
-/* Main */
-
-/* Letzte Update */
 /* =========================================
-   HIGHLIGHT / AKTUELLES
+   LETZTE UPDATE
 ========================================= */
 
 #highlight-aktuelles {
     width: 90%;
     max-width: 1100px;
-
     margin: 2rem auto;
 }
 
 .highlight-card {
     width: 100%;
     box-sizing: border-box;
-
-    background: #ffffff;
-
+    background: var(--white);
     border: 1px solid rgba(148,163,184,0.15);
-
     border-radius: 24px;
-
     padding: 1.5rem 2rem;
-
     display: grid;
     grid-template-columns: auto 1fr auto;
-
     align-items: center;
     gap: 2rem;
-
     box-shadow: 0 10px 30px rgba(15,23,42,0.06);
 }
 
 /* TAG */
 
 .highlight-tag {
-    background: #7B2CBF;
-    color: white;
-
+    background: var(--primary);
+    color: var(--white);
     padding: 0.7rem 1rem;
-
     border-radius: 999px;
-
     font-size: 0.75rem;
     font-weight: 800;
-
     text-transform: uppercase;
     letter-spacing: 0.12em;
-
     white-space: nowrap;
 }
 
@@ -255,26 +311,21 @@ a:hover {
 
 .highlight-meta {
     margin: 0 0 0.5rem;
-
     font-size: 0.85rem;
     font-weight: 700;
-
-    color: #64748B;
+    color: var(--muted);
 }
 
 .highlight-content h3 {
     margin: 0;
-
     font-size: 1.25rem;
     line-height: 1.4;
-
-    color: #0F172A;
+    color: var(--heading);
 }
 
 .highlight-location {
     margin-top: 0.6rem;
-
-    color: #475569;
+    color: var(--gray);
     line-height: 1.5;
 }
 
@@ -282,85 +333,31 @@ a:hover {
 
 .highlight-button {
     padding: 0.9rem 1.3rem;
-
-    border: 2px solid #7B2CBF;
+    border: 2px solid var(--primary);
     border-radius: 999px;
-
-    color: #7B2CBF;
-
+    color: var(--primary);
     font-weight: 700;
-
     white-space: nowrap;
-
     transition: 0.2s ease;
 }
 
 .highlight-button:hover {
-    background: #7B2CBF;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
 }
 
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-    .highlight-card {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        padding: 1.5rem;
-    }
-
-    .highlight-tag {
-        justify-self: center;
-    }
-
-    .highlight-button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-
-    #highlight-aktuelles {
-        width: 92%;
-    }
-
-    .highlight-card {
-        padding: 1.25rem;
-
-        border-radius: 18px;
-
-        gap: 1.2rem;
-    }
-
-    .highlight-content h3 {
-        font-size: 1.05rem;
-    }
-
-    .highlight-meta,
-    .highlight-location {
-        font-size: 0.9rem;
-    }
-}
 /* =========================
    ÜBER UNS
 ========================= */
 
-#überuns {
-    width: 65%;
+#ueber-uns {
     margin: 7rem auto;
+    scroll-margin-top: 18rem;
 }
 
-/* INTRO */
+/* =========================
+   INTRO 
+========================= */
 
 .about-top {
     display: grid;
@@ -373,14 +370,14 @@ a:hover {
 
 .about-intro {
     max-width: 850px;
-    border-left: 4px solid #7B2CBF;
+    border-left: 4px solid var(--primary);
     padding-left: 1.5rem;
 }
 
 .about-intro p {
     font-size: 1.15rem;
     line-height: 1.9;
-    color: #475569;
+    color: var(--gray);
 }
 
 .eyebrow {
@@ -388,10 +385,12 @@ a:hover {
     letter-spacing: 0.14em;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #7B2CBF;
+    color: var(--primary);
 }
 
-/* STAT BOX */
+/* =========================
+   COUNTER
+========================= */
 
 .about-highlight {
     display: flex;
@@ -399,20 +398,19 @@ a:hover {
     align-items: center;
     justify-content: center; /* ← das ist der vertikale Kern */
     text-align: center;
-
     height: 100%;
 }
 
 .highlight-number {
     font-size: 4.5rem;
     font-weight: 800;
-    color: #7B2CBF;
+    color: var(--primary);
     min-width: 160px;
     margin-bottom: 1rem;
 }
 
 .highlight-text h3 {
-    color: #0F172A;
+    color: var(--heading);
     font-size: 1.4rem;
 }
 
@@ -422,7 +420,9 @@ a:hover {
     color: #111827;
 }
 
-/* GRID */
+/* =========================
+   CARDS
+========================= */
 
 .about-cards {
     display: grid;
@@ -431,10 +431,8 @@ a:hover {
     margin-bottom: 4rem;
 }
 
-/* CARDS */
-
 .about-card {
-    background: white;
+    background: var(--white);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -443,106 +441,94 @@ a:hover {
 }
 
 .about-card:hover {
-    background-color: #7B2CBF;
-    color: #F8FAFC;
+    background-color: var(--primary);
+    color: var(--background);
     transform: translateY(-6px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
 .about-card:hover h3,
 .about-card:hover p {
-    color: #F8FAFC;
+    color: var(--background);
 }
 
 .about-card:hover a {
-    background-color:#F8FAFC;
-    color: #7B2CBF;
+    background-color:var(--background);
+    color: var(--primary);
 }
 
 .about-card h3 {
     margin-top: 0;
     margin-bottom: 1rem;
-
     font-size: 1.4rem;
 }
 
 .about-card p {
     line-height: 1.8;
-    color: #475569;
+    color: var(--gray);
 }
 
 .card-btn {
     font-family: 'Montserrat', sans-serif;
-    background: #7B2CBF;
-    border: 2px solid #7B2CBF;
-    color: white;
+    background: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--white);
     text-decoration: none;
     display: inline-block;
     font-size: 1rem;
     font-weight: 600;
     transition: 0.2s ease;
-    color: #F8FAFC;
+    color: var(--background);
     text-align: center;
     border-radius: 2rem;
     padding: 0.5rem 1rem;
 }
 
 .card-btn:hover {
-    background: #5A189A;
-    border-color: #5A189A;
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
 }
 
 .card-number {
     font-size: 2.2rem;
     font-weight: 600;
-    color: #7B2CBF;
+    color: var(--primary);
     margin-bottom: 0.5rem;
     letter-spacing: 0.05em;
 }
 
 .about-card:hover .card-number {
-    color: #F8FAFC;
+    color: var(--background);
 }
 
-/* MOBILE */
 
-@media (max-width: 900px) {
+/* =========================
+   UNSERE ARBEIT
+========================= */
 
-    #überuns {
-        width: 90%;
-    }
-
-    .about-intro {
-        grid-template-columns: 1fr;
-    }
-
-    .about-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .about-card:first-child {
-        min-height: auto;
-    }
-
-    .highlight-number {
-        font-size: 4rem;
-    }
-}
-
-/* Unsere Arbeit */
-
-#unserearbeit {
-    background-color: #E2E8F0;
+#unsere-arbeit {
+    background-color: var(--light);
     padding: 6rem 0rem;
     padding-bottom: 5rem;
 }
 
-#h2arbeit {
+#unsere-arbeit h2 {
     width: min(760px, 90%);
     margin: 0 auto;
     text-align: center;
     font-size: 2.6rem;
     margin-bottom: 0.5rem;
+}
+
+/* kleine decorative line */
+.arbeit-intro::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 999px;
+    background: var(--primary);
 }
 
 .arbeit-intro {
@@ -554,23 +540,6 @@ a:hover {
     color: #334155;
     font-weight: 500;
     position: relative;
-}
-
-/* kleine decorative line */
-.arbeit-intro::before {
-    content: "";
-    display: block;
-    width: 64px;
-    height: 4px;
-    margin: 0 auto 1.5rem auto;
-    border-radius: 999px;
-    background: #7B2CBF;
-}
-
-.img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* FILTER BUTTONS */
@@ -633,23 +602,17 @@ input[type="radio"] {
     color: #F8FAFC;
 }
 
-
-/* BADGE BASIS */
+/* STATUS */
 
 .status-badge {
     position: absolute;
     top: 1rem;
     right: 1rem;
-
     padding: 0.4rem 0.8rem;
-
     border-radius: 999px;
-
     font-size: 0.75rem;
     font-weight: 700;
-
     z-index: 20;
-
     backdrop-filter: blur(10px);
 }
 
@@ -657,52 +620,50 @@ input[type="radio"] {
 
 .status-badge.aktiv {
     background: rgba(123,44,191,0.95);
-    color: white;
+    color: var(--white);
 }
 
 /* GESUCHT */
 
 .status-badge.gesucht {
     background: rgba(245,158,11,0.95);
-    color: white;
+    color: var(--white);
 }
 
 /* PLANUNG */
 
 .status-badge.planung {
     background: rgba(148,163,184,0.95);
-    color: white;
+    color: var(--white);
 }
 
 /* UMGESETZT */
 
 .status-badge.fertig {
     background: rgba(16,185,129,0.95);
-    color: white;
+    color: var(--white);
 }
 
-
-
-/* GRID statt Flex (viel besser für Layout) */
-.unserearbeit {
-    width: 65%;
+/* GRID */
+.arbeit-grid {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1rem;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #E2E8F0;
+    background-color: var(--light);
     color: #111827;
 }
 
 /* einzelne Kachel */
 .arbeit {
-    border: 1px solid #E2E8F0;
+    border: 1px solid var(--light);
     box-shadow: 0 6px 20px rgba(0,0,0,0.05);
     transition: 0.2s;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: var(--white);
     color: #111827;
     display: flex;
     flex-direction: column;
@@ -713,15 +674,15 @@ input[type="radio"] {
     transform: translateY(-4px);
 }
 
-/* Bild kleiner + gleichmäßig */
-.img {
+.arbeit-image {
     width: 100%;
+    height: 100%;
     height: 180px;
     object-fit: cover;
 }
 
 /* Textbereich */
-.content {
+.arbeit-content {
     padding: 1rem;
 }
 
@@ -730,12 +691,12 @@ input[type="radio"] {
     margin: 0.5rem 0;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--heading);
 }
 
 /* Link Styling */
 .arbeit a {
-    color: #7B2CBF;
+    color: var(--primary);
     font-weight: 600;
     text-decoration: none;
 }
@@ -745,7 +706,7 @@ input[type="radio"] {
 }
 
 .arbeit p {
-    color: #475569;
+    color: var(--gray);
 }
 
 .load-more-container {
@@ -806,15 +767,18 @@ input[type="radio"] {
     background-color: #5a189a;
     color: #F8FAFC;
 }
-/* Unsere Frauen */
 
-#unserefrauen {
+/* =========================
+   UNSERE FRAUEN
+========================= */
+
+#unsere-frauen {
     width: 100%;
     padding: 6rem 0;
-    background: #F8FAFC;
+    background: var(--background);
 }
 
-#unserefrauen h2 {
+#unsere-frauen h2 {
     width: min(760px, 90%);
     margin: 0 auto;
     text-align: center;
@@ -822,8 +786,19 @@ input[type="radio"] {
     margin-bottom: 0.5rem;
 }
 
+/* kleine decorative line */
+#unsere-frauen h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 1.5rem auto 1.5rem auto;
+    border-radius: 999px;
+    background: var(--primary);
+}
+
 .frauen-wrapper {
-    width: 70%;
+    width: 100%;
     margin: 1.5rem auto;
     display: flex;
     align-items: center;
@@ -847,31 +822,29 @@ input[type="radio"] {
     min-width: 100%;
     display: grid;
     grid-template-columns: 240px 1fr;
-    background: #E2E8F0;
+    background: var(--light);
     border-radius: 20px;
     overflow: hidden;
 }
 
-/* Bild */
 .frau img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Text */
-.text {
+.frau-content {
     padding: 2rem;
 }
 
-.text h3 {
+.frau-content h3 {
     margin-top: 0;
-    color: #0F172A;
+    color: var(--heading);
 }
 
-.text p {
+.frau-content p {
     line-height: 1.7;
-    color: #475569;
+    color: var(--gray);
 }
 
 .quote {
@@ -914,71 +887,97 @@ input[type="radio"] {
     background: #5a189a;
 }
 
-/* Aktuelles */
-
+#unsere-arbeit,
+#unsere-frauen,
 #aktuelles {
+    scroll-margin-top: 12rem;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+    z-index: 5000;
 }
 
-.sliderbox {
-    width: 25%;
-    padding: 1rem;
-    color: #0F172A;
+.modal.active {
+    opacity: 1;
+    visibility: visible;
 }
 
-.sliderbox:hover {
-    background-color:#8E44AD;
-    color: #0F172A;
+.modal-content {
+    background: var(--white);
+    width: min(90%, 650px);
+    padding: 3rem;
+    border-radius: 24px;
+    position: relative;
+    animation: popup 0.25s ease;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--heading);
+}
+
+.modal-content p {
+    line-height: 1.8;
+    color: var(--gray);
+}
+
+#closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
     cursor: pointer;
+    color: var(--muted);
 }
 
-#sliderbox1 {
-    background-color: #7B2CBF;
+#closeModal:hover {
+    color: var(--primary);
 }
 
-#sliderbox2 {
-    background-color: #94A3B8;
+@keyframes popup {
+
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-#sliderbox3 {
-    background-color: #CBD5E1;
+#modalImage {
+    width: 80%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 1rem auto;
+    display: block;
 }
 
-#sliderbox4 {
-    background-color: #E2E8F0;
-}
-
-#sliderbox1:hover {
-    background-color: #8E44AD;
-    color: #0F172A;
-}
-
-#sliderbox2:hover {
-    background-color: #8E44AD;
-}
-
-#sliderbox3:hover {
-    background-color: #8E44AD;
-}
-
-#sliderbox4:hover {
-    background-color: #8E44AD;
-}
-
-a h2 {
-margin-top: 0;
-}
-
-a p {
-    font-weight: 600;
-}
-
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    background-color: #1E293B;
-    color: #F8FAFC;
+    background-color: var(--text);
+    color: var(--white);
     padding: 4rem 0 2rem 0;
 }
 
@@ -1002,7 +1001,7 @@ footer {
 
 .footer-col p {
     margin: 0.3rem 0;
-    color: #E2E8F0;
+    color: var(--light);
 }
 
 /* Links */
@@ -1016,13 +1015,13 @@ footer {
 }
 
 .footer-col a {
-    color: #E2E8F0;
+    color: var(--light);
     text-decoration: none;
     transition: 0.2s;
 }
 
 .footer-col a:hover {
-    color: #7B2CBF;
+    color: var(--primary);
 }
 
 /* Bottom */
@@ -1035,11 +1034,166 @@ footer {
     color: #94A3B8;
 }
 
+/* =========================
+   AKTUELLES
+========================= */
+
+#aktuelles-main{
+    width:65%;
+    margin:6rem auto;
+}
+
+.filter-btn {
+    font-family: 'Montserrat', sans-serif;
+    background: transparent;
+    border: 2px solid #7B2CBF;
+    color: #1E293B;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-weight: 600;
+}
+
+.filter-btn:hover {
+    background: #7B2CBF;
+    color: white;
+}
+
+.filter-btn.active {
+    background: #7B2CBF;
+    color: white;
+}
+
+#posts {
+    margin-bottom: 3rem;
+}
+
+.post-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.post-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.post-card p {
+    line-height: 1.8;
+    color: #475569;
+}
+
+.post-card-number {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #7B2CBF;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.post-card-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    background: white;
+    color: #7B2CBF;
+    border: 2px solid #7B2CBF;
+    transition: all 0.2s ease;
+}
+
+.post-card-btn:hover {
+    background: #7B2CBF;
+    color: white;
+    border-color: #7B2CBF;
+}
+
 /* =========================================
-   RESPONSIVE DESIGN
+   (DATENSCHUTZ / IMPRESSUM)
 ========================================= */
 
-/* TABLET */
+#legal-page {
+    width: 65%;
+    margin: 6rem auto;
+    line-height: 1.8;
+    color: #334155;
+}
+
+#legal-page h1 {
+    color: var(--heading);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+#legal-page h2 {
+    margin-top: 4rem;
+    color: var(--heading);
+    padding-top: 2rem;
+    border-top: 1px solid #CBD5E1;
+}
+
+#legal-page h3 {
+    margin-top: 2rem;
+    color: var(--heading);
+}
+
+#legal-page h4 {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+#legal-page p,
+#legal-page li {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--gray);
+}
+
+#legal-page p {
+    max-width: 850px;
+}
+
+#legal-page ul {
+    padding-left: 1.5rem;
+}
+
+#legal-page a {
+    color: var(--primary);
+}
+
+#legal-page a:hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   KONTAKT
+========================================= */
+
+#kontakt {
+    margin: 4rem auto;
+}
+
+
+
+/* =========================================
+   TABLET
+========================================= */
+
 @media (max-width: 1100px) {
 
     h1 {
@@ -1103,9 +1257,63 @@ footer {
     .footer-inner {
         grid-template-columns: 1fr 1fr;
     }
+
+    .arbeit-intro {
+        width: 90%;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    #legal-page {
+        width: 90%;
+    }
+
 }
 
-/* MOBILE */
+@media (max-width: 900px) {
+
+    .highlight-card {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 1.5rem;
+    }
+
+    .highlight-tag {
+        justify-self: center;
+    }
+
+    .highlight-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #überuns {
+        width: 90%;
+    }
+
+    .about-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card:first-child {
+        min-height: auto;
+    }
+
+    .highlight-number {
+        font-size: 4rem;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 768px) {
 
     body {
@@ -1221,6 +1429,137 @@ footer {
     footer {
         padding: 3rem 0 2rem 0;
     }
+
+    #navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        height: auto;
+    }
+
+    #logo {
+        margin: 0;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+
+    #mobileNav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: #F8FAFC;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.35s ease;
+        z-index: 1500;
+    }
+
+    #mobileNav.active {
+        right: 0;
+    }
+
+    #nav1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .nav1 {
+        font-size: 1.2rem;
+    }
+
+    #navbutton {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    /* HAMBURGER ANIMATION */
+
+    #hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translateY(11px);
+    }
+
+    #hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-11px);
+    }
+
+    #legal-page {
+        width: 90%;
+        margin: 4rem auto;
+    }
+
+    #legal-page h1 {
+        font-size: 2.3rem;
+    }
+
+    #aktuelles-main .post-card{
+        padding:1.4rem;
+    }
+
+    #aktuelles-main .post-card h3{
+        font-size:1.2rem;
+    }
+
+    #aktuelles-main .post-card-number{
+        font-size:1rem;
+    }
+
+    .hero-small{
+        min-height:22rem;
+    }
+
+    .hero-small-content{
+        width:90%;
+    }
+
+    #aktuelles-main{
+        width:92%;
+        margin:3rem auto;
+    }
+    
+    #überuns,
+    #unserearbeit,
+    #unserefrauen,
+    #aktuelles {
+        scroll-margin-top: 18rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #highlight-aktuelles {
+        width: 92%;
+    }
+
+    .highlight-card {
+        padding: 1.25rem;
+
+        border-radius: 18px;
+
+        gap: 1.2rem;
+    }
+
+    .highlight-content h3 {
+        font-size: 1.05rem;
+    }
+
+    .highlight-meta,
+    .highlight-location {
+        font-size: 0.9rem;
+    }
 }
 
 /* SMALL MOBILE */
@@ -1264,42 +1603,6 @@ footer {
     }
 }
 
-@media (max-width: 1100px) {
-    .arbeit-intro {
-        width: 90%;
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-}
-/* =========================================
-   HAMBURGER MENU
-========================================= */
-
-#hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-
-    background: transparent;
-    border: none;
-    cursor: pointer;
-
-    width: 44px;
-    height: 44px;
-
-    padding: 0;
-    z-index: 2000;
-}
-
-#hamburger span {
-    width: 28px;
-    height: 3px;
-    background: #1E293B;
-    border-radius: 999px;
-    transition: 0.3s ease;
-}
-
 /* =========================================
    DESKTOP NAV FIX
 ========================================= */
@@ -1316,432 +1619,11 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-
         flex: 1;
         gap: 2rem;
     }
 
     #navbutton {
         margin-left: auto;
-    }
-
-}
-/* =========================================
-   MOBILE NAVIGATION
-========================================= */
-
-@media (max-width: 768px) {
-
-    #navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        padding: 1rem 5%;
-        height: auto;
-    }
-
-    #logo {
-        margin: 0;
-    }
-
-    #hamburger {
-        display: flex;
-    }
-
-    #mobileNav {
-        position: fixed;
-
-        top: 0;
-        right: -100%;
-
-        width: 100%;
-        height: 100vh;
-
-        background: #F8FAFC;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        gap: 2rem;
-
-        transition: right 0.35s ease;
-
-        z-index: 1500;
-    }
-
-    #mobileNav.active {
-        right: 0;
-    }
-
-    #nav1 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .nav1 {
-        font-size: 1.2rem;
-    }
-
-    #navbutton {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
-
-    /* HAMBURGER ANIMATION */
-
-    #hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translateY(11px);
-    }
-
-    #hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translateY(-11px);
-    }
-}
-
-/* =========================================
-   MODAL
-========================================= */
-
-.modal {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0,0,0,0.55);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: 0.25s ease;
-
-    z-index: 5000;
-}
-
-.modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: white;
-
-    width: min(90%, 650px);
-
-    padding: 3rem;
-
-    border-radius: 24px;
-
-    position: relative;
-
-    animation: popup 0.25s ease;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: #0F172A;
-}
-
-.modal-content p {
-    line-height: 1.8;
-    color: #475569;
-}
-
-#closeModal {
-    position: absolute;
-
-    top: 1rem;
-    right: 1rem;
-
-    border: none;
-    background: transparent;
-
-    font-size: 2rem;
-
-    cursor: pointer;
-
-    color: #64748B;
-}
-
-#closeModal:hover {
-    color: #7B2CBF;
-}
-
-@keyframes popup {
-
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-#modalImage {
-    width: 80%;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 1rem auto;
-    display: block;
-}
-
-/* =========================
-   AKTUELLES FILTER
-========================= */
-
-.filter-btn {
-    font-family: 'Montserrat', sans-serif;
-    background: transparent;
-    border: 2px solid #7B2CBF;
-    color: #1E293B;
-
-    padding: 0.6rem 1rem;
-
-    border-radius: 2rem;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-
-    font-weight: 600;
-}
-
-.filter-btn:hover {
-    background: #7B2CBF;
-    color: white;
-}
-
-.filter-btn.active {
-    background: #7B2CBF;
-    color: white;
-}
-
-#posts {
-    margin-bottom: 3rem;
-}
-
-/* =========================================
-   LEGAL PAGES (Datenschutz / Impressum)
-========================================= */
-
-#legal-page {
-    width: 65%;
-    margin: 6rem auto;
-    line-height: 1.8;
-    color: #334155;
-}
-
-#legal-page h1 {
-    color: #0F172A;
-    font-size: 3rem;
-    margin-bottom: 3rem;
-}
-
-#legal-page h2 {
-    margin-top: 4rem;
-    color: #0F172A;
-    padding-top: 2rem;
-    border-top: 1px solid #CBD5E1;
-}
-
-#legal-page h3 {
-    margin-top: 2rem;
-    color: #0F172A;
-}
-
-#legal-page h4 {
-    margin-top: 1.5rem;
-    font-weight: 700;
-    color: #334155;
-}
-
-#legal-page p,
-#legal-page li {
-    font-size: 1rem;
-    line-height: 1.9;
-    color: #475569;
-}
-
-#legal-page p {
-    max-width: 850px;
-}
-
-#legal-page ul {
-    padding-left: 1.5rem;
-}
-
-#legal-page a {
-    color: #7B2CBF;
-}
-
-#legal-page a:hover {
-    color: #5A189A;
-}
-
-/* Responsive */
-
-@media (max-width: 1100px) {
-
-    #legal-page {
-        width: 90%;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    #legal-page {
-        width: 90%;
-        margin: 4rem auto;
-    }
-
-    #legal-page h1 {
-        font-size: 2.3rem;
-    }
-
-}
-
-.post-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.post-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
-
-.post-card h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
-
-.post-card p {
-    line-height: 1.8;
-    color: #475569;
-}
-
-.post-card-number {
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: #7B2CBF;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-}
-
-.post-card-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-
-    background: white;
-    color: #7B2CBF;
-    border: 2px solid #7B2CBF;
-
-    transition: all 0.2s ease;
-}
-
-.post-card-btn:hover {
-    background: #7B2CBF;
-    color: white;
-    border-color: #7B2CBF;
-}
-
-@media (max-width:768px){
-
-    #aktuelles-main .post-card{
-        padding:1.4rem;
-    }
-
-    #aktuelles-main .post-card h3{
-        font-size:1.2rem;
-    }
-
-    #aktuelles-main .post-card-number{
-        font-size:1rem;
-    }
-
-}
-
-.hero-small{
-    display:flex;
-    align-items:center;
-    min-height:28rem;
-    max-height: 28rem;
-}
-
-.hero-small-content{
-    width:65%;
-    margin:0 auto;
-    padding-top:0;
-}
-
-@media (max-width:768px){
-
-    .hero-small{
-        min-height:22rem;
-    }
-
-    .hero-small-content{
-        width:90%;
-    }
-
-}
-
-#aktuelles-main{
-    width:65%;
-    margin:6rem auto;
-}
-
-@media (max-width:768px){
-
-    #aktuelles-main{
-        width:92%;
-        margin:3rem auto;
-    }
-    
-}
-
-#überuns {
-    scroll-margin-top: 18rem;
-}
-
-#unserearbeit,
-#unserefrauen,
-#aktuelles {
-    scroll-margin-top: 12rem;
-}
-
-@media (max-width:768px) {
-    #überuns,
-    #unserearbeit,
-    #unserefrauen,
-    #aktuelles {
-        scroll-margin-top: 18rem;
     }
 }
