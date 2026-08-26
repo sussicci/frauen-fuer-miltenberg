@@ -786,17 +786,6 @@ input[type="radio"] {
     margin-bottom: 0.5rem;
 }
 
-/* kleine decorative line */
-#unsere-frauen h2::after {
-    content: "";
-    display: block;
-    width: 64px;
-    height: 4px;
-    margin: 1.5rem auto 1.5rem auto;
-    border-radius: 999px;
-    background: var(--primary);
-}
-
 .frauen-wrapper {
     width: 100%;
     margin: 1.5rem auto;
