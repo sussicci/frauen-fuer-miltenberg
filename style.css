@@ -193,19 +193,6 @@ nav {
    HERO
 ========================================= */
 
-#hero, 
-#hero--kontakt, 
-#hero--aktuelles {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    margin: 0;
-}
-
-#hero,
-#hero--aktuelles {
-    height: 44rem;
-}
 
 #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("sommerfest1.png");  
@@ -220,6 +207,20 @@ nav {
     align-items:center;
     height: 28rem;
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("hero.jpg");
+}
+
+#hero, 
+#hero--kontakt, 
+#hero--aktuelles {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+}
+
+#hero,
+#hero--aktuelles {
+    height: 44rem;
 }
 
 .hero-content, 
