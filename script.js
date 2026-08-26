@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
     
     function getItemsPerPage() {
-        const grid = document.querySelector(".unserearbeit");
+        const grid = document.querySelector(".arbeit-grid");
 
         const firstItem = grid.querySelector(".arbeit");
         if (!firstItem) return 6;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let filtered = getFilteredItems();
     filtered = sortItems(filtered);
 
-    const grid = document.querySelector(".unserearbeit");
+    const grid = document.querySelector(".arbeit-grid");
 
     filtered.forEach(item => {
         grid.appendChild(item);
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         page = 1;
         updateDisplay();
 
-        document.querySelector("#unserearbeit")
+        document.querySelector("#unsere-arbeit")
             .scrollIntoView({ behavior: "smooth" });
     });
      
