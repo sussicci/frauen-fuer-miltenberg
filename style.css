@@ -1066,6 +1066,9 @@ footer {
 
 #posts {
     margin-bottom: 3rem;
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem;
 }
 
 .post-card {
