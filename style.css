@@ -1038,8 +1038,8 @@ footer {
    AKTUELLES
 ========================= */
 
-#aktuelles-main{
-    margin:6rem auto;
+#aktuelles {
+    margin: 4rem auto;
 }
 
 .filter-btn {
@@ -1189,8 +1189,6 @@ footer {
 #kontakt {
     margin: 4rem auto;
 }
-
-
 
 /* =========================================
    TABLET
