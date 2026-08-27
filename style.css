@@ -1297,7 +1297,8 @@ footer {
         height: auto;
     }
 
-    #hero--kontakt {
+    #hero--kontakt,
+    #hero--aktuelles {
         min-height: 24rem;
         height: auto;
     }
@@ -1389,7 +1390,8 @@ footer {
     /* HERO */
 
     #hero,
-    #hero--kontakt {
+    #hero--kontakt,
+    #hero--aktuelles {
         min-height: auto;
         padding: 5rem 0;
     }
@@ -1572,7 +1574,8 @@ footer {
     /* HERO */
 
     #hero,
-    #hero--kontakt {
+    #hero--kontakt,
+    #hero--aktuelles {
         padding: 4rem 0;
     }
 
