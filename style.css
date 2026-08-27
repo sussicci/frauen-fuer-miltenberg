@@ -224,8 +224,7 @@ nav {
     margin: 0;
 }
 
-#hero,
-#hero--aktuelles {
+#hero {
     height: 44rem;
 }
 
