@@ -48,15 +48,15 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    color: #1E293B;
-    background-color: #F8FAFC;
+    color: var(--text);
+    background-color: var(--background);
 }
 
 h1 {
     font-size: 5rem;
     font-weight: 800;
     line-height: 1.1428;
-    color: #ffffff;
+    color: var(--white);
     margin-bottom: 2rem;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     max-width: 600px;
@@ -78,7 +78,7 @@ h3 {
 
 a {
     text-decoration: none;
-    color: #1E293B;
+    color: var(--text);
     font-weight: 700;
 }
 
@@ -109,7 +109,7 @@ img {
     height: 12rem;
     background-color: var(--white);
     color: var(--text);
-    padding: 0 5% 0 5%;
+    padding: 0 5%;
 }
 /* =========================================
    LOGO
@@ -122,13 +122,14 @@ img {
    NAVIGATION
 ========================================= */
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: contents;
 }
 
 #nav1 {
+    grid-column: 2;
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 4rem;
     font-size: 1.16rem;
     list-style: none;
@@ -145,7 +146,6 @@ nav {
 }
 
 #navbutton {
-    justify-self: end;
     padding: 0.5rem 1rem;
     border: 2px solid var(--primary);
     border-radius: 2rem;
@@ -155,6 +155,8 @@ nav {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    grid-column: 3;
 }
 
 #navbutton:hover {
@@ -203,14 +205,10 @@ nav {
 }
 
 #hero--kontakt {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("kontakt.JPEG");
-}
-
-#hero--kontakt,
-#hero--aktuelles {
     display:flex;
     align-items:center;
     height: 28rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("kontakt.JPEG");
 }
 
 #hero, 
@@ -222,7 +220,8 @@ nav {
     margin: 0;
 }
 
-#hero {
+#hero,
+#hero--aktuelles {
     height: 44rem;
 }
 
@@ -234,6 +233,10 @@ nav {
 
 .hero-content {
     padding-top: 4rem;
+}
+
+.hero-small-content{
+    padding-top: 0;
 }
 
 .hero-slogan {
@@ -646,11 +649,11 @@ input[type="radio"] {
 
 /* GRID */
 .arbeit-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
     margin: 0 auto;
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
     padding: 2rem;
     background-color: var(--light);
     color: #111827;
@@ -749,23 +752,23 @@ input[type="radio"] {
 
 .join-btn {
     font-family: 'Montserrat', sans-serif;
-    background: #7B2CBF;
-    border: 2px solid #7B2CBF;
-    color: white;
+    background: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--white);
     text-decoration: none;
     display: inline-block;
     font-size: 1rem;
     font-weight: 600;
     transition: 0.2s ease;
-    color: #F8FAFC;
+    color: var(--background);
     text-align: center;
     border-radius: 2rem;
     padding: 0.5rem 1rem;
 }
 
 .join-btn:hover {
-    background-color: #5a189a;
-    color: #F8FAFC;
+    background-color: var(--primary-dark);
+    color: var(--background);
 }
 
 /* =========================
@@ -784,6 +787,17 @@ input[type="radio"] {
     text-align: center;
     font-size: 2.6rem;
     margin-bottom: 0.5rem;
+}
+
+/* kleine decorative line */
+#unsere-frauen h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 1.5rem auto 1.5rem auto;
+    border-radius: 999px;
+    background: var(--primary);
 }
 
 .frauen-wrapper {
@@ -853,11 +867,9 @@ input[type="radio"] {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-
-    background: #7B2CBF;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     border: none;
-
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -873,7 +885,7 @@ input[type="radio"] {
 }
 
 .slider-btn:hover {
-    background: #5a189a;
+    background: var(--primary-dark);
 }
 
 #unsere-arbeit,
@@ -1023,6 +1035,72 @@ footer {
     color: #94A3B8;
 }
 
+/* =========================================
+   (DATENSCHUTZ / IMPRESSUM)
+========================================= */
+
+#legal-page {
+    width: 65%;
+    margin: 6rem auto;
+    line-height: 1.8;
+    color: #334155;
+}
+
+#legal-page h1 {
+    color: var(--heading);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+#legal-page h2 {
+    margin-top: 4rem;
+    color: var(--heading);
+    padding-top: 2rem;
+    border-top: 1px solid #CBD5E1;
+}
+
+#legal-page h3 {
+    margin-top: 2rem;
+    color: var(--heading);
+}
+
+#legal-page h4 {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+#legal-page p,
+#legal-page li {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--gray);
+}
+
+#legal-page p {
+    max-width: 850px;
+}
+
+#legal-page ul {
+    padding-left: 1.5rem;
+}
+
+#legal-page a {
+    color: var(--primary);
+}
+
+#legal-page a:hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   KONTAKT
+========================================= */
+
+#kontakt {
+    margin: 4rem auto;
+}
+
 /* =========================
    AKTUELLES
 ========================= */
@@ -1117,342 +1195,72 @@ footer {
    (DATENSCHUTZ / IMPRESSUM)
 ========================================= */
 
-#legal-page {
-    width: 65%;
-    margin: 6rem auto;
-    line-height: 1.8;
-    color: #334155;
-}
-
-#legal-page h1 {
-    color: var(--heading);
-    font-size: 3rem;
-    margin-bottom: 3rem;
-}
-
-#legal-page h2 {
-    margin-top: 4rem;
-    color: var(--heading);
-    padding-top: 2rem;
-    border-top: 1px solid #CBD5E1;
-}
-
-#legal-page h3 {
-    margin-top: 2rem;
-    color: var(--heading);
-}
-
-#legal-page h4 {
-    margin-top: 1.5rem;
-    font-weight: 700;
-    color: #334155;
-}
-
-#legal-page p,
-#legal-page li {
-    font-size: 1rem;
-    line-height: 1.9;
-    color: var(--gray);
-}
-
-#legal-page p {
-    max-width: 850px;
-}
-
-#legal-page ul {
-    padding-left: 1.5rem;
-}
-
-#legal-page a {
-    color: var(--primary);
-}
-
-#legal-page a:hover {
-    color: var(--primary-dark);
-}
-
 /* =========================================
-   KONTAKT
+   RESPONSIVE
 ========================================= */
 
-#kontakt {
-    margin: 4rem auto;
-}
-
-/* =========================================
-   TABLET
-========================================= */
+/* =========================
+   TABLET / SMALL DESKTOP
+========================= */
 
 @media (max-width: 1100px) {
 
-    h1 {
-        font-size: 4rem;
-    }
-
-    #herocontent {
-        padding-top: 5rem;
-    }
-
-    #überuns,
-    .unserearbeit,
+    /* CONTAINER*/
+    .container,
+    .hero-content,
+    .hero-small-content,
     .footer-inner,
-    .frauen-wrapper,
-    #unserefrauen h2,
-    #h2arbeit {
-        width: 90%;
-    }
-
-    .about-top {
-        grid-template-columns: 1fr;
-    }
-
-    .about-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .frau {
-        grid-template-columns: 1fr;
-    }
-
-    .frau img {
-        height: 320px;
-    }
-
-    .highlight-line {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-
-    .highlight-label {
-        height: auto;
-        padding: 0.7rem;
-    }
-
-    .highlight-button {
-        margin: 0 auto;
-    }
-
-    #aktuelles {
-        flex-wrap: wrap;
-    }
-
-    .sliderbox {
-        width: 50%;
-        box-sizing: border-box;
-    }
-
-    .footer-inner {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .arbeit-intro {
-        width: 90%;
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
     #legal-page {
-        width: 90%;
+        width: min(70%, 1000px);
+        margin-inline: auto;
     }
 
-}
-
-@media (max-width: 900px) {
-
-    .highlight-card {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        padding: 1.5rem;
-    }
-
-    .highlight-tag {
-        justify-self: center;
-    }
-
-    .highlight-button {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    #überuns {
-        width: 90%;
-    }
-
-    .about-intro {
-        grid-template-columns: 1fr;
-    }
-
-    .about-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .about-card:first-child {
-        min-height: auto;
-    }
-
-    .highlight-number {
+    /* TYPOGRAPHY */
+    h1 {
         font-size: 4rem;
     }
-}
 
-/* =========================================
-   MOBILE
-========================================= */
+    /* =========================
+       HEADER
+    ========================= */
 
-@media (max-width: 768px) {
-
-    body {
-        overflow-x: hidden;
+    .site-header {
+        height: 9rem;
+        padding: 0 5%;
     }
 
-    h1 {
-        font-size: 2.8rem;
-        line-height: 1.2;
+    .logo {
+        height: 8rem;
     }
 
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    #navigation {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 1rem;
-        gap: 1rem;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    #nav1 {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    #navbutton {
-        justify-self: center;
-    }
-
-    #logo {
-        margin: 0 auto;
-    }
-
-    #hero {
-        height: auto;
-        padding: 5rem 0;
-    }
-
-    #herocontent {
-        width: 90%;
-        padding-top: 0;
-    }
-
-    #slogan {
-        font-size: 1rem;
-    }
-
-    .about-intro p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    .highlight-number {
-        font-size: 3rem;
-    }
-
-    .filter-controls {
-        width: 90%;
-        justify-content: flex-start;
-    }
-
-    .unserearbeit {
-        width: 90%;
-        padding: 0;
-        grid-template-columns: 1fr;
-    }
-
-    .arbeit {
-        width: 100%;
-    }
-
-    .content {
-        padding: 1rem;
-    }
-
-    .frau {
-        min-width: 100%;
-    }
-
-    .frau img {
-        height: 260px;
-    }
-
-    .text {
-        padding: 1.5rem;
-    }
-
-    .slider-btn {
-        display: none;
-    }
-
-    #aktuelles {
-        flex-direction: column;
-    }
-
-    .sliderbox {
-        width: 100%;
-    }
-
-    .footer-inner {
-        width: 90%;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    footer {
-        padding: 3rem 0 2rem 0;
-    }
-
-    #navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 5%;
-        height: auto;
-    }
-
-    #logo {
-        margin: 0;
-    }
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     #hamburger {
         display: flex;
+        margin-left: auto;
+        z-index: 1600;
     }
 
     #mobileNav {
         position: fixed;
-        top: 0;
-        right: -100%;
+        inset: 0;
         width: 100%;
         height: 100vh;
-        background: #F8FAFC;
+        background: var(--background);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        transition: right 0.35s ease;
+        gap: 3rem;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
         z-index: 1500;
     }
 
     #mobileNav.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     #nav1 {
@@ -1460,6 +1268,8 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
+        margin: 0;
+        padding: 0;
     }
 
     .nav1 {
@@ -1467,11 +1277,12 @@ footer {
     }
 
     #navbutton {
-        margin-left: 0;
-        margin-top: 1rem;
+        margin: 1rem 0 0;
     }
 
-    /* HAMBURGER ANIMATION */
+    /* =========================
+       HAMBURGER
+    ========================= */
 
     #hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translateY(11px);
@@ -1485,6 +1296,255 @@ footer {
         transform: rotate(-45deg) translateY(-11px);
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
+    #hero {
+        min-height: 38rem;
+        height: auto;
+    }
+
+    #hero--kontakt {
+        min-height: 24rem;
+        height: auto;
+    }
+
+    .hero-content {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-top {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /*.highlight-line {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }*/
+
+    /*.highlight-label {
+        height: auto;
+        padding: 0.7rem;
+    }*/
+    
+    /* =========================
+       FRAUEN
+    ========================= */
+
+    .frau img {
+        height: 320px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* =========================
+       KONTAKT
+    ========================= */
+
+    #kontakt .about-card {
+        margin-top: 2rem;
+    }
+
+    /* =========================
+       AKTUELLES
+    ========================= */
+
+    /*#aktuelles {
+        flex-wrap: wrap;
+    }*/
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /* TYPOGRAPHY */
+    
+    h1 {
+        font-size: clamp(2.4rem, 9vw, 3.2rem);
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* HERO */
+
+    #hero,
+    #hero--kontakt {
+        min-height: auto;
+        padding: 5rem 0;
+    }
+
+    .hero-content,
+    .hero-small-content {
+        /*width: 90%;*/
+        padding: 0;
+    }
+
+    .hero-slogan {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        display: inline-block;
+        font-size: 1rem;
+    }
+
+    /* AKTUELLES*/ 
+
+    .highlight-card {
+        padding: 1.25rem;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+        border-radius: 18px;
+        text-align: center;
+    }
+
+    .highlight-content h3 {
+        font-size: 1.05rem;
+        padding-top: 0.5rem;
+    }
+
+    .highlight-meta,
+    .highlight-location {
+        font-size: 0.9rem;
+    }
+
+    .highlight-button {
+        display: inline-block;
+        width: fit-content;
+        justify-self: center;
+        padding: 0.5rem 1.3rem;
+    }
+
+    .highlight-tag {
+        justify-self: center;
+    }
+
+    /* ÜBER UNS */
+
+    
+    #ueber-uns {
+        padding: 0;
+    }
+
+    .about-intro p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .highlight-number {
+        font-size: 3.5rem;
+    }
+
+    /* ARBEIT */
+
+    .filter-controls {
+        width: 90%;
+        justify-content: flex-start;
+    }
+    
+    #unsere-arbeit {
+        padding: 4rem 0;
+    }
+
+    #unsere-arbeit h2,
+    #unsere-frauen h2 {
+        font-size: 2rem;
+    }
+
+    .arbeit-intro {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+    }
+
+    .arbeit-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .arbeit-content {
+        padding: 1.25rem;
+    }
+
+    /* FRAUEN */
+
+    #unsere-frauen {
+        padding: 4rem 0;
+    }
+
+    .frau {
+        min-width: 100%;
+        grid-template-columns: 1fr;
+    }
+    
+    .frau img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+    }
+
+    .frau-content {
+        padding: 1.5rem;
+    }
+
+    .slider-btn {
+        display: none;
+    }
+
+    /*#aktuelles {
+        flex-direction: column;
+    }*/
+
+    /* FOOTER */
+
+    footer {
+        padding: 3rem 0 2rem;
+    }
+
+    .footer-inner {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+
+    .footer-inner {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* LEGAL */
+
     #legal-page {
         width: 90%;
         margin: 4rem auto;
@@ -1494,89 +1554,68 @@ footer {
         font-size: 2.3rem;
     }
 
-    #aktuelles-main .post-card{
-        padding:1.4rem;
+    #legal-page h2 {
+        font-size: 1.5rem;
     }
 
-    #aktuelles-main .post-card h3{
-        font-size:1.2rem;
-    }
-
-    #aktuelles-main .post-card-number{
-        font-size:1rem;
-    }
-
-    .hero-small{
-        min-height:22rem;
-    }
-
-    .hero-small-content{
-        width:90%;
-    }
-
-    #aktuelles-main{
-        width:92%;
-        margin:3rem auto;
-    }
-    
-    #überuns,
-    #unserearbeit,
-    #unserefrauen,
-    #aktuelles {
-        scroll-margin-top: 18rem;
+    #legal-page p,
+    #legal-page li {
+        font-size: 0.95rem;
+        line-height: 1.75;
     }
 }
 
-@media (max-width: 600px) {
+/* =========================
+   SMALL MOBILE
+========================= */
 
-    #highlight-aktuelles {
-        width: 92%;
-    }
-
-    .highlight-card {
-        padding: 1.25rem;
-
-        border-radius: 18px;
-
-        gap: 1.2rem;
-    }
-
-    .highlight-content h3 {
-        font-size: 1.05rem;
-    }
-
-    .highlight-meta,
-    .highlight-location {
-        font-size: 0.9rem;
-    }
-}
-
-/* SMALL MOBILE */
 @media (max-width: 480px) {
 
-    h1 {
-        font-size: 2.2rem;
+    .container,
+    .hero-content,
+    .hero-small-content {
+        width: 80%;
     }
 
-    .highlight-button,
-    .hero-btn,
-    .card-btn {
+    /* HERO */
+
+    #hero,
+    #hero--kontakt {
+        padding: 4rem 0;
+    }
+
+    .hero-content{
+        margin-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        max-width: 80%;
+    }
+
+    .hero-slogan {
+        font-size: 0.95rem;
+    }
+
+    .hero-cta {
         width: 100%;
         text-align: center;
         box-sizing: border-box;
     }
 
-    .filter-controls {
-        gap: 0.4rem;
-    }
+    /* ABOUT */
 
-    .filter-controls label {
-        font-size: 0.9rem;
-        padding: 0.45rem 0.8rem;
+    #ueber-uns {
+        margin: 4rem auto;
     }
 
     .about-card {
+        padding: 1.25rem;
         padding: 1.5rem;
+    }
+
+    .highlight-number {
+        font-size: 3rem;
     }
 
     .highlight-line {
@@ -1590,29 +1629,40 @@ footer {
     .update-text p {
         font-size: 0.85rem;
     }
+
+    /* ARBEIT */
+
+    .filter-controls {
+        gap: 0.4rem;
+    }
+
+    .filter-controls label {
+        font-size: 0.9rem;
+        padding: 0.45rem 0.8rem;
+    }
+    
+    .arbeit-grid {
+        margin-inline: auto;
+    }
+
+    .arbeit-content {
+        padding: 1rem;
+    }
+
+    .arbeit h3 {
+        font-size: 1.1rem;
+    }
+
+    /* FRAUEN */
+
+    .frau-content {
+        padding: 1.25rem;
+    }
+
+    /* LEGAL */
+
+    #legal-page h1 {
+        font-size: 2rem;
+    }
 }
 
-/* =========================================
-   DESKTOP NAV FIX
-========================================= */
-
-@media (min-width: 769px) {
-
-    #mobileNav {
-        display: flex;
-        align-items: center;
-        width: 100%;
-    }
-
-    #nav1 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 1;
-        gap: 2rem;
-    }
-
-    #navbutton {
-        margin-left: auto;
-    }
-}
