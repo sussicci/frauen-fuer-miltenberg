@@ -13,6 +13,19 @@
     "link": "https://www.meine-news.de/miltenberg/c-politik/sommerfest-der-initiative-frauen-fuer-miltenberg-bringt-frauen-zusammen-und-setzt-impulse_a241890#gallery=null"
   },
   {
+    "date": "2026-07-30",
+    "title": "Artikel: „Miltenberg: Wichtige Änderung bei der Sicherheit auf der Michaelismesse",
+    "content": [
+      {
+        "type": "paragraph", 
+        "text": "Die Michaelismess' rückt näher: Am 28. August startet das große Miltenberger Volksfest auf dem Festgelände unten am Main. Zwischen Maß und Gaudi steht auch das Thema Sicherheit im Fokus - und hier wird es in diesem Jahr eine wichtige Neuerung geben..."
+      }
+    ],
+    "type": "presse",
+    "linkText": "Zum Artikel",
+    "link": "https://www.main-echo.de/region/kreis-miltenberg/wie-eine-neue-miltenberger-initiative-frauen-fuer-kommunalpolitik-motivieren-will-art-8712271"
+  }
+  {
     "date": "2026-07-23",
     "title": "Nächste Veranstaltung: Sommerfest – wir feiern die Gründung unserer Arbeitsgruppen und erfahren, wie lokale Projekte erfolgreich umgesetzt werden können.",
     "content": [
@@ -97,6 +110,19 @@
     "linkText": "Anmelden",
     "link": "kontakt.html"
   },
+  {
+    "date": "2026-04-28",
+    "title": "Artikel: „Wie eine neue Miltenberger Initiative Frauen für Kommunalpolitik motivieren will",
+    "content": [
+      {
+        "type": "paragraph", 
+        "text": "Politik ist auch heute noch überwiegend Männersache. Ob im Bundestag oder kommunaler Ebende, sind Frauen in Räten un Gremien unterrepräsentiert. Susan Ranchber, Mitglied der Liberalen Miltenberger, will das im Landkreis ändern. Dafür gründete sie [zusammen mit Anja Scheunig und Anne-Sophie Ott] eine neue, überparteiliche Initiative „Frauen* für Miltenberg“..."
+      }
+    ],
+    "type": "presse",
+    "linkText": "Zum Artikel",
+    "link": "https://www.main-echo.de/region/kreis-miltenberg/wie-eine-neue-miltenberger-initiative-frauen-fuer-kommunalpolitik-motivieren-will-art-8712271"
+  }
   {
     "date": "2026-04-19",
     "title": "Artikel: „Frauen für Miltenberg“: Neue Initiative für mehr Vielfalt im Stadtrat",
