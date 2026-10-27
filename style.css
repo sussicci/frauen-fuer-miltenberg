@@ -1184,11 +1184,13 @@ footer {
 
 .post-image {
     display: block;
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
+    width: auto;
+    max-width: 80%;
+    max-height: 250px;
+    height: auto;
+    object-fit: contain;
     border-radius: 12px;
-    margin: 16px 0;
+    margin: 16px auto;
 }
 
 /* =========================================
