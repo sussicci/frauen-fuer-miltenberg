@@ -181,14 +181,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 article.className = "post-card";
 
-                article.innerHTML = `
-                    <div class="post-card-number">${formatDate(post.date)}</div>
-                    <h3>${post.title}</h3>
-                    ${renderContent(post.content)}
-                    <a class="post-card-btn" href="${post.link}">
-                        ${post.linkText}
-                    </a>
-                `;
+                
+article.innerHTML = `
+    <div class="post-card-number">${formatDate(post.date)}</div>
+    <h3>${post.title}</h3>
+
+    ${post.image ? `
+        <img
+            class="post-image"
+            src="${post.image}"
+            alt="${post.title}"
+            loading="lazy"
+        >
+    ` : ""}
+
+    ${renderContent(post.content)}
+
+    ${post.link ? `
+        <a class="post-card-btn" href="${post.link}">
+            ${post.linkText || "Mehr erfahren"}
+        </a>
+    ` : ""}
+`;
 
                 postsContainer.appendChild(article);
             });
