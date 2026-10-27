@@ -2,13 +2,13 @@
   {
     "date": "2026-10-29",
     "title": "Erster Stammtisch von Frauen* für Miltenberg",
-    "image": "./Stammtisch.jpg",
     "content": [
       {
         "type": "paragraph",
         "text": "Lust auf nette Begegnungen, gute Gespräche und einen entspannten Abend mit Frauen* aus der Region? Neue Kontakte knüpfen, Ideen spinnen oder einfach eine gute Zeit haben – ganz ohne Anmeldung und festes Programm. Wir freuen uns auf dich!"
       }
     ],
+    "image": "./Stammtisch.jpg",
     "type": "termin"
   },
   {
