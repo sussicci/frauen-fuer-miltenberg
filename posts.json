@@ -1,11 +1,22 @@
 [  
   {
+    "date": "2026-10-29",
+    "title": "Erster Stammtisch von Frauen* für Miltenberg",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Lust auf nette Begegnungen, gute Gespräche und einen entspannten Abend mit Frauen* aus der Region? Neue Kontakte knüpfen, Ideen spinnen oder einfach eine gute Zeit haben – ganz ohne Anmeldung und festes Programm. Wir freuen uns auf dich!"
+      }
+    ],
+    "type": "termin",
+  },
+  {
     "date": "2026-10-26",
     "title": "Artikel: Sieben Monate nach dem Start: Frauen* für Miltenberg nimmt weiter Gestalt an ",
     "content": [
       {
         "type": "paragraph",
-        "text": "Zwei Stunden lang tauschten sich die Teilnehmerinnen beim dritten Netzwerktreffen am 1. Oktober intensiv über ihre Arbeit und die nächsten Schritte aus. In den Arbeitsgruppen Familie, Stadtplanung und Safe Space wurden aktuelle Entwicklungen bzw. Ergebnisse besprochen und neue Perspektiven für die weitere Projektarbeit gesammelt...."
+        "text": "Zwei Stunden lang tauschten sich die Teilnehmerinnen beim dritten Netzwerktreffen am 1. Oktober intensiv über ihre Arbeit und die nächsten Schritte aus. In den Arbeitsgruppen Familie, Stadtplanung und Safe Space wurden aktuelle Entwicklungen bzw. Ergebnisse besprochen und neue Perspektiven für die weitere Projektarbeit gesammelt..."
       }
     ],
     "type": "presse",
