@@ -186,7 +186,9 @@ article.innerHTML = `
     <div class="post-card-number">${formatDate(post.date)}</div>
     <h3>${post.title}</h3>
 
-    ${post.image ? `
+    ${renderContent(post.content)}
+
+${post.image ? `
         <img
             class="post-image"
             src="${post.image}"
@@ -194,8 +196,6 @@ article.innerHTML = `
             loading="lazy"
         >
     ` : ""}
-
-    ${renderContent(post.content)}
 
     ${post.link ? `
         <a class="post-card-btn" href="${post.link}">
